@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+import {BrowserRouter, Switch, Route} from "react-router-dom"
 
-import logo from './logo.svg';
-
-import './App.css';
+import Home from "./pages/Home";
+import NotFound from './pages/NotFound';
+import About from './pages/About';
 
 class App extends Component {
   state = {
@@ -42,6 +43,14 @@ class App extends Component {
 render() {
     return (
       <div className="App">
+        <BrowserRouter>
+          <Switch>
+            <Route path ="/" exact component={Home}/>
+            <Route path ="/a-propos" exact component={About}/>
+            <Route component={NotFound}/>
+          </Switch>
+      </BrowserRouter>
+
         <header className="App-header">
        <h1> Neko Association </h1>
         </header>
@@ -58,6 +67,7 @@ render() {
           <button type="submit">Submit</button>
         </form>
         <p>{this.state.responseToPost}</p>
+
       </div>
     );
   }
