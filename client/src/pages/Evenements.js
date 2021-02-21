@@ -5,7 +5,7 @@ const Evenements = () => {
     return (
         <div>
             <Navigation/>
-            <h1> Nos événements </h1>
+            <h1> Nos évènements </h1>
         </div>
     );
 };
