@@ -58,7 +58,7 @@
          id="title48">Layer 1</title>
       <g
          id="svg_4"
-         fill="#000000"
+         fill="#e3007a"
          transform="matrix(0.12034909,0,0,-0.11380421,-1544.4155,-1471.0727)">
         <path
            stroke="null"
@@ -100,25 +100,25 @@
          y="309.35605"
          x="270.43964"
          stroke-width="0"
-         fill="#000000"
+         fill="#e3007a"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'DejaVu Sans';-inkscape-font-specification:'DejaVu Sans'" />
       <path
          d="m 290.87897,307.25732 c -1.20969,0 -2.01615,0 -2.8226,0 -0.80643,0 -1.61289,0 -2.41935,0.40323 h -0.40323 -0.80642 l -0.40323,0.40323"
          id="svg_42"
          stroke-width="0.001"
-         stroke="#ff0000"
+         stroke="#e3007a"
          fill="none" />
       <polyline
          stroke-linecap="round"
          id="svg_43"
          points="254.5887192329016,308.4669981894652 254.5887192329016,308.06377335523064 "
          stroke-width="0.001"
-         stroke="#ff0000"
+         stroke="#e3007a"
          fill="none" />
     </g>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:36.5644px;line-height:1.25;font-family:Candara;-inkscape-font-specification:Candara;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.914104"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:36.5644px;line-height:1.25;font-family:Candara;-inkscape-font-specification:Candara;fill:#e3007a;fill-opacity:1;stroke:none;stroke-width:0.914104"
        x="209.63635"
        y="227.28525"
        id="text78"

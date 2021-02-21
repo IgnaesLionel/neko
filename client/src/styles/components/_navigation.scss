@@ -1,11 +1,9 @@
 .navigation {
-    margin: 26px 0;
+    /* margin: 26px 0; */
     display : flex;
-  
     a{margin : 10px;
     padding: 10px;
     position: relative;
-
     }
 
     .nav-active{
@@ -22,10 +20,14 @@
     }
 }
 
+.navigation :hover {
+    color: $color-1;
+}
 
 .logo{
     text-align: left;
-    height: 10vmin;
+    height: 80px;
     pointer-events: none;
+    fill: $color-1;
 }
   
