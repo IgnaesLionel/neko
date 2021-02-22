@@ -1,0 +1,48 @@
+.character{
+    background: #E070AC;
+    height: auto;
+    width: 25rem;
+    border-style: solid;
+    border-color: $color-1;
+    padding : 1.2rem;
+    display: flex;
+    margin: 1rem;
+    flex-wrap: wrap;
+    border-radius: 10px;
+    align-items: center; /* alignement verticalement*/
+    justify-content: space-between; /* centrer horizontalement */
+   
+    box-shadow: 5px 9px 9px 2px #12121262;
+   
+ 
+}
+
+.character h2 {
+    color: $color-2;
+    margin: 5px 5px ;
+    width: 65%;
+    transform: translate(+15%,-50%);
+    text-shadow: 2px 2px 3px rgb(14, 1, 1);
+
+}
+
+.pix {
+    background: $color-1;
+    border-radius: 10px;
+    border-style: solid;
+    border-color: $color-1;
+    display:flex;
+
+}
+.character span{
+    margin: 5px 5px;
+    color: $color-2;
+
+}
+
+.photo {
+    width: 100%;
+    height: 100%;
+    border-style: solid;
+    border-color: $color-1;
+}

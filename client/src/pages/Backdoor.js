@@ -1,16 +1,13 @@
 import React from 'react';
 import Navigation from '../components/Navigation/Navigation';
-import Lounge from '../components/Lounge/Lounge';
 
-
-const Adoptions = () => {
+const Backdoor = () => {
     return (
         <div>
             <Navigation/>
-            <h1> Adoptions </h1>
-            <Lounge/>
+            <h1> Backdoor </h1>
         </div>
     );
 };
 
-export default Adoptions;
+export default Backdoor;

@@ -9,6 +9,7 @@ import Noussoutenir from './pages/Nous-soutenir';
 import Conseils from './pages/Conseils';
 import Evenements from './pages/Evenements';
 import Adoptions from './pages/Adoptions';
+import Backdoor from './pages/Backdoor';
 
 
 class App extends Component {
@@ -58,6 +59,7 @@ render() {
             <Route path ="/Nous-soutenir" exact component={Noussoutenir}/>
             <Route path ="/Conseils" exact component={Conseils}/>
             <Route path ="/Adoptions" exact component={Adoptions}/>
+            <Route path ="/Login" exact component={Backdoor}/>
             <Route component={NotFound}/>
           </Switch>
       </BrowserRouter>
