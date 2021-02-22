@@ -40,8 +40,9 @@ class Lounge extends Component {
     render() {
         const data = this.state.data.dataCats
         return (
-            <div>
-                <SearchBar 
+            <div className="lounge">
+                <div className="searchbar">
+                <SearchBar
                 onMaleGenderChange={this.handleMaleGenderFilter} 
                 onFemaleGenderChange={this.handleFemaleGenderFilter}
                 onRobotGenderChange={this.handleRobotGenderFilter}
@@ -51,8 +52,9 @@ class Lounge extends Component {
                 femaleGender={this.state.femaleGender}
                 robotGender={this.state.robotGender}
                 />
+                </div>
                 
-                 <div className="lounge">
+                <div> 
                    <Characters data={data} 
                    filterText={this.state.filterText} 
                    maleGender={this.state.maleGender} 

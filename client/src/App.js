@@ -64,9 +64,6 @@ render() {
           </Switch>
       </BrowserRouter>
 
-        <header className="App-header">
-    
-        </header>
         <p>{this.state.response}</p>
         <form onSubmit={this.handleSubmit}>
           <p>

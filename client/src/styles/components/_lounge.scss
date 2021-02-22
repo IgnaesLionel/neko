@@ -1,14 +1,15 @@
 .lounge {
     background: $color-2;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    align-items: flex-start;
-    align-content: space-around;
-    justify-content: space-between;
-    min-height: 300px;
+   
 }
 
 .lounge h1 {
     margin : 20px;
+}
+
+.searchbar {
+    margin: 1rem;
+    padding: 1rem;
+    text-align : center;
+
 }

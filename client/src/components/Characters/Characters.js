@@ -22,7 +22,7 @@ const Characters = (props) => {
 
  
     return (
-        <div>  
+        <div className="characters">  
                 {rows.map((character,k) => {return (<Character key={k} character={character}/>)})}          
         </div>
     );
