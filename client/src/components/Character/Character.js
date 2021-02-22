@@ -1,4 +1,5 @@
 import React from 'react';
+import ImageComponent from '../ImageComponents/ImageComponents';
 
 const Character = (props) => {
     /* console.log(props) -> 1 child*/
@@ -6,13 +7,27 @@ const Character = (props) => {
     /* console.log(props.character) <-> console.log(character) */
 
     return (  
-        <div className="character">
+        <div className="character" style={ character.gender == "Mâle" ? { background:'#a0c4ff', borderColor: '#0096c7'} : {background : "#E070AC"} }  >
+
+
             <h2>{character.name}</h2>
-            <div className="pix">
-            <img className="photo" src={character.url} alt={character.name}/>
+            <div className="pix" style={ character.gender == "Mâle" ? { borderColor: '#0096c7'} : { borderColor: '#e3007a'} }  >
+            <div className="photo">
+                <ImageComponent  image={character.url} alt={character.name}/>
             </div>
-            <span>Sexe : {character.gender}</span>
+            </div>
+          
+            <span>{character.gender}</span>
             <span>Age : {character.age}</span>
+            <div className="infos">
+                <br></br>
+            <span> {character.okWithCats ? <span style={{ background:"green"}}>😺</span> : <span style={{ background: "red"}}>😺</span>}</span>
+            <span> {character.okWithDogs ?  <span style={{ background:"green"}}>🐶</span> : <span style={{ background: "red"}}>🐶</span>}</span>
+            <span> {character.okWithChild ?  <span style={{ background:"green"}}>👧</span> : <span style={{ background: "red"}}>👧</span>}</span>
+            </div>
+
+
+
        </div>
     );
 };

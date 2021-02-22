@@ -10,24 +10,25 @@ export default class ImageComponent extends React.Component {
   render() {
     return (
       <div>
+        
         <img
-          className="small"
-          src="/Anj.png"
+          className="photo"
+          src={this.props.image}
           onClick={this.handleShowDialog}
-          alt="no image"
+          alt={this.props.name}
         />
         {this.state.isOpen && (
           <dialog
             className="dialog"
-            style={{ position: "absolute" }}
+            style={{ position: "absolute", margin: "0", margin: 'auto'}}
             open
             onClick={this.handleShowDialog}
           >
             <img
-              className="image"
-              src="/Anj.png"
+              className=""
+              src={this.props.image}
               onClick={this.handleShowDialog}
-              alt="no image"
+              alt={this.props.name}
             />
           </dialog>
         )}

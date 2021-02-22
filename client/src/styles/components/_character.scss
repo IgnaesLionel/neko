@@ -4,23 +4,26 @@
     width: 20rem;
     border-style: solid;
     border-color: $color-1;
-    padding : 1.2rem;
+    padding : 0.5rem;
     display: flex;
     margin: 1rem;
     flex-wrap: wrap;
     border-radius: 10px;
-    align-items: center; /* alignement verticalement*/
-    justify-content: space-between; /* centrer horizontalement */
+    /* align-items: center; /* alignement verticalement*/ 
+   /*  justify-content: space-between; /* centrer horizontalement */ 
     box-shadow: 5px 9px 9px 2px #12121262;
+    
+    
 }
 
 .character h2 {
     color: $color-2;
-    margin: 1px 1px ;
+    margin: 0px 0px 10px 0px ;
     width: 100%;
     text-shadow: 2px 2px 3px rgb(14, 1, 1);
     text-align: center;
     border-style: solid;
+    border-radius: 10px;
 }
 
 .pix {
@@ -35,8 +38,10 @@
 
 }
 .character span{
-    margin: 5px 5px;
+    
     color: $color-2;
+    font-size: 0.95rem;
+    margin :0 19px;
 
 }
 
@@ -44,4 +49,13 @@
     width: 100%;
 	height: auto;
 
+}
+
+.infos {
+    display : flex;
+
+    justify-content: right;
+
+
+   
 }
