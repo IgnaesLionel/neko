@@ -6,6 +6,7 @@ export const dataCats = [
     "okWithDogs": "true",
     "okWithCats" : "true",
     "okWithChild": "true",
+    "content": "il s'appelle neko, il est tres calin",
     "created": "2014-12-09T13:50:51.644000Z",
     "edited": "2014-12-20T21:17:56.891000Z",
     "url": "https://scontent.fcdg3-1.fna.fbcdn.net/v/t1.0-9/151137177_10221074833918573_8564418526752973489_n.jpg?_nc_cat=103&ccb=3&_nc_sid=730e14&_nc_ohc=Zysijt02bucAX-fUDZm&_nc_ht=scontent.fcdg3-1.fna&oh=d41d08eed71522e951ec1c84a0d0f505&oe=60587388"

@@ -1,6 +1,7 @@
 import React from 'react';
 import ImageComponent from '../ImageComponents/ImageComponents';
 
+
 const Character = (props) => {
     /* console.log(props) -> 1 child*/
     let character = props.character //destructuring
@@ -13,7 +14,7 @@ const Character = (props) => {
             <h2>{character.name}</h2>
             <div className="pix" style={ character.gender == "Mâle" ? { borderColor: '#0096c7'} : { borderColor: '#e3007a'} }  >
             <div className="photo">
-                <ImageComponent  image={character.url} alt={character.name}/>
+                <ImageComponent  image={character.url} alt={character.name} content={character.content}/>
             </div>
             </div>
           
