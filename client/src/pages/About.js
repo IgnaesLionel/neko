@@ -4,8 +4,8 @@ const About = () => {
     return (
         <div>
             <Navigation/>
-            <h1>A propos</h1>
-            <h2>Qui sommes-nous ?</h2>
+            <h1 className="h1-1">A propos</h1>
+            <h2 className="h2-1">Qui sommes-nous ?</h2>
             <p>
 
             Le monde de Neko <br></br>

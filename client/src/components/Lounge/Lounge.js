@@ -67,13 +67,4 @@ class Lounge extends Component {
         );
     }
 }
-
 export default Lounge;
-
-
-//onMaleGenderChange
-//onFilterTextChange
-
-//filterText
-//inMaleGender
-

@@ -7,7 +7,7 @@ const Adoptions = () => {
     return (
         <div>
             <Navigation/>
-            <h1> Adoptions </h1>
+            <h1 className="h1-1"> Adoptions </h1>
             <Lounge/>
         </div>
     );
