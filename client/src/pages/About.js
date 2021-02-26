@@ -6,10 +6,8 @@ const About = () => {
             <Navigation/>
             <h1 className="h1-1">A propos</h1>
             <h2 className="h2-1">Qui sommes-nous ?</h2>
-            <p>
-
             Le monde de Neko <br></br>
-            <div>            Bonjour à tous,
+            Bonjour à tous,
             Moi, c'est Neko ! Cette association a vu le jour grâce à moi et mon histoire ! Laissez moi vous la raconter.
             Je suis né début mars, ma mère se nomme Félix, avec ma maîtresse ce fut le coup de foutre! Elle et moi étions très fusionnel !! Mon petit surnom à moi c’était Meow car je miaulé cela. 
 
@@ -25,11 +23,10 @@ const About = () => {
             Je suis aider par les membres de Neko associations pour continuer à accomplir mon rôle de papa et de maman !
             Alors pourquoi ne pas venir nous aider vous aussi ? 
             <img src="neko.jpg" alt="chat neko"/>
-
-            </div>
-
+       
 
             <h2>Que faisons-nous ? Nos actions !</h2>
+            
             
             L’association recueille chats et chatons !
 
@@ -39,7 +36,7 @@ const About = () => {
             De plus, notre comité veille aux soins nécessaires à certains chats, en travaillant avec les services vétérinaires compétents.
 
             L’association ne dispose d’aucun refuge. Les familles d’accueil prennent sous leur toit des chats en attente d’adoption.
-
+        
             <h2>Nos statuts</h2>
             <h2>Remerciments</h2>
 
@@ -50,7 +47,7 @@ const About = () => {
             Siège social : 153, rue du Collège – 59700 Marcq en Baroeul
             Tèl : 06 82 45 15 83
             Présidente : Madame Danielle Deswarte
-            Association à but non lucratif déclarée à la Préfecture du Nord sous le numéro W595011261</p>
+            Association à but non lucratif déclarée à la Préfecture du Nord sous le numéro W595011261
         </div>
     );
 };
