@@ -9,6 +9,8 @@ Component {
       responseToPost: '',
     };
     
+
+    /* GET METHOD */
     componentDidMount() {
       this.callApi()
         .then(res => this.setState({ response: res.express }))
@@ -23,6 +25,7 @@ Component {
       return body;
     };
     
+    /* POST METHOD */
     handleSubmit = async e => {
       e.preventDefault();
       const response = await fetch('/api/world', {
@@ -42,12 +45,13 @@ Component {
             <div>
             <Navigation/>
             <h1 className="h1-1"> Backdoor </h1>
-            <button> Envoyer </button>
+        
 
-            <p>{this.state.response}</p>
+            <p> reponse {this.state.response} </p>
+
         <form onSubmit={this.handleSubmit}>
           <p>
-            <strong>Post to Server:</strong>
+            <strong>Nom du chat:</strong>
           </p>
           <input
             type="text"
@@ -58,7 +62,9 @@ Component {
         </form>
           <p>{this.state.responseToPost}</p>
 
-
+<h4>état de response {this.state.response}</h4>
+<h4>état de post {this.state.post}</h4>
+<h4>état de responseTopost {this.state.responseToPost}</h4>
 
             </div>
         );
