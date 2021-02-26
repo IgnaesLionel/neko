@@ -1,4 +1,4 @@
-export const dataCats = [
+[
   {
     "name": "Neko",
     "age": "2 ans",

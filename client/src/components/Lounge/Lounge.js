@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { dataCats } from '../../data/dataCats'
 import Characters from '../Characters/Characters'; 
 import SearchBar from '../SearchBar/SearchBar'; 
+const dataCats = require('../../data/dataCats.json');
 
 class Lounge extends Component {
 
