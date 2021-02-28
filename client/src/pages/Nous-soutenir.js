@@ -8,9 +8,9 @@ const Noussoutenir = () => {
             <h1 className="h1-1"> Nous soutenir </h1>
        
             <h2>Faire un don</h2>
-            <bouton>
+            <button>
             <a  href="https://www.paypal.com/donate/?cmd=_donations&business=gueroute@gmail.com&item_name=Neko%20Association&currency_code=EUR&Z3JncnB0=" target="_blank">text</a>
-            </bouton>
+            </button>
 
             IMPORTANT !
 

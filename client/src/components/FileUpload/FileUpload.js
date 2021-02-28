@@ -3,7 +3,7 @@ import Message from './Message';
 import Progress from './Progress';
 import axios from 'axios';
 
-const FileUpload = () => {
+const FileUpload = (props) => {
   const [file, setFile] = useState('');
   const [filename, setFilename] = useState('Choose File');
   const [uploadedFile, setUploadedFile] = useState({});
@@ -19,6 +19,7 @@ const FileUpload = () => {
     e.preventDefault();
     const formData = new FormData();
     formData.append('file', file);
+    props.onUploadedImage(file.name)
 
     try {
       const res = await axios.post('/upload', formData, {
@@ -51,8 +52,11 @@ const FileUpload = () => {
     }
   };
 
+
+
   return (
     <Fragment>
+      
       {message ? <Message msg={message} /> : null}
       <form onSubmit={onSubmit}>
         <div className='custom-file mb-4'>
@@ -85,7 +89,9 @@ const FileUpload = () => {
         </div>
       ) : null}
         {filename}
+       
     </Fragment>
+  
   );
 };
 

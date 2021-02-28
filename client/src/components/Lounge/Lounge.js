@@ -18,6 +18,7 @@ class Lounge extends Component {
         this.handleMaleGenderFilter = this.handleMaleGenderFilter.bind(this);
         this.handleFemaleGenderFilter = this.handleFemaleGenderFilter.bind(this);
         this.handleRobotGenderFilter = this.handleRobotGenderFilter.bind(this);
+        
     }
 
     handleFilterTextChange (filterText) {

@@ -50,14 +50,14 @@ app.post('/api/world', (req, res) => {
     `I received your POST request. This is what you sent me: ${req.body.post}`,
   );
 
+
   myData[0].push({
-  'name':req.body.name,'age':req.body.age,'gender':req.body.gender,okWithDogs:req.body.okWithDogs,okWithCats:req.body.okWithCats,okWithChild:req.body.okWithChild,url: 'https://scontent.fcdg3-1.fna.fbcdn.net/v/t1.0-9/151137177_10221074833918573_8564418526752973489_n.jpg?_nc_cat=103&ccb=3&_nc_sid=730e14&_nc_ohc=Zysijt02bucAX-fUDZm&_nc_ht=scontent.fcdg3-1.fna&oh=d41d08eed71522e951ec1c84a0d0f505&oe=60587388'
+  'name':req.body.name,'age':req.body.age,'gender':req.body.gender,okWithDogs:req.body.okWithDogs,okWithCats:req.body.okWithCats,okWithChild:req.body.okWithChild,url:`/uploads/${req.body.url}`
 })
-console.log(myData)
-  
+
   let donnees2 = JSON.stringify(myData[0])
   
-  fs.writeFileSync("test.json", donnees2)
+  fs.writeFileSync("./client/src/data/dataCats.json", donnees2)
 });
 
 app.post('/upload', (req, res) => {
