@@ -4,9 +4,11 @@ const path = require('path');
 const app = express();
 const port = process.env.PORT || 5000;
 const fs = require('fs');
+const fileUpload = require('express-fileupload');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(fileUpload());
 
 // GET JSON FILE
 let myData = []
@@ -58,6 +60,22 @@ console.log(myData)
   fs.writeFileSync("test.json", donnees2)
 });
 
+app.post('/upload', (req, res) => {
+  if (req.files === null) {
+    return res.status(400).json({ msg: 'No file uploaded' });
+  }
+
+  const file = req.files.file;
+
+  file.mv(`${__dirname}/client/public/uploads/${file.name}`, err => {
+    if (err) {
+      console.error(err);
+      return res.status(500).send(err);
+    }
+
+    res.json({ fileName: file.name, filePath: `/uploads/${file.name}` });
+  });
+});
 
 
 if (process.env.NODE_ENV === 'production') {

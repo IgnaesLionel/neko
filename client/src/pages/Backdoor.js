@@ -1,4 +1,5 @@
 import Navigation from '../components/Navigation/Navigation';
+import FileUpload from '../components/FileUpload/FileUpload';
 
 import React, { Component } from 'react';
 
@@ -25,6 +26,7 @@ Component {
       okWithDogs: true,
       okWithCats: true,
       okWithChild: true,
+      uploadedFile: null,
       responseToPost: '',
     };
     
@@ -58,6 +60,15 @@ Component {
     }));
   }
 
+  fileSelectedHandler = event => {
+    this.setState({
+      selectedFile: event.target.files[0]
+    })
+  }
+
+  send = event => {
+    console.log(event)
+  }
     /* GET METHOD */
     componentDidMount() {
       this.callApi()
@@ -118,11 +129,18 @@ Component {
 
             <label for="pet-select">Age de l'animal</label>
             <select name="pets" id="pet-select" onChange={e => this.setState({ age: e.target.value })}>
+               <option value="">Select</option>
+                <option value="1 mois">1 mois</option>
                 <option value="2 mois">2 mois</option>
+                <option value="2 mois">3 mois</option>
                 <option value="4 mois">4 mois</option>
+                <option value="5 mois">5 mois</option>
                 <option value="6 mois">6 mois</option>
-                <option value="8 mois">8 mois</option>        
+                <option value="7 mois">7 mois</option>
+                <option value="8 mois">8 mois</option>
+                <option value="9 mois">9 mois</option>        
                 <option value="10 mois">10 mois</option>
+                <option value="11 mois">11 mois</option>
                 <option value="1 ans">1 ans</option>
                 <option value="2 ans">2 ans</option>
                 <option value="3 ans">3 ans</option>
@@ -137,8 +155,6 @@ Component {
                 <option value="12 ans">12 ans</option>
             </select>
           
-    
-
           <button type="submit">Submit</button>
         </form>
           <p>{this.state.responseToPost}</p>
@@ -146,9 +162,11 @@ Component {
 <h4>état de response {this.state.response}</h4>
 <h4>état de name {this.state.name}</h4>
 <h4>état de gender {this.state.gender}</h4>
-<h4>état de dogs {this.state.okWithDogs}</h4>
+<h4>état de age {this.state.age}</h4>
 <h4>état de responseTopost {this.state.responseToPost}</h4>
+<h4> image{this.state.uploadedFile}</h4>
  <h4> {this.state.age}</h4>
+ <FileUpload/>
             </div>
         );
     }
