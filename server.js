@@ -42,18 +42,16 @@ app.get('/api/hello', (req, res) => {
 });
 
 app.post('/api/world', (req, res) => {
-  console.log(req)
-  console.log(req.body);
+/*   console.log(req)
+  console.log(req.body); */
   res.send(
     `I received your POST request. This is what you sent me: ${req.body.post}`,
   );
 
-  let donnees = JSON.stringify(req.body.name)
-
-  myData[0].push({  "name": donnees,
-age:'2ans', gender : "Mâle", okWithDogs: true, okWithCats: false, okWithChild: true, url: "https://scontent.fcdg3-1.fna.fbcdn.net/v/t1.0-9/151137177_10221074833918573_8564418526752973489_n.jpg?_nc_cat=103&ccb=3&_nc_sid=730e14&_nc_ohc=Zysijt02bucAX-fUDZm&_nc_ht=scontent.fcdg3-1.fna&oh=d41d08eed71522e951ec1c84a0d0f505&oe=60587388"
+  myData[0].push({
+  'name':req.body.name,'age':req.body.age,'gender':req.body.gender,okWithDogs:req.body.okWithDogs,okWithCats:req.body.okWithCats,okWithChild:req.body.okWithChild,url: 'https://scontent.fcdg3-1.fna.fbcdn.net/v/t1.0-9/151137177_10221074833918573_8564418526752973489_n.jpg?_nc_cat=103&ccb=3&_nc_sid=730e14&_nc_ohc=Zysijt02bucAX-fUDZm&_nc_ht=scontent.fcdg3-1.fna&oh=d41d08eed71522e951ec1c84a0d0f505&oe=60587388'
 })
-
+console.log(myData)
   
   let donnees2 = JSON.stringify(myData[0])
   
