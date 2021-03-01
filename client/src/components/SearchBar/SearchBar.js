@@ -6,7 +6,7 @@ class SearchBar extends Component {
         this.handleFilterTextChange = this.handleFilterTextChange.bind(this);
         this.handleMaleGender = this.handleMaleGender.bind(this);
         this.handleFemaleGender = this.handleFemaleGender.bind(this);
-        this.handleRobotGender = this.handleRobotGender.bind(this);
+  
     }
 
     handleFilterTextChange(e){
@@ -31,11 +31,6 @@ class SearchBar extends Component {
         this.props.onMaleGenderChange(false)
     }
 
-    handleRobotGender(e){
-        this.props.onRobotGenderChange(e.target.checked)
-    }
-
-
     render() {
         const {filterText, maleGender, femaleGender, robotGender} = this.props
         return (
@@ -48,9 +43,7 @@ class SearchBar extends Component {
 
                         <input type="checkbox" checked={femaleGender} className="form-check-input" id="char2" onChange={this.handleFemaleGender}/>
                         <label htmlFor="char2" className="form-check-label"> Femelle </label>
-
-                        <input type="checkbox" checked={robotGender} className="form-check-input" id="char3" onChange={this.handleRobotGender}/>
-                        <label htmlFor="char3" className="form-check-label"> Robot </label>
+                        
                     </div>
                 </div>
 

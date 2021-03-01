@@ -12,12 +12,11 @@ class Lounge extends Component {
             filterText: '',
             maleGender: false,
             femaleGender: false,
-            robotGender: false
         }
         this.handleFilterTextChange = this.handleFilterTextChange.bind(this);
         this.handleMaleGenderFilter = this.handleMaleGenderFilter.bind(this);
         this.handleFemaleGenderFilter = this.handleFemaleGenderFilter.bind(this);
-        this.handleRobotGenderFilter = this.handleRobotGenderFilter.bind(this);
+     
         
     }
 
@@ -46,12 +45,12 @@ class Lounge extends Component {
                 <SearchBar
                 onMaleGenderChange={this.handleMaleGenderFilter} 
                 onFemaleGenderChange={this.handleFemaleGenderFilter}
-                onRobotGenderChange={this.handleRobotGenderFilter}
+               
                 onFilterTextChange={this.handleFilterTextChange} 
                 filterText={this.state.filterText} 
                 maleGender={this.state.maleGender}
                 femaleGender={this.state.femaleGender}
-                robotGender={this.state.robotGender}
+           
                 />
                 </div>
                 
@@ -60,7 +59,7 @@ class Lounge extends Component {
                    filterText={this.state.filterText} 
                    maleGender={this.state.maleGender} 
                    femaleGender={this.state.femaleGender}
-                   robotGender={this.state.robotGender}
+            
                    />
                 </div>
                 
