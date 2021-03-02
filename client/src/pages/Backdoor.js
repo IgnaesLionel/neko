@@ -14,7 +14,7 @@ Component {
     this.handleOkWithCats = this.handleOkWithCats.bind(this);
     this.handleOkWithChild = this.handleOkWithChild.bind(this);
     this.handleUploadedImage = this.handleUploadedImage.bind(this);
-  
+    console.log(this.props)
 }
 
     state = {

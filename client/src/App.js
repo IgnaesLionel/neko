@@ -9,7 +9,9 @@ import Noussoutenir from './pages/Nous-soutenir';
 import Conseils from './pages/Conseils';
 import Evenements from './pages/Evenements';
 import Adoptions from './pages/Adoptions';
-import Backdoor from './pages/Backdoor';
+import Login from './pages/Backdoor';
+
+const dataCats = require('./data/dataCats.json');
 
 
 
@@ -26,8 +28,9 @@ render() {
             <Route path ="/Contact" exact component={Contact}/>
             <Route path ="/Nous-soutenir" exact component={Noussoutenir}/>
             <Route path ="/Conseils" exact component={Conseils}/>
-            <Route path ="/Adoptions" exact component={Adoptions}/>
-            <Route path ="/Login" exact component={Backdoor}/>
+            <Route path ="/Adoptions" exact render={(props) => <Adoptions {...props} data={dataCats} />} />
+            <Route path ="/Login" exact render={(props) => <Login {...props} data={dataCats} />} />
+
             <Route component={NotFound}/>
           </Switch>
       </BrowserRouter>

@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import Characters from '../Characters/Characters'; 
 import SearchBar from '../SearchBar/SearchBar'; 
-const dataCats = require('../../data/dataCats.json');
-
 class Lounge extends Component {
 
     constructor (props) {
         super(props)
+        const dataCats = this.props.data
         this.state = {
             data : {dataCats},
             filterText: '',
@@ -42,6 +41,7 @@ class Lounge extends Component {
         return (
             <div className="lounge">
                 <div className="searchbar">
+                
                 <SearchBar
                 onMaleGenderChange={this.handleMaleGenderFilter} 
                 onFemaleGenderChange={this.handleFemaleGenderFilter}
