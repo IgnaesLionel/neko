@@ -108,7 +108,7 @@ Component {
             <p> name file {this.state.filename}</p>
               <form onSubmit={this.handleSubmit}>
                 <p>
-                  <strong>Nom du chat:</strong>
+                  <strong>Nom de l'animal:</strong>
                 </p>
                 <input
                   type="text"
