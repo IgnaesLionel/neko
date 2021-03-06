@@ -43,11 +43,11 @@ const About = () => {
             <h2>Nos partenaires</h2>
 
             <h2>Mentions légales</h2>
-            L’Ecole du Chat de Marcq Collège.
-            Siège social : 153, rue du Collège – 59700 Marcq en Baroeul
+            Neko association
+            Siège social :
             Tèl : 06 82 45 15 83
-            Présidente : Madame Danielle Deswarte
-            Association à but non lucratif déclarée à la Préfecture du Nord sous le numéro W595011261
+            Présidente : 
+            Association à but non lucratif déclarée à la Préfecture du Nord sous le numéro : ********
         </div>
     );
 };
