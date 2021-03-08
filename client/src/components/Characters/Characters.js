@@ -1,13 +1,13 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import Character from '../Character/Character';
 
 const Characters = (props) => {
 
-   
-    const rows = [];
+const rows = []
 
+ 
     props.data.forEach(character => {
-        if (props.maleGender && character.gender !== "Mâle"){
+        if (props.maleGender && character.gender !== "Male"){
             return}  // si la selection male est true mais que le character n'est pas un homme, ne return rien
         if (props.femaleGender && character.gender !== "Femelle"){
                return} // si la selection femele est true mais que le character n'est pas une femme, ne return rien
@@ -18,10 +18,13 @@ const Characters = (props) => {
         rows.push(character)  //envoies tous les articles
     } )
 
- 
+
+
     return (
-        <div className="characters">  
-                {rows.map((character,k) => {return (<Character key={k} character={character}/>)})}          
+       
+        <div className="characters"> 
+        {console.log(rows)}
+        {rows.map((character,k) => {return (<Character key={k} character={character}/>)})}      
         </div>
     );
 };

@@ -5,9 +5,10 @@ class Lounge extends Component {
 
     constructor (props) {
         super(props)
-        const dataCats = this.props.data
+
+    
         this.state = {
-            data : {dataCats},
+            data : null,
             filterText: '',
             maleGender: false,
             femaleGender: false,
@@ -37,11 +38,11 @@ class Lounge extends Component {
     }
 
     render() {
-        const data = this.state.data.dataCats
+        
         return (
             <div className="lounge">
                 <div className="searchbar">
-                
+              
                 <SearchBar
                 onMaleGenderChange={this.handleMaleGenderFilter} 
                 onFemaleGenderChange={this.handleFemaleGenderFilter}
@@ -54,8 +55,9 @@ class Lounge extends Component {
                 />
                 </div>
                 
-                <div> 
-                   <Characters data={data} 
+                <div>
+         
+                   <Characters data={this.props.data} 
                    filterText={this.state.filterText} 
                    maleGender={this.state.maleGender} 
                    femaleGender={this.state.femaleGender}

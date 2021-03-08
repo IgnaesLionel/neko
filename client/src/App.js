@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import axios from 'axios'
+
 import {BrowserRouter, Switch, Route} from "react-router-dom"
 
 import Home from "./pages/Home";
@@ -11,16 +13,41 @@ import Evenements from './pages/Evenements';
 import Adoptions from './pages/Adoptions';
 import Login from './pages/Backdoor';
 
-const dataCats = require('./data/dataCats.json');
+
+
+const BASE_URL = process.env.REACT_APP_API_URL;
+
+const dataCats = []
 
 
 
+
+/* const dataCats = require('./data/dataCats.json');
+
+ */
 class App extends Component {
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      data: []
+    };    
+  }
+
+  componentDidMount() {
+    axios({
+      method: "get",
+      url: `${BASE_URL}api/user/`,
+    }).then((res)=>{this.setState({data:res.data})})
+    .catch((err)=>console.log(err))
+    }
   
+
 render() {
     return (
       <div className="App">
-        <BrowserRouter>
+       <BrowserRouter>
           <Switch>
             <Route path ="/" exact component={Home}/>
             <Route path ="/a-propos" exact component={About}/>
@@ -28,8 +55,8 @@ render() {
             <Route path ="/Contact" exact component={Contact}/>
             <Route path ="/Nous-soutenir" exact component={Noussoutenir}/>
             <Route path ="/Conseils" exact component={Conseils}/>
-            <Route path ="/Adoptions" exact render={(props) => <Adoptions {...props} data={dataCats} />} />
-            <Route path ="/Login" exact render={(props) => <Login {...props} data={dataCats} />} />
+            <Route path ="/Adoptions" exact render={(props) => <Adoptions {...props} data={this.state.data} />} />
+            <Route path ="/Login" exact render={(props) => <Login {...props} data={this.state.data} />} />
 
             <Route component={NotFound}/>
           </Switch>
