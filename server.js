@@ -12,7 +12,7 @@ const cors = require('cors');
 const userRoutes = require('./routes/user.routes');
 
 const corsOptions = {
-  origin: 'http://15.237.111.76:3000',
+  origin: '*',
   credentials: true,
   'allowedHeaders': ['sessionId', 'Content-Type'],
   'exposedHeaders': ['sessionId'],
@@ -29,7 +29,7 @@ app.use(bodyParser.urlencoded({
 }));
 
 // routes
-app.use('/api/user', userRoutes);
+app.use('/api/user', cors(),userRoutes);
 
 if (process.env.NODE_ENV === 'production') {
   // Serve any static files
