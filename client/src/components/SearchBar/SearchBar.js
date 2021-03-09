@@ -32,7 +32,7 @@ class SearchBar extends Component {
     }
 
     render() {
-        const {filterText, maleGender, femaleGender, robotGender} = this.props
+        const {filterText, maleGender, femaleGender} = this.props
         return (
             <>
                 <div className="form-group mb-0">

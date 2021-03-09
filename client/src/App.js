@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios'
-
 import {BrowserRouter, Switch, Route} from "react-router-dom"
-
 import Home from "./pages/Home";
 import NotFound from './pages/NotFound';
 import About from './pages/About';
@@ -13,18 +11,8 @@ import Evenements from './pages/Evenements';
 import Adoptions from './pages/Adoptions';
 import Login from './pages/Backdoor';
 
-
-
 const BASE_URL = process.env.REACT_APP_API_URL;
 
-const dataCats = []
-
-
-
-
-/* const dataCats = require('./data/dataCats.json');
-
- */
 class App extends Component {
 
   constructor(props) {

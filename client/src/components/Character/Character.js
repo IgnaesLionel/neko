@@ -8,11 +8,11 @@ const Character = (props) => {
     /* console.log(props.character) <-> console.log(character) */
 
     return (  
-        <div className="character" style={ character.gender == "Male" ? { background:'#a0c4ff', borderColor: '#0096c7'} : {background : "#E070AC"} }  >
+        <div className="character" style={ character.gender == "Mâle" ? { background:'#a0c4ff', borderColor: '#0096c7'} : {background : "#E070AC"} }  >
 
 
             <h2>{character.name}</h2>
-            <div className="pix" style={ character.gender == "Male" ? { borderColor: '#0096c7'} : { borderColor: '#e3007a'} }  >
+            <div className="pix" style={ character.gender == "Mâle" ? { borderColor: '#0096c7'} : { borderColor: '#e3007a'} }  >
             <div className="photo">
                 <ImageComponent  image={character.picture} alt={character.name} content={character.content}/>
             </div>
