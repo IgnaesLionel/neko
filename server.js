@@ -24,7 +24,8 @@ const userRoutes = require('./routes/user.routes');
 app.use(cors(corsOptions));
  */
 
-app.use(cors({credentials: true, origin: true}))
+app.options('*', cors())
+
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
