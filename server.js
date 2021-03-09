@@ -11,22 +11,16 @@ const cors = require('cors');
 
 const userRoutes = require('./routes/user.routes');
 
-/* const corsOptions = {
-  origin: process.env.CLIENT_URL,
+const corsOptions = {
+  origin: 'http://http://15.237.111.76:3000',
   credentials: true,
   'allowedHeaders': ['sessionId', 'Content-Type'],
   'exposedHeaders': ['sessionId'],
   'methods': 'GET,HEAD,PUT,PATCH,POST,DELETE',
   'preflightContinue': false
 }
- */
 
-const corsOptions = {   origin: "*",   methods:
-"GET,HEAD,PUT,PATCH,POST,DELETE",   allowedHeaders:
-    "Access-Control-Allow-Headers,Access-Control-Allow-Origin,Access-Control-Request-Method,Access-Control-Request-Headers,Origin,Cache-Control,Content-Type,X-Token,X-Refresh-Token",   credentials: true,   preflightContinue: false,  
-optionsSuccessStatus: 204 };
 
-//origin: process.env.CLIENT_URL,
 app.use(cors(corsOptions));
 
 app.use(bodyParser.json());
