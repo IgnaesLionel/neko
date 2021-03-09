@@ -32,7 +32,7 @@ app.use(bodyParser.urlencoded({
 }));
 
 // routes
-app.use('/api/user', cors(),userRoutes);
+app.use('/api/user',userRoutes);
 
 if (process.env.NODE_ENV === 'production') {
   // Serve any static files
