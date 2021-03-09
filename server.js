@@ -12,7 +12,7 @@ const cors = require('cors');
 const userRoutes = require('./routes/user.routes');
 
 const corsOptions = {
-  origin: 'http://http://15.237.111.76:3000',
+  origin: 'http://15.237.111.76:3000',
   credentials: true,
   'allowedHeaders': ['sessionId', 'Content-Type'],
   'exposedHeaders': ['sessionId'],
