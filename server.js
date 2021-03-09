@@ -11,7 +11,7 @@ const cors = require('cors');
 
 const userRoutes = require('./routes/user.routes');
 
-const corsOptions = {
+/* const corsOptions = {
   origin: process.env.CLIENT_URL,
   credentials: true,
   'allowedHeaders': ['sessionId', 'Content-Type'],
@@ -19,11 +19,20 @@ const corsOptions = {
   'methods': 'GET,HEAD,PUT,PATCH,POST,DELETE',
   'preflightContinue': false
 }
+ */
+
+const corsOptions = {   origin: "*",   methods:
+"GET,HEAD,PUT,PATCH,POST,DELETE",   allowedHeaders:
+    "Access-Control-Allow-Headers,Access-Control-Allow-Origin,Access-Control-Request-Method,Access-Control-Request-Headers,Origin,Cache-Control,Content-Type,X-Token,X-Refresh-Token",   credentials: true,   preflightContinue: false,  
+optionsSuccessStatus: 204 };
+
+//origin: process.env.CLIENT_URL,
 app.use(cors(corsOptions));
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
 
 // routes
 app.use('/api/user', userRoutes);
