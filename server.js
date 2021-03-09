@@ -11,7 +11,7 @@ const cors = require('cors');
 
 const userRoutes = require('./routes/user.routes');
 
-const corsOptions = {
+/* const corsOptions = {
   origin: '*',
   credentials: true,
   'allowedHeaders': ['sessionId', 'Content-Type'],
@@ -22,6 +22,9 @@ const corsOptions = {
 
 
 app.use(cors(corsOptions));
+ */
+
+app.use(cors({credentials: true, origin: true}))
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
