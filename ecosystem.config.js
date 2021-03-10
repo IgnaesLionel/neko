@@ -1,9 +1,14 @@
 module.exports = {
-  apps : [{
-    serveur: '/server.js',
-    client: 'client/index.js',
-    watch: '.'
-  }, ],
+  apps : [
+    {
+    script: './server.js',
+    name: 'server-neko',
+    watch: 'true'
+    },
+    {script: './client/src/index.js',
+    name:'client-neko',
+    watch: 'true'
+    } ],
 
   deploy : {
     production : {
