@@ -7,13 +7,12 @@ const path = require('path');
 const app = express();
 const port = process.env.PORT || 5000;
 const cors = require('cors');
-const fs = require('fs')
-const https = require('https')
+
 
 
 const userRoutes = require('./routes/user.routes');
 
-/* const corsOptions = {
+const corsOptions = {
   origin: '*',
   credentials: true,
   'allowedHeaders': ['sessionId', 'Content-Type'],
@@ -22,11 +21,7 @@ const userRoutes = require('./routes/user.routes');
   'preflightContinue': false
 }
 
-
 app.use(cors(corsOptions));
- */
-
-app.options('*', cors())
 
 
 app.use(bodyParser.json());
@@ -50,12 +45,4 @@ if (process.env.NODE_ENV === 'production') {
     res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
   });
 }
-
-https.createServer({
-  key: fs.readFileSync('./config/server.key'),
-  cert: fs.readFileSync('./config/server.cert')
-}, app)
-.listen(port, () => console.log(`Listening on port ${port}`))
-/* 
 app.listen(port, () => console.log(`Listening on port ${port}`));
- */
