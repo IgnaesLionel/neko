@@ -39,7 +39,7 @@ const Backdoor = () => {
     await axios({
     method: "post",
     url: `${BASE_URL}api/user/registeranimal`,
-    data: {name, age, gender, okWithCats, okWithDogs, okWithChild, bio}
+    data: {name, age, gender, okwithcats: okWithCats, okwithdogs: okWithDogs, okwithchild: okWithChild, bio}
   }).then((res)=>{console.log('données envoyés')})
   .catch((err)=>console.log(err))
 
@@ -51,7 +51,7 @@ const Backdoor = () => {
             <Navigation/>
             <h1 className="h1-1"> Backdoor </h1>       
              <form onSubmit={handleSubmit}>
-               {console.log(bio)}
+               {console.log(okWithDogs.value)}
                
                  <label htmlFor="input1" className="form-check-label"> Prénom de l'animal </label>
                  <input

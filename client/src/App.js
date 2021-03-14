@@ -33,6 +33,7 @@ class App extends Component {
     }).then((res)=>{this.setState({data:res.data})})
     .catch((err)=>console.log(err))
 
+    //looking if token
     const fetchToken = async () => {
     await axios({
       method: "get",
@@ -45,10 +46,11 @@ class App extends Component {
 };
     fetchToken()
   }
-
+  
 render() {
     return (
       <div className="App">
+      
         <UidContext.Provider value={this.state.uid}>
           <BrowserRouter>
             <Switch>
