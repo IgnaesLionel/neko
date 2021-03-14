@@ -49,9 +49,9 @@ class App extends Component {
   
 render() {
     return (
-      <div className="App">
-      
+     
         <UidContext.Provider value={this.state.uid}>
+           <div className="App">
           <BrowserRouter>
             <Switch>
               <Route path ="/" exact component={Home}/>
@@ -63,12 +63,12 @@ render() {
               <Route path ="/Adoptions" exact render={(props) => <Adoptions {...props} data={this.state.data} />} />
               <Route path ="/Login" exact render={(props) => <Login {...props} data={this.state.data} />} />
               <Route path ="/Signin" exact component={SignIn} />
-
               <Route component={NotFound}/>
            </Switch>
         </BrowserRouter>
+        </div>
       </UidContext.Provider>
-      </div>
+
     );
   }
 }

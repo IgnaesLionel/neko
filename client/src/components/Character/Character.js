@@ -31,14 +31,8 @@ const Character = (props) => {
             <span> {character.okwithchild[0]==true ?  <span style={{ background:"green"}}>👧</span> : <span style={{ background: "red"}}>👧</span>}</span>
             {uid ? <h4 className="pen" style={{ background:"white"}} onClick={()=>setToggleCat(!toggleCat)}> 🖊️ </h4> : null}
             {toggleCat==true ?  <Modal onClose={()=>setToggleCat(!toggleCat)} show={toggleCat} character={character}></Modal> : null}
-
-
-           
-
-
+         
             </div>
-
-
 
        </div>
     );

@@ -9,25 +9,15 @@ const Modal = props => {
   const [name, setName] = useState('');
   const [gender, setGender] = useState('');
   const [age, setAge] = useState('');
-  const [okWithDogs, setokWithDogs] = useState(null);
-  const [okWithCats, setokWithCats] = useState(null);
-  const [okWithChild, setokWithChild] = useState(null);
+  const [okWithDogs, setokWithDogs] = useState('');
+  const [okWithCats, setokWithCats] = useState('');
+  const [okWithChild, setokWithChild] = useState('');
   const [checked, setChecked] = useState(true);
   const [checked2, setChecked2] = useState(false);
-  const [bio, setbio] = useState('')
+  const [bio, setBio] = useState('')
 
   const character = props.character
 
-useEffect(()=> {
-  setName(character.name)
-  /*setAge(character.age) */
-  setGender(character.gender)
-  setokWithDogs(character.okwithdogs["0"])
-  setokWithCats(character.okwithcats["0"])
-  setokWithChild(character.okwithchild["0"])
- 
-
-},[])
 
 
   const handleText = (e) => {
@@ -36,6 +26,12 @@ useEffect(()=> {
     const textUppercase= jsUcfirst(text)
     setName(textUppercase)
 }
+
+const handleBio = (e) => {
+  const text = e.target.value
+  setBio(text)
+}
+
 
   const handleCheck = () => {
     setChecked(true)
@@ -77,11 +73,36 @@ useEffect(()=> {
     props.onClose && props.onClose(e);
   };
 
+
+  useEffect(()=> {
+    setName(character.name)
+    /*setAge(character.age) */
+  
+    setGender(character.gender)
+    
+    if(gender=="Mâle"){
+      handleCheck()
+    }
+  
+    if(gender=="Femelle"){
+      handleCheck2()
+    }
+
+    setAge(character.age)
+    setokWithDogs(character.okwithdogs["0"])
+    setokWithCats(character.okwithcats["0"])
+    setokWithChild(character.okwithchild["0"])
+    setBio(character.bio)
+  
+  
+  
+  },[gender])
+  
+
   return (
     <div className="modal" id="modal">
-    <h2>Edition</h2>
-  
-    <form onSubmit={handleUpdate}>
+    <h2>Edition {character.name} </h2>
+    <form className="content" onSubmit={handleUpdate}>
              
            
                  <label htmlFor="input1" className="form-check-label"> Prénom de l'animal </label>
@@ -114,7 +135,7 @@ useEffect(()=> {
 
                   <label htmlFor="pet-select">Age de l'animal</label>
                   <select name="pets" id="pet-select" onChange={e => setAge(e.target.value)}>
-                    <option value="">Select</option>
+                    <option value={age} defaultValue={age}>{age}</option>
                       <option value="1 mois">1 mois</option>
                       <option value="2 mois">2 mois</option>
                       <option value="2 mois">3 mois</option>
@@ -141,8 +162,9 @@ useEffect(()=> {
                   </select>
                   <br></br>
                   <label htmlFor="textarea-1">Informations</label>
-                  <input id="textarea-1" type="textarea" onChange={e => setbio(e.target.value)}></input>
-                <button type="submit">Ajouter</button>
+                  <input id="textarea-1" type="textarea" value={bio} onChange={e => handleBio(e)}></input>
+                  <br></br>
+                <button type="submit">modifier</button>
           </form> 
 
           <button onClick={(e)=> handleDelete(e)}>Supprimer</button>
