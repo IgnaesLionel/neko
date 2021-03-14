@@ -4,7 +4,7 @@ const authController = require("../controllers/auth.controller");
 const userController = require("../controllers/user.controller");
 
 // auth
-router.post("/register", authController.signUp); // /api/user/register -> email,password,pseudo
+router.post("/register", authController.signUp); // /api/user/register -> name, age, gender,okwithdogs,okwithcats,okwithchild,bio
 //router.post("/login", authController.signIn);   // /api/user/login ->  email, password
 //router.get("/logout", authController.logout); // /api/user/logout
 

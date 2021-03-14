@@ -2,7 +2,6 @@ require('dotenv').config({path: './config/.env'});
 require('./config/db');
 
 const express = require('express');
-const bodyParser = require('body-parser');
 const path = require('path');
 const app = express();
 const port = process.env.PORT || 5000;
@@ -20,18 +19,14 @@ const corsOptions = {
 }
 
 app.use(cors(corsOptions));
-
-
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({
-  extended: true
-}));
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 // routes
 app.use('/api/user',userRoutes);
 
 app.get("/checkthis", function(req, res, next) {
-  res.send("Yes");
+  res.send("Yes ! server is alive");
 });
 
 if (process.env.NODE_ENV === 'production') {
