@@ -29,7 +29,7 @@
 .pix {
     height: 13rem;
     width: auto;
-    background: $color-1;
+    background: #f0f0f062;
     border-radius: 10px;
     border-style: solid;
     border-color: $color-1;
@@ -58,4 +58,19 @@
 
 
    
+}
+
+.pen {
+    font-size: 2 rem;
+    position: relative;
+    right: 20px;
+    top: -100px;
+}
+
+.overlay {
+    position:fixed;
+    height:100%;
+    width: 100%;
+    background-color: rgb(107, 107, 107);
+    z-index: 2;
 }

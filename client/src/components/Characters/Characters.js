@@ -1,12 +1,9 @@
-import React, {useContext} from 'react';
+import React from 'react';
 import Character from '../Character/Character';
-import { UidContext } from "../AppContext";
 
 const Characters = (props) => {
 
 const rows = []
-
-const uid = useContext(UidContext);
 
     props.data.forEach(character => {
         if (props.maleGender && character.gender !== "Mâle"){
@@ -25,8 +22,6 @@ const uid = useContext(UidContext);
     return (
        
         <div className="characters"> 
-        {uid ? <h1> LOGGED </h1> : <h1>not logged</h1>}
-   
         {rows.map((character,k) => {return (<Character key={k} character={character}/>)})}      
         </div>
     );
