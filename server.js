@@ -6,11 +6,12 @@ const path = require('path');
 const app = express();
 const port = process.env.PORT || 5000;
 const cors = require('cors');
-
+const cookieParser = require('cookie-parser');
 const userRoutes = require('./routes/user.routes');
+const {checkUser, requireAuth} = require('./middleware/auth.middleware');
 
 const corsOptions = {
-  origin: '*',
+  origin: process.env.CLIENT_URL,
   credentials: true,
   'allowedHeaders': ['sessionId', 'Content-Type'],
   'exposedHeaders': ['sessionId'],
@@ -21,13 +22,17 @@ const corsOptions = {
 app.use(cors(corsOptions));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(cookieParser());
+
+// jwt
+app.get('*', checkUser);
+app.get('/jwtid', requireAuth, (req, res) => {
+  res.status(200).send(res.locals.user._id)
+});
+
 
 // routes
 app.use('/api/user',userRoutes);
-
-app.get("/checkthis", function(req, res, next) {
-  res.send("Yes ! server is alive");
-});
 
 if (process.env.NODE_ENV === 'production') {
   // Serve any static files

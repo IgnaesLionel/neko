@@ -38,7 +38,7 @@ const Backdoor = () => {
   
     await axios({
     method: "post",
-    url: `${BASE_URL}api/user/register`,
+    url: `${BASE_URL}api/user/registeranimal`,
     data: {name, age, gender, okWithCats, okWithDogs, okWithChild, bio}
   }).then((res)=>{console.log('données envoyés')})
   .catch((err)=>console.log(err))

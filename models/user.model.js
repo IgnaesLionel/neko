@@ -1,25 +1,30 @@
 const mongoose = require('mongoose');
+const { isEmail } = require('validator');
+const bcrypt = require('bcrypt');
 
 const userSchema = new mongoose.Schema(
   {
-    name: {
+    pseudo: {
       type: String,
       required: true,
       minLength: 3,
       maxLength: 55,
+      unique: true,
       trim: true
     },
-    age: {
+    email: {
+      type: String,
+      required: true,
+      validate: [isEmail],
+      lowercase: true,
+      unique: true,
+      trim: true,
+    },
+    password: {
       type: String,
       required: true,
       max: 1024,
-      minlength: 2
-    },
-    gender: {
-      type: String,
-      required: true,
-      max: 12,
-      minlength: 3
+      minlength: 6
     },
     picture: {
       type: String,
@@ -29,20 +34,39 @@ const userSchema = new mongoose.Schema(
       type: String,
       max: 1024,
     },
-    okwithdogs: {
-      type: [Boolean]
+    followers: {
+      type: [String]
     },
-    okwithcats: {
-      type: [Boolean]
+    following: {
+      type: [String]
     },
-    okwithchild: {
-      type: [Boolean]
+    likes: {
+      type: [String]
     }
   },
   {
     timestamps: true,
   }
 );
+
+// play function before save into display: 'block',
+userSchema.pre("save", async function(next) {
+  const salt = await bcrypt.genSalt();
+  this.password = await bcrypt.hash(this.password, salt);
+  next();
+});
+
+userSchema.statics.login = async function(email, password) {
+  const user = await this.findOne({ email });
+  if (user) {
+    const auth = await bcrypt.compare(password, user.password);
+    if (auth) {
+      return user;
+    }
+    throw Error('incorrect password');
+  }
+  throw Error('incorrect email')
+};
 
 const UserModel = mongoose.model("user", userSchema);
 
