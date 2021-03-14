@@ -11,6 +11,7 @@ import Evenements from './pages/Evenements';
 import Adoptions from './pages/Adoptions';
 import Login from './pages/Backdoor';
 import SignIn from './components/Log';
+import { UidContext } from "./components/AppContext";
 
 const BASE_URL = process.env.REACT_APP_API_URL;
 
@@ -20,7 +21,8 @@ class App extends Component {
     super(props);
 
     this.state = {
-      data: []
+      data: [],
+      uid : null
     };    
   }
 
@@ -30,28 +32,40 @@ class App extends Component {
       url: `${BASE_URL}api/user/`,
     }).then((res)=>{this.setState({data:res.data})})
     .catch((err)=>console.log(err))
-    }
-  
+
+    const fetchToken = async () => {
+    await axios({
+      method: "get",
+      url: `${process.env.REACT_APP_API_URL}jwtid`,
+      withCredentials: true,
+    }).then((res) => {
+      this.setState({uid:res.data});
+    })
+    .catch((err) => console.log("No token"));
+};
+    fetchToken()
+  }
 
 render() {
     return (
       <div className="App">
-       <BrowserRouter>
-          <Switch>
-            <Route path ="/" exact component={Home}/>
-            <Route path ="/a-propos" exact component={About}/>
-            <Route path ="/evenements" exact component={Evenements}/>
-            <Route path ="/Contact" exact component={Contact}/>
-            <Route path ="/Nous-soutenir" exact component={Noussoutenir}/>
-            <Route path ="/Conseils" exact component={Conseils}/>
-            <Route path ="/Adoptions" exact render={(props) => <Adoptions {...props} data={this.state.data} />} />
-            <Route path ="/Login" exact render={(props) => <Login {...props} data={this.state.data} />} />
-            <Route path ="/Signin" exact component={SignIn} />
+        <UidContext.Provider value={this.state.uid}>
+          <BrowserRouter>
+            <Switch>
+              <Route path ="/" exact component={Home}/>
+              <Route path ="/a-propos" exact component={About}/>
+              <Route path ="/evenements" exact component={Evenements}/>
+              <Route path ="/Contact" exact component={Contact}/>
+              <Route path ="/Nous-soutenir" exact component={Noussoutenir}/>
+              <Route path ="/Conseils" exact component={Conseils}/>
+              <Route path ="/Adoptions" exact render={(props) => <Adoptions {...props} data={this.state.data} />} />
+              <Route path ="/Login" exact render={(props) => <Login {...props} data={this.state.data} />} />
+              <Route path ="/Signin" exact component={SignIn} />
 
-            <Route component={NotFound}/>
-          </Switch>
-      </BrowserRouter>
-
+              <Route component={NotFound}/>
+           </Switch>
+        </BrowserRouter>
+      </UidContext.Provider>
       </div>
     );
   }
