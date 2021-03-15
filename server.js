@@ -15,7 +15,7 @@ global.__basedir = __dirname;
 console.log(process.env.CLIENT_URL)
 // remove http get protection
 const corsOptions = {
-  origin: process.env.CLIENT_URL,
+  origin: "http://15.236.97.173",
   credentials: true,
   'allowedHeaders': ['sessionId', 'Content-Type'],
   'exposedHeaders': ['sessionId'],
