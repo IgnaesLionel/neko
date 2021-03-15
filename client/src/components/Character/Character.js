@@ -15,7 +15,7 @@ const Character = (props) => {
        
         <div className="character" style={ character.gender == "Mâle" ? { background:'#a0c4ff', borderColor: '#0096c7'} : {background : "#E070AC"} }  >
             <h2>{character.name}  </h2>   
-           <h3>       {uid ? <h4 className="pen" style={{ background:"white"}} onClick={()=>setToggleCat(!toggleCat)}> 🖊️ </h4> : null}
+           <h3>       {uid ? <div className="pen" style={{ background:"white"}} onClick={()=>setToggleCat(!toggleCat)}> 🖊️ </div> : null}
             {toggleCat==true ?  <Modal onClose={()=>setToggleCat(!toggleCat)} show={toggleCat} character={character}></Modal> : null} </h3>
        
             <div className="pix" style={ character.gender == "Mâle" ? { borderColor: '#0096c7'} : { borderColor: '#e3007a'} }  >
