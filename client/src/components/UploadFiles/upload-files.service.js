@@ -1,14 +1,4 @@
 import http from "./http-common";
-/* import axios from "axios";
-
-axios.create({
-  baseURL: "http://localhost:5000",
-  headers: {
-    "Content-type": "application/json",
-  },
-});
-
- */
 
 class UploadFilesService {
   upload(file, onUploadProgress) {

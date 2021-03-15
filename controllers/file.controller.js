@@ -1,6 +1,7 @@
-const uploadFile = require("../middleware/upload");
+const uploadFile = require("../middleware/file.middleware");
 const fs = require("fs");
-const baseUrl = "http://localhost:3000/files/";
+require('dotenv').config({path: './config/.env'});
+const baseUrl = `${process.env.CLIENT_URL}/files/`
 
 const upload = async (req, res) => {
   try {
@@ -29,7 +30,7 @@ const upload = async (req, res) => {
 };
 
 const getListFiles = (req, res) => {
-  const directoryPath = __basedir + "/resources/static/assets/uploads/";
+  const directoryPath = __basedir + "/client/public/uploads/";
 
   fs.readdir(directoryPath, function (err, files) {
     if (err) {
@@ -53,7 +54,7 @@ const getListFiles = (req, res) => {
 
 const download = (req, res) => {
   const fileName = req.params.name;
-  const directoryPath = __basedir + "/resources/static/assets/uploads/";
+  const directoryPath = __basedir + "/client/public/uploads/";
 
   res.download(directoryPath + fileName, fileName, (err) => {
     if (err) {

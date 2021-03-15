@@ -71,7 +71,7 @@ const Backdoor = () => {
             <h1 className="h1-1"> Backdoor </h1>       
              <form onSubmit={handleSubmit}>
                
-                 <label htmlFor="input1" className="form-check-label"> Prénom de l'animal </label>
+                 <label htmlFor="input1" className="form-check-label"> Nom de l'animal : </label>
                  <input
                  id="input1"
                   type="text"
@@ -82,11 +82,9 @@ const Backdoor = () => {
         
                  <input type="checkbox" checked={checked} className="form-check-input" id="char1" onChange={() => handleCheck()}/>        
                   <label htmlFor="char1" className="form-check-label"> Mâle </label>
-            
                   <input type="checkbox" checked={checked2} className="form-check-input" id="char2" onChange={() => handleCheck2()}/>
                   <label htmlFor="char2" className="form-check-label"> Femelle </label>
-                  <br/>
-                       
+                  <br/>                
                   <input type="checkbox" checked={okWithDogs} className="form-check-input" id="char3" onChange={() => setokWithDogs(!okWithDogs)}/>
                   <label htmlFor="char3" className="form-check-label"> compatible avec les chiens </label>
                   <br/>
@@ -97,8 +95,7 @@ const Backdoor = () => {
                   <label htmlFor="char5" className="form-check-label"> compatible avec les enfants </label>
                   <br/>
                      
-
-                  <label htmlFor="pet-select">Age de l'animal</label>
+                  <label htmlFor="pet-select">Age de l'animal : </label>
                   <select name="pets" id="pet-select" onChange={e => setAge(e.target.value)}>
                     <option value="">Select</option>
                       <option value="1 mois">1 mois</option>
@@ -126,26 +123,14 @@ const Backdoor = () => {
                       <option value="12 ans">12 ans</option>
                   </select>
                   <br/>
-                  <label htmlFor="textarea-1">Informations</label>
+                  <label htmlFor="textarea-1">Histoire de l'animal : </label>
                   <input id="textarea-1" type="textarea" onChange={e => setbio(e.target.value)}></input>
              
 
-
-                <button type="submit">Ajouter</button>
+                  <br/>
+                <button type="submit">Envoyer</button>
           </form> 
-
-            <form action="" onSubmit={handlePicture} className="upload-pic">
-                <label htmlFor="file">Changer d'image</label>
-                <input
-                  type="file"
-                  id="file"
-                  name="file"
-                  accept=".jpg, .jpeg, .png"
-                  onChange={(e) => setFile(e.target.files[0])}
-                />
-                <br/>
-                <input type="submit" value="Envoyer l'image" />
-           </form>
+           <br/>             
            <UploadFiles />
             </div>
     </div>

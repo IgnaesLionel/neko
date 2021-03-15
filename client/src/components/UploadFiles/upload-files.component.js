@@ -117,7 +117,7 @@ export default class UploadFiles extends Component {
         <div className="row my-3">
           <div className="col-8">
             <label className="btn btn-default p-0">
-              <input type="file" multiple onChange={this.selectFiles} />
+              <input type="file"  accept=".jpg, .jpeg, .png" multiple onChange={this.selectFiles} />
             </label>
           </div>
 
@@ -153,6 +153,7 @@ export default class UploadFiles extends Component {
               ))}
           </ul>
         </div>
+        {console.log(selectedFiles)}
       </div>
     );
   }

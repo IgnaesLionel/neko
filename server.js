@@ -8,8 +8,8 @@ const port = process.env.PORT || 5000;
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const userRoutes = require('./routes/user.routes');
+const fileRoutes = require("./routes/file.routes");
 const {checkUser, requireAuth} = require('./middleware/auth.middleware');
-
 
 global.__basedir = __dirname;
 
@@ -35,9 +35,7 @@ app.get('/jwtid', requireAuth, (req, res) => {
 
 // routes
 app.use('/api/user',userRoutes);
-
-const initRoutes = require("./routes");
-initRoutes(app);
+app.use('/',fileRoutes);
 
 if (process.env.NODE_ENV === 'production') {
   // Serve any static files
