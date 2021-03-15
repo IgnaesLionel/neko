@@ -31,6 +31,9 @@ const Navigation = () => {
             <NavLink exact to="/Login" activeClassName="nav-active">      
                 Login
             </NavLink>
+            <NavLink exact to="/Signin" activeClassName="nav-active">      
+                connection
+            </NavLink>            
             <img className="bandeau" src="images/nav_haut.png" alt="BigCo Inc. logo"/>
            
         </div>

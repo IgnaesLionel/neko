@@ -18,7 +18,5 @@ router.delete("/:id", userController.deleteUser); // /api/user/:id
 
 
 
-
-
 module.exports = router;
 

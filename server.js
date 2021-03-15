@@ -10,6 +10,10 @@ const cookieParser = require('cookie-parser');
 const userRoutes = require('./routes/user.routes');
 const {checkUser, requireAuth} = require('./middleware/auth.middleware');
 
+
+global.__basedir = __dirname;
+
+// remove http get protection
 const corsOptions = {
   origin: process.env.CLIENT_URL,
   credentials: true,
@@ -18,7 +22,6 @@ const corsOptions = {
   'methods': 'GET,HEAD,PUT,PATCH,POST,DELETE',
   'preflightContinue': false
 }
-
 app.use(cors(corsOptions));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -30,9 +33,11 @@ app.get('/jwtid', requireAuth, (req, res) => {
   res.status(200).send(res.locals.user._id)
 });
 
-
 // routes
 app.use('/api/user',userRoutes);
+
+const initRoutes = require("./routes");
+initRoutes(app);
 
 if (process.env.NODE_ENV === 'production') {
   // Serve any static files
@@ -43,4 +48,5 @@ if (process.env.NODE_ENV === 'production') {
     res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
   });
 }
+
 app.listen(port, () => console.log(`Listening on port ${port}`));

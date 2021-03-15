@@ -1,6 +1,8 @@
+import React, { useState } from "react";
 import Navigation from '../components/Navigation/Navigation';
 import axios from "axios";
-import React, { useState } from "react";
+import UploadFiles from "../components/UploadFiles/upload-files.component";
+
 const BASE_URL = process.env.REACT_APP_API_URL;
 
 const Backdoor = () => {
@@ -13,6 +15,8 @@ const Backdoor = () => {
   const [checked, setChecked] = useState(true);
   const [checked2, setChecked2] = useState(false);
   const [bio, setbio] = useState('')
+  const [file, setFile] = useState();
+
 
   const handleText = (e) => {
     const text = e.target.value
@@ -45,13 +49,27 @@ const Backdoor = () => {
 
   }
 
+  const handlePicture = (e) => {
+    e.preventDefault();
+    console.log(e)
+    const data = new FormData();
+    data.append("file", file);
+    uploadPicture(data);
+  };
+
+  const uploadPicture = (data, id) => {
+      return axios
+        .post(`${process.env.REACT_APP_API_URL}uploadfile`, data)
+        .catch((err) => console.log(err));
+  };
+  
+
   return (
     <div>
           <div>
             <Navigation/>
             <h1 className="h1-1"> Backdoor </h1>       
              <form onSubmit={handleSubmit}>
-               {console.log(okWithDogs.value)}
                
                  <label htmlFor="input1" className="form-check-label"> Prénom de l'animal </label>
                  <input
@@ -60,24 +78,24 @@ const Backdoor = () => {
                   value={name}
                   onChange={e => handleText(e)}
                   /> 
-                  <br></br>
+                 <br/>
         
                  <input type="checkbox" checked={checked} className="form-check-input" id="char1" onChange={() => handleCheck()}/>        
                   <label htmlFor="char1" className="form-check-label"> Mâle </label>
             
                   <input type="checkbox" checked={checked2} className="form-check-input" id="char2" onChange={() => handleCheck2()}/>
                   <label htmlFor="char2" className="form-check-label"> Femelle </label>
-                  <br></br>
+                  <br/>
                        
                   <input type="checkbox" checked={okWithDogs} className="form-check-input" id="char3" onChange={() => setokWithDogs(!okWithDogs)}/>
                   <label htmlFor="char3" className="form-check-label"> compatible avec les chiens </label>
-                  <br></br>
+                  <br/>
                   <input type="checkbox" checked={okWithCats} className="form-check-input" id="char4" onChange={() => setokWithCats(!okWithCats)}/>
                   <label htmlFor="char4" className="form-check-label"> compatible avec les chats </label>
-                  <br></br>
+                  <br/>
                   <input type="checkbox" checked={okWithChild} className="form-check-input" id="char5" onChange={() => setokWithChild(!okWithChild)}/>
                   <label htmlFor="char5" className="form-check-label"> compatible avec les enfants </label>
-                  <br></br>
+                  <br/>
                      
 
                   <label htmlFor="pet-select">Age de l'animal</label>
@@ -107,11 +125,28 @@ const Backdoor = () => {
                       <option value="11 ans">11 ans</option>
                       <option value="12 ans">12 ans</option>
                   </select>
-                  <br></br>
+                  <br/>
                   <label htmlFor="textarea-1">Informations</label>
                   <input id="textarea-1" type="textarea" onChange={e => setbio(e.target.value)}></input>
+             
+
+
                 <button type="submit">Ajouter</button>
           </form> 
+
+            <form action="" onSubmit={handlePicture} className="upload-pic">
+                <label htmlFor="file">Changer d'image</label>
+                <input
+                  type="file"
+                  id="file"
+                  name="file"
+                  accept=".jpg, .jpeg, .png"
+                  onChange={(e) => setFile(e.target.files[0])}
+                />
+                <br/>
+                <input type="submit" value="Envoyer l'image" />
+           </form>
+           <UploadFiles />
             </div>
     </div>
   );

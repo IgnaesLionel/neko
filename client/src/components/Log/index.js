@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import SignInForm from "./SignInForm";
 import SignUpForm from "./SignUpForm";
+import Navigation from '../Navigation/Navigation';
 
 const Log = ( props ) => {
   const [signUpModal, setSignUpModal] = useState(props.signup);
@@ -17,6 +18,8 @@ const Log = ( props ) => {
   };
 
   return (
+    <div>
+      <Navigation/>
     <div className="connection-form">
       <div className="form-container">
         <ul>
@@ -38,6 +41,7 @@ const Log = ( props ) => {
         {signUpModal && <SignUpForm />}
         {signInModal && <SignInForm />}
       </div>
+    </div>
     </div>
   );
 };
