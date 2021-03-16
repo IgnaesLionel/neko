@@ -15,7 +15,7 @@ global.__basedir = __dirname;
 
 // remove http get protection
 const corsOptions = {
-  origin: "http://localhost:3000",
+  origin: `${process.env.CLIENT_URL}jwtid`,
   credentials: true,
   'allowedHeaders': ['sessionId', 'Content-Type'],
   'exposedHeaders': ['sessionId'],
