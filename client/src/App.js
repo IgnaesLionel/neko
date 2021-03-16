@@ -9,7 +9,7 @@ import Noussoutenir from './pages/Nous-soutenir';
 import Conseils from './pages/Conseils';
 import Evenements from './pages/Evenements';
 import Adoptions from './pages/Adoptions';
-import Login from './pages/Backdoor';
+import Ajout from './pages/Ajout';
 import SignIn from './components/Log';
 import { UidContext } from "./components/AppContext";
 
@@ -61,7 +61,7 @@ render() {
               <Route path ="/Nous-soutenir" exact component={Noussoutenir}/>
               <Route path ="/Conseils" exact component={Conseils}/>
               <Route path ="/Adoptions" exact render={(props) => <Adoptions {...props} data={this.state.data} />} />
-              <Route path ="/Login" exact render={(props) => <Login {...props} data={this.state.data} />} />
+              <Route path ="/Ajout" exact render={(props) => <Ajout {...props} data={this.state.data} />} />
               <Route path ="/Signin" exact component={SignIn} />
               <Route component={NotFound}/>
            </Switch>

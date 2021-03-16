@@ -1,7 +1,7 @@
 import React, {useContext,useState} from 'react';
 import ImageComponent from '../ImageComponents/ImageComponents';
 import { UidContext } from "../AppContext";
-import Modal from "../Modal";
+import Modal from "../Modal/Modal";
 
 const Character = (props) => {
     
@@ -9,7 +9,7 @@ const Character = (props) => {
  
     const uid = useContext(UidContext);
 
-    const [toggleCat, setToggleCat]= useState('false');
+    const [toggleCat, setToggleCat]= useState('false');//modal
  
     return (  
        

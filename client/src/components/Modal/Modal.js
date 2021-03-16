@@ -1,22 +1,22 @@
-import React, { useState } from "react";
-import Navigation from '../components/Navigation/Navigation';
+import React, { useState, useEffect } from "react";
+import "./modal.css";
 import axios from "axios";
-import UploadFiles from "../components/UploadFiles/upload-files.component";
-
+import UploadFiles from "../../components/UploadFiles/upload-files.component";
 const BASE_URL = process.env.REACT_APP_API_URL;
 
-const Backdoor = () => {
+const Modal = props => {
+
   const [name, setName] = useState('');
-  const [gender, setGender] = useState('Mâle');
+  const [gender, setGender] = useState('');
   const [age, setAge] = useState('');
-  const [okWithDogs, setokWithDogs] = useState(true);
-  const [okWithCats, setokWithCats] = useState(true);
-  const [okWithChild, setokWithChild] = useState(true);
+  const [okWithDogs, setokWithDogs] = useState('');
+  const [okWithCats, setokWithCats] = useState('');
+  const [okWithChild, setokWithChild] = useState('');
   const [checked, setChecked] = useState(true);
   const [checked2, setChecked2] = useState(false);
-  const [bio, setbio] = useState('')
-  const [file, setFile] = useState();
+  const [bio, setBio] = useState('')
 
+  const character = props.character
 
   const handleText = (e) => {
     const text = e.target.value
@@ -37,67 +37,89 @@ const Backdoor = () => {
     setGender("Femelle")
   }
   
-   const handleSubmit = async (e) => {
+   const handleUpdate = async (e) => {
     /*  e.preventDefault(e) */
   
     await axios({
-    method: "post",
-    url: `${BASE_URL}api/user/registeranimal`,
+    method: "put",
+    url: `${BASE_URL}api/user/${props.character._id}`,
     data: {name, age, gender, okwithcats: okWithCats, okwithdogs: okWithDogs, okwithchild: okWithChild, bio}
-  }).then((res)=>{console.log('données envoyés')})
+  }).then((res)=>{console.log('données modifiés')})
   .catch((err)=>console.log(err))
 
   }
 
-  const handlePicture = (e) => {
-    e.preventDefault();
-    console.log(e)
-    const data = new FormData();
-    data.append("file", file);
-    uploadPicture(data);
+  const handleDelete = async (e) => {
+    /*  e.preventDefault(e) */
+  
+    await axios({
+    method: "delete",
+    url: `${BASE_URL}api/user/${props.character._id}`,
+   
+  }).then((res)=>{console.log('animal supprimé')})
+  .catch((err)=>console.log(err))
+
+  }
+
+  const onClose = e => {
+    props.onClose && props.onClose(e);
   };
 
-  const uploadPicture = (data, id) => {
-      return axios
-        .post(`${process.env.REACT_APP_API_URL}uploadfile`, data)
-        .catch((err) => console.log(err));
-  };
+
+  useEffect(()=> {
+    setName(character.name) 
+    setGender(character.gender)   
+    if(gender=="Mâle"){
+      handleCheck()
+    }
+    if(gender=="Femelle"){
+      handleCheck2()
+    }
+    setAge(character.age)
+    setokWithDogs(character.okwithdogs["0"])
+    setokWithCats(character.okwithcats["0"])
+    setokWithChild(character.okwithchild["0"])
+    setBio(character.bio)
+  },[gender])
   
 
   return (
-    <div>
-          <div>
-            <Navigation/>
-            <h1 className="h1-1"> Backdoor </h1>       
-             <form onSubmit={handleSubmit}>
-               
-                 <label htmlFor="input1" className="form-check-label"> Nom de l'animal : </label>
+    <div className="modal" id="modal">
+    <h2>Edition {character.name} </h2>
+    <form className="content" onSubmit={handleUpdate}>
+             
+           
+                 <label htmlFor="input1" className="form-check-label"> Prénom de l'animal </label>
                  <input
                  id="input1"
                   type="text"
                   value={name}
                   onChange={e => handleText(e)}
                   /> 
-                 <br/>
+                  <br></br>
         
                  <input type="checkbox" checked={checked} className="form-check-input" id="char1" onChange={() => handleCheck()}/>        
                   <label htmlFor="char1" className="form-check-label"> Mâle </label>
+            
                   <input type="checkbox" checked={checked2} className="form-check-input" id="char2" onChange={() => handleCheck2()}/>
                   <label htmlFor="char2" className="form-check-label"> Femelle </label>
-                  <br/>                
-                  <input type="checkbox" checked={okWithDogs} className="form-check-input" id="char3" onChange={() => setokWithDogs(!okWithDogs)}/>
-                  <label htmlFor="char3" className="form-check-label"> compatible avec les chiens </label>
-                  <br/>
+                  <br></br>
+                       
+                 
                   <input type="checkbox" checked={okWithCats} className="form-check-input" id="char4" onChange={() => setokWithCats(!okWithCats)}/>
                   <label htmlFor="char4" className="form-check-label"> compatible avec les chats </label>
-                  <br/>
+                  <br></br>
+                  <input type="checkbox" checked={okWithDogs} className="form-check-input" id="char3" onChange={() => setokWithDogs(!okWithDogs)}/>
+                  <label htmlFor="char3" className="form-check-label"> compatible avec les chiens </label>
+                  <br></br>
                   <input type="checkbox" checked={okWithChild} className="form-check-input" id="char5" onChange={() => setokWithChild(!okWithChild)}/>
                   <label htmlFor="char5" className="form-check-label"> compatible avec les enfants </label>
-                  <br/>
+                  <br></br>
                      
-                  <label htmlFor="pet-select">Age de l'animal : </label>
+
+                  <label htmlFor="pet-select">Age de l'animal</label>
                   <select name="pets" id="pet-select" onChange={e => setAge(e.target.value)}>
-                    <option value="">Select</option>
+                    <option value={age} defaultValue={age}>{age}</option>
                       <option value="1 mois">1 mois</option>
                       <option value="2 mois">2 mois</option>
                       <option value="2 mois">3 mois</option>
@@ -122,19 +144,25 @@ const Backdoor = () => {
                       <option value="11 ans">11 ans</option>
                       <option value="12 ans">12 ans</option>
                   </select>
-                  <br/>
-                  <label htmlFor="textarea-1">Histoire de l'animal : </label>
-                  <input id="textarea-1" type="textarea" onChange={e => setbio(e.target.value)}></input>
-             
-
-                  <br/>
-                <button type="submit">Envoyer</button>
+                  <br></br>
+                  <label htmlFor="textarea-1">Informations</label>
+ 
+                  <textarea value={bio} id="textarea-1" rows="12" cols="60" onChange={e => setBio(e.target.value)}></textarea>
+                  <br></br>
+                <button type="submit">modifier</button>
           </form> 
-           <br/>             
-           <UploadFiles />
-            </div>
+<br/>
+
+<UploadFiles idCats={character._id}/>
+          <button onClick={(e)=> handleDelete(e)}>Supprimer</button>
+    <div className="actions">
+ 
+      <button className="toggle-button" onClick={(e)=> onClose(e)}>
+        close
+      </button>
     </div>
+  </div>
   );
 };
 
-export default Backdoor;
+export default Modal;

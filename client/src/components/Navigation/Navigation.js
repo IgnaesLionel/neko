@@ -1,8 +1,12 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {NavLink} from 'react-router-dom'
 import Logo from '../../assets/neko.svg'
+import { UidContext } from "../AppContext";
+
 
 const Navigation = () => {
+    
+    const uid = useContext(UidContext);
     return (
         <div className="navigation">
             <img src={Logo} className="logo" alt="logo" />
@@ -28,14 +32,13 @@ const Navigation = () => {
             <NavLink exact to="/contact" activeClassName="nav-active">      
                 Contact
             </NavLink>
-            <NavLink exact to="/Login" activeClassName="nav-active">      
-                Login
-            </NavLink>
-            <NavLink exact to="/Signin" activeClassName="nav-active">      
-                connection
-            </NavLink>            
-            <img className="bandeau" src="images/nav_haut.png" alt="BigCo Inc. logo"/>
-           
+    
+            {uid ?<NavLink exact to="/Ajout" activeClassName="nav-active">Ajouter</NavLink>:<NavLink exact to="/Signin" activeClassName="nav-active">se connecter</NavLink>} 
+            
+            
+            <img className="bandeau" src="images/nav_haut.png" alt="bandeau"/>
+
+
         </div>
     );
 };

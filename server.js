@@ -12,10 +12,10 @@ const fileRoutes = require("./routes/file.routes");
 const {checkUser, requireAuth} = require('./middleware/auth.middleware');
 
 global.__basedir = __dirname;
-console.log(process.env.CLIENT_URL)
+
 // remove http get protection
 const corsOptions = {
-  origin: "http://15.236.97.173",
+  origin: "http://localhost:3000",
   credentials: true,
   'allowedHeaders': ['sessionId', 'Content-Type'],
   'exposedHeaders': ['sessionId'],

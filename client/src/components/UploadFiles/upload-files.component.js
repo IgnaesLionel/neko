@@ -17,13 +17,13 @@ export default class UploadFiles extends Component {
     };
   }
 
-  componentDidMount() {
+ componentDidMount() {
     UploadService.getFiles().then((response) => {
       this.setState({
         fileInfos: response.data,
       });
     });
-  }
+  } 
 
   selectFiles(event) {
     this.setState({
@@ -84,7 +84,10 @@ export default class UploadFiles extends Component {
       },
       () => {
         for (let i = 0; i < selectedFiles.length; i++) {
-          this.upload(i, selectedFiles[i]);
+          console.log(this.props.idCats)
+          const myNewFile = new File([selectedFiles[i]], `${this.props.idCats}${i}.jpg`, {type: selectedFiles[i].type});
+          /* const newNameWithId = selectedFiles[i] */
+          this.upload(i, myNewFile);
         }
       }
     );
@@ -142,7 +145,7 @@ export default class UploadFiles extends Component {
           </div>
         )}
 
-        <div className="card">
+       {/*  <div className="card">
           <div className="card-header">List of Files</div>
           <ul className="list-group list-group-flush">
             {fileInfos &&
@@ -152,8 +155,7 @@ export default class UploadFiles extends Component {
                 </li>
               ))}
           </ul>
-        </div>
-        {console.log(selectedFiles)}
+        </div> */}
       </div>
     );
   }
