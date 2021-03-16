@@ -18,7 +18,7 @@ console.log(`ip du serveur ${process.env.SERVER_URL}`)
 
 // remove http get protection
 const corsOptions = {
-  origin: `${process.env.CLIENT_URL}`,
+  origin: `${process.env.URL}`,
   credentials: true,
   'allowedHeaders': ['sessionId', 'Content-Type'],
   'exposedHeaders': ['sessionId'],
