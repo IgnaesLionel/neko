@@ -13,7 +13,8 @@ import Ajout from './pages/Ajout';
 import SignIn from './components/Log';
 import { UidContext } from "./components/AppContext";
 
-const BASE_URL = process.env.REACT_APP_API_URL;
+const API_URL = process.env.REACT_APP_API_URL;
+const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 class App extends Component {
 
@@ -29,7 +30,7 @@ class App extends Component {
   componentDidMount() {
     axios({
       method: "get",
-      url: `${BASE_URL}api/user/`,
+      url: `${API_URL}api/user/`,
     }).then((res)=>{this.setState({data:res.data})})
     .catch((err)=>console.log(err))
 
@@ -52,7 +53,8 @@ render() {
     return (
      
         <UidContext.Provider value={this.state.uid}>
-            {console.log(BASE_URL)}
+            {console.log(`ip du serveur ${API_URL}`)}
+            {console.log(`ip du client ${BASE_URL}`)}
            <div className="App">
           <BrowserRouter>
             <Switch>
