@@ -2,7 +2,6 @@
   "name": "neko-app",
   "version": "0.2.0",
   "private": true,
-  "proxy": "http://http://15.236.97.173:5000/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.5",
