@@ -47,10 +47,12 @@ class App extends Component {
     fetchToken()
   }
   
+
 render() {
     return (
      
         <UidContext.Provider value={this.state.uid}>
+            {console.log(BASE_URL)}
            <div className="App">
           <BrowserRouter>
             <Switch>
