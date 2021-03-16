@@ -15,6 +15,7 @@ const Modal = props => {
   const [checked, setChecked] = useState(true);
   const [checked2, setChecked2] = useState(false);
   const [bio, setBio] = useState('')
+  const [picture, setPicture] = useState([])
 
   const character = props.character
 
@@ -43,11 +44,16 @@ const Modal = props => {
     await axios({
     method: "put",
     url: `${BASE_URL}api/user/${props.character._id}`,
-    data: {name, age, gender, okwithcats: okWithCats, okwithdogs: okWithDogs, okwithchild: okWithChild, bio}
+    data: { name, age, gender, okwithcats: okWithCats, okwithdogs: okWithDogs, okwithchild: okWithChild, picture,bio  }
   }).then((res)=>{console.log('données modifiés')})
   .catch((err)=>console.log(err))
 
   }
+
+  const handleCallBackUrl = (e) => {
+      console.log(e)
+      setPicture(oldArray => [...oldArray, `./uploads/${e}`]);
+    }
 
   const handleDelete = async (e) => {
     /*  e.preventDefault(e) */
@@ -65,7 +71,6 @@ const Modal = props => {
     props.onClose && props.onClose(e);
   };
 
-
   useEffect(()=> {
     setName(character.name) 
     setGender(character.gender)   
@@ -80,6 +85,8 @@ const Modal = props => {
     setokWithCats(character.okwithcats["0"])
     setokWithChild(character.okwithchild["0"])
     setBio(character.bio)
+    setPicture(character.picture)
+    
   },[gender])
   
 
@@ -87,7 +94,7 @@ const Modal = props => {
     <div className="modal" id="modal">
     <h2>Edition {character.name} </h2>
     <form className="content" onSubmit={handleUpdate}>
-             
+            
            
                  <label htmlFor="input1" className="form-check-label"> Prénom de l'animal </label>
                  <input
@@ -150,11 +157,13 @@ const Modal = props => {
                   <textarea value={bio} id="textarea-1" rows="12" cols="60" onChange={e => setBio(e.target.value)}></textarea>
                   <br></br>
                 <button type="submit">modifier</button>
+            
           </form> 
 <br/>
 
-<UploadFiles idCats={character._id}/>
+<UploadFiles idCats={character._id} charactere={character.picture} onHandleCallBackUrl={handleCallBackUrl}/>
           <button onClick={(e)=> handleDelete(e)}>Supprimer</button>
+      
     <div className="actions">
  
       <button className="toggle-button" onClick={(e)=> onClose(e)}>

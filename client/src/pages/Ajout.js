@@ -17,6 +17,7 @@ const Ajout = () => {
   const [checked2, setChecked2] = useState(false);
   const [bio, setbio] = useState('')
   const [file, setFile] = useState();
+  const [mypicture, setPicture] = useState("./uploads/profil/random-user.png")
 
   const handleText = (e) => {
     const text = e.target.value
@@ -42,7 +43,7 @@ const Ajout = () => {
     await axios({
       method: "post",
       url: `${BASE_URL}api/user/registeranimal`,
-      data: { name, age, gender, okwithcats: okWithCats, okwithdogs: okWithDogs, okwithchild: okWithChild, bio }
+      data: { name, age, gender, okwithcats: okWithCats, okwithdogs: okWithDogs, okwithchild: okWithChild, bio, picture: mypicture }
     }).then((res) => { console.log('données envoyés') })
       .catch((err) => console.log(err))
 

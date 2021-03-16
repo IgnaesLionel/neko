@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import UploadService from "./upload-files.service";
+import axios from "axios";
+const BASE_URL = process.env.REACT_APP_API_URL;
 
 export default class UploadFiles extends Component {
   constructor(props) {
@@ -7,6 +9,8 @@ export default class UploadFiles extends Component {
     this.selectFiles = this.selectFiles.bind(this);
     this.upload = this.upload.bind(this);
     this.uploadFiles = this.uploadFiles.bind(this);
+    this.handleImgUrl = this.handleImgUrl.bind(this);
+  
 
     this.state = {
       selectedFiles: undefined,
@@ -24,6 +28,16 @@ export default class UploadFiles extends Component {
       });
     });
   } 
+
+  handleImgUrl = async (e) => {
+    /*  e.preventDefault(e) */
+    await axios({
+      method: "put",
+      url: `${BASE_URL}api/user/${this.props.character._id}`,
+      data: {}
+    }).then((res)=>{console.log('données modifiés')})
+    .catch((err)=>console.log(err))
+  }
 
   selectFiles(event) {
     this.setState({
@@ -84,14 +98,21 @@ export default class UploadFiles extends Component {
       },
       () => {
         for (let i = 0; i < selectedFiles.length; i++) {
-          console.log(this.props.idCats)
+      
           const myNewFile = new File([selectedFiles[i]], `${this.props.idCats}${i}.jpg`, {type: selectedFiles[i].type});
+         
+          this.props.onHandleCallBackUrl(myNewFile.name)
+
           /* const newNameWithId = selectedFiles[i] */
           this.upload(i, myNewFile);
         }
       }
     );
   }
+
+
+
+
 
   render() {
     const { selectedFiles, progressInfos, message, fileInfos } = this.state;
@@ -156,6 +177,7 @@ export default class UploadFiles extends Component {
               ))}
           </ul>
         </div> */}
+        <button onClick={(e) => this.props.onHandleCallBackUrl(e)}> CLICK </button>
       </div>
     );
   }

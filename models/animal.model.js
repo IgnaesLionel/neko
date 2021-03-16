@@ -21,10 +21,11 @@ const animalSchema = new mongoose.Schema(
       max: 12,
       minlength: 3
     },
-    picture: {
+    picture: [{
       type: String,
-      default: "./uploads/profil/random-user.png"
-    },
+      max:1024,
+    }],
+   
     bio :{
       type: String,
       max: 1024,

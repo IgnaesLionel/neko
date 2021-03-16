@@ -7,6 +7,7 @@ const Character = (props) => {
     
     let character = props.character 
  
+    //context de auth/login
     const uid = useContext(UidContext);
 
     const [toggleCat, setToggleCat]= useState('false');//modal

@@ -65,7 +65,7 @@ render() {
               <Route path ="/Nous-soutenir" exact component={Noussoutenir}/>
               <Route path ="/Conseils" exact component={Conseils}/>
               <Route path ="/Adoptions" exact render={(props) => <Adoptions {...props} data={this.state.data} />} />
-              <Route path ="/Ajout" exact render={(props) => <Ajout {...props} data={this.state.data} />} />
+              <Route path ="/Ajout" exact component={Ajout}/>
               <Route path ="/Signin" exact component={SignIn} />
               <Route component={NotFound}/>
            </Switch>
