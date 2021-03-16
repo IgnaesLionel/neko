@@ -7,14 +7,14 @@ const BASE_URL = process.env.REACT_APP_API_URL;
 const Modal = props => {
 
   const [name, setName] = useState('');
-  const [gender, setGender] = useState('');
   const [age, setAge] = useState('');
   const [okWithDogs, setokWithDogs] = useState('');
   const [okWithCats, setokWithCats] = useState('');
   const [okWithChild, setokWithChild] = useState('');
-  const [checked, setChecked] = useState(true);
+  const [checked, setChecked] = useState(false);
   const [checked2, setChecked2] = useState(false);
   const [bio, setBio] = useState('')
+  const [gender, setGender] = useState('');
   const [picture, setPicture] = useState([])
 
   const character = props.character
@@ -27,20 +27,15 @@ const Modal = props => {
 }
 
   const handleCheck = () => {
-    setChecked(true)
-    setChecked2(false)
     setGender("Mâle")
   }
   
   const handleCheck2 = () => {
-    setChecked(false)
-    setChecked2(true)
     setGender("Femelle")
   }
   
-   const handleUpdate = async (e) => {
-    /*  e.preventDefault(e) */
-  
+  const handleUpdate = async (e) => {  
+    e.preventDefault(e)
     await axios({
     method: "put",
     url: `${BASE_URL}api/user/${props.character._id}`,
@@ -56,15 +51,11 @@ const Modal = props => {
     }
 
   const handleDelete = async (e) => {
-    /*  e.preventDefault(e) */
-  
     await axios({
     method: "delete",
     url: `${BASE_URL}api/user/${props.character._id}`,
-   
   }).then((res)=>{console.log('animal supprimé')})
   .catch((err)=>console.log(err))
-
   }
 
   const onClose = e => {
@@ -74,25 +65,19 @@ const Modal = props => {
   useEffect(()=> {
     setName(character.name) 
     setGender(character.gender)   
-    if(gender=="Mâle"){
-      handleCheck()
-    }
-    if(gender=="Femelle"){
-      handleCheck2()
-    }
     setAge(character.age)
     setokWithDogs(character.okwithdogs["0"])
     setokWithCats(character.okwithcats["0"])
     setokWithChild(character.okwithchild["0"])
     setBio(character.bio)
     setPicture(character.picture)
-    
-  },[gender])
+  },[])
   
 
   return (
     <div className="modal" id="modal">
     <h2>Edition {character.name} </h2>
+   
     <form className="content" onSubmit={handleUpdate}>
             
            
@@ -105,11 +90,11 @@ const Modal = props => {
                   /> 
                   <br></br>
         
-                 <input type="checkbox" checked={checked} className="form-check-input" id="char1" onChange={() => handleCheck()}/>        
-                  <label htmlFor="char1" className="form-check-label"> Mâle </label>
+                 <input type="checkbox" checked={gender=="Mâle"? true : false} className="form-check-input" id="char1" onChange={() => handleCheck()}/>        
+                  <label className="form-check-label"> Mâle </label>
             
-                  <input type="checkbox" checked={checked2} className="form-check-input" id="char2" onChange={() => handleCheck2()}/>
-                  <label htmlFor="char2" className="form-check-label"> Femelle </label>
+                  <input type="checkbox"  checked={gender=="Femelle"? true : false} className="form-check-input" id="char2" onChange={() => handleCheck2()}/>
+                  <label className="form-check-label"> Femelle </label>
                   <br></br>
                        
                  
@@ -156,14 +141,15 @@ const Modal = props => {
  
                   <textarea value={bio} id="textarea-1" rows="12" cols="60" onChange={e => setBio(e.target.value)}></textarea>
                   <br></br>
-                <button type="submit">modifier</button>
-            
+                  <button type="submit">ENREGISTRER</button>
           </form> 
-<br/>
-
-<UploadFiles idCats={character._id} charactere={character.picture} onHandleCallBackUrl={handleCallBackUrl}/>
+          <UploadFiles idCats={character._id} characterPicture={character.picture} onHandleCallBackUrl={handleCallBackUrl}/>
           <button onClick={(e)=> handleDelete(e)}>Supprimer</button>
       
+           
+            
+<br/>
+
     <div className="actions">
  
       <button className="toggle-button" onClick={(e)=> onClose(e)}>

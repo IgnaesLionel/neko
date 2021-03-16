@@ -16,7 +16,7 @@ export default class UploadFiles extends Component {
       selectedFiles: undefined,
       progressInfos: [],
       message: [],
-
+      filesAlreadyExist: ["start"],
       fileInfos: [],
     };
   }
@@ -27,10 +27,13 @@ export default class UploadFiles extends Component {
         fileInfos: response.data,
       });
     });
+
+    this.setState({
+      filesAlreadyExist:[this.props.characterPicture]})
   } 
 
   handleImgUrl = async (e) => {
-    /*  e.preventDefault(e) */
+    e.preventDefault()
     await axios({
       method: "put",
       url: `${BASE_URL}api/user/${this.props.character._id}`,
@@ -47,6 +50,7 @@ export default class UploadFiles extends Component {
   }
 
   upload(idx, file) {
+    
     let _progressInfos = [...this.state.progressInfos];
 
     UploadService.upload(file, (event) => {
@@ -82,7 +86,8 @@ export default class UploadFiles extends Component {
       });
   }
 
-  uploadFiles() {
+  uploadFiles(e) {
+    e.preventDefault();
     const selectedFiles = this.state.selectedFiles;
 
     let _progressInfos = [];
@@ -177,7 +182,7 @@ export default class UploadFiles extends Component {
               ))}
           </ul>
         </div> */}
-        <button onClick={(e) => this.props.onHandleCallBackUrl(e)}> CLICK </button>
+
       </div>
     );
   }
