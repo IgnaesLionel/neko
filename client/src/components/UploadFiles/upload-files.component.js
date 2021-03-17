@@ -10,27 +10,25 @@ export default class UploadFiles extends Component {
     this.upload = this.upload.bind(this);
     this.uploadFiles = this.uploadFiles.bind(this);
     this.handleImgUrl = this.handleImgUrl.bind(this);
-  
+
 
     this.state = {
       selectedFiles: undefined,
       progressInfos: [],
       message: [],
-      filesAlreadyExist: ["start"],
+
       fileInfos: [],
     };
   }
 
- componentDidMount() {
+  componentDidMount() {
     UploadService.getFiles().then((response) => {
       this.setState({
         fileInfos: response.data,
       });
     });
 
-    this.setState({
-      filesAlreadyExist:[this.props.characterPicture]})
-  } 
+  }
 
   handleImgUrl = async (e) => {
     e.preventDefault()
@@ -38,8 +36,8 @@ export default class UploadFiles extends Component {
       method: "put",
       url: `${BASE_URL}api/user/${this.props.character._id}`,
       data: {}
-    }).then((res)=>{console.log('données modifiés')})
-    .catch((err)=>console.log(err))
+    }).then((res) => { console.log('données modifiés') })
+      .catch((err) => console.log(err))
   }
 
   selectFiles(event) {
@@ -50,7 +48,7 @@ export default class UploadFiles extends Component {
   }
 
   upload(idx, file) {
-    
+
     let _progressInfos = [...this.state.progressInfos];
 
     UploadService.upload(file, (event) => {
@@ -86,6 +84,8 @@ export default class UploadFiles extends Component {
       });
   }
 
+
+
   uploadFiles(e) {
     e.preventDefault();
     const selectedFiles = this.state.selectedFiles;
@@ -103,9 +103,11 @@ export default class UploadFiles extends Component {
       },
       () => {
         for (let i = 0; i < selectedFiles.length; i++) {
-      
-          const myNewFile = new File([selectedFiles[i]], `${this.props.idCats}${i}.jpg`, {type: selectedFiles[i].type});
-         
+
+
+
+          const myNewFile = new File([selectedFiles[i]], `${this.props.idCats}${i}.jpg`, { type: selectedFiles[i].type });
+
           this.props.onHandleCallBackUrl(myNewFile.name)
 
           /* const newNameWithId = selectedFiles[i] */
@@ -146,7 +148,7 @@ export default class UploadFiles extends Component {
         <div className="row my-3">
           <div className="col-8">
             <label className="btn btn-default p-0">
-              <input type="file"  accept=".jpg, .jpeg, .png" multiple onChange={this.selectFiles} />
+              <input type="file" accept=".jpg, .jpeg, .png" multiple onChange={this.selectFiles} />
             </label>
           </div>
 
@@ -168,10 +170,11 @@ export default class UploadFiles extends Component {
                 return <li key={i}>{item}</li>;
               })}
             </ul>
+
           </div>
         )}
 
-       {/*  <div className="card">
+{/*           <div className="card">
           <div className="card-header">List of Files</div>
           <ul className="list-group list-group-flush">
             {fileInfos &&
@@ -181,7 +184,7 @@ export default class UploadFiles extends Component {
                 </li>
               ))}
           </ul>
-        </div> */}
+        </div>  */}
 
       </div>
     );

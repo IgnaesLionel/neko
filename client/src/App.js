@@ -53,8 +53,7 @@ render() {
     return (
      
         <UidContext.Provider value={this.state.uid}>
-            {console.log(`ip du serveur ${API_URL}`)}
-            {console.log(`ip du client ${BASE_URL}`)}
+
            <div className="App">
           <BrowserRouter>
             <Switch>

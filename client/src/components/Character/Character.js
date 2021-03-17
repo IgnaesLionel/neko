@@ -10,14 +10,14 @@ const Character = (props) => {
     //context de auth/login
     const uid = useContext(UidContext);
 
-    const [toggleCat, setToggleCat]= useState('false');//modal
+    const [openModel, setOpenModel]= useState('false');//modal
  
     return (  
        
         <div className="character" style={ character.gender == "Mâle" ? { background:'#a0c4ff', borderColor: '#0096c7'} : {background : "#E070AC"} }  >
             <h2>{character.name}  </h2>   
-           <h3>       {uid ? <div className="pen" style={{ background:"white"}} onClick={()=>setToggleCat(!toggleCat)}> 🖊️ </div> : null}
-            {toggleCat==true ?  <Modal onClose={()=>setToggleCat(!toggleCat)} show={toggleCat} character={character}></Modal> : null} </h3>
+           <h3>       {uid ? <div className="pen" style={{ background:"white"}} onClick={()=>setOpenModel(!openModel)}> 🖊️ </div> : null}
+            {openModel==true ?  <Modal onClose={()=>setOpenModel(!openModel)} show={openModel} character={character}></Modal> : null} </h3>
        
             <div className="pix" style={ character.gender == "Mâle" ? { borderColor: '#0096c7'} : { borderColor: '#e3007a'} }  >
             <div className="photo">
