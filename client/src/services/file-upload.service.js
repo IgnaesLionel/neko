@@ -1,14 +1,11 @@
-import http from "./http-common";
+import http from "../components/UploadFiles/http-common";
 
-class UploadFilesService {
+class FileUploadService {
   upload(file, onUploadProgress) {
     let formData = new FormData();
- 
-/*     const myNewFile = new File([selectedFiles[i]], `${this.props.idCats}${i}.jpg`, { type: selectedFiles[i].type });  */
 
     formData.append("file", file);
 
-   
     return http.post("/upload", formData, {
       headers: {
         "Content-Type": "multipart/form-data",
@@ -17,9 +14,9 @@ class UploadFilesService {
     });
   }
 
-   getFiles() {
+  getFiles() {
     return http.get("/files");
-  } 
+  }
 }
 
-export default new UploadFilesService();
+export default new FileUploadService();

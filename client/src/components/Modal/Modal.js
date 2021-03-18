@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import "./modal.css";
 import axios from "axios";
 import UploadFiles from "../../components/UploadFiles/upload-files.component";
+const API_URL = process.env.REACT_APP_API_URL;
+
 const BASE_URL = process.env.REACT_APP_API_URL;
 
 const Modal = props => {
@@ -14,6 +16,7 @@ const Modal = props => {
   const [bio, setBio] = useState('')
   const [gender, setGender] = useState('');
   const [picture, setPicture] = useState([])
+  const [data, setData] = useState(['data'])
 
   const character = props.character
 
@@ -33,7 +36,7 @@ const Modal = props => {
   }
 
   const handleUpdate = async (e) => {
-   /*  e.preventDefault(e) */
+   e.preventDefault()
     await axios({
       method: "put",
       url: `${BASE_URL}api/user/${props.character._id}`,
@@ -61,7 +64,14 @@ const Modal = props => {
     props.onClose && props.onClose(e);
   };
 
-  useEffect(() => {
+  useEffect(() => {  
+     
+    axios({
+      method: "get",
+      url: `${API_URL}files`,
+    }).then((res)=>{setData(res.data)})
+    .catch((err)=>console.log(err))
+  
     setName(character.name)
     setGender(character.gender)
     setAge(character.age)
@@ -69,15 +79,17 @@ const Modal = props => {
     setokWithCats(character.okwithcats["0"])
     setokWithChild(character.okwithchild["0"])
     setBio(character.bio)
-    setPicture(character.picture)
-  }, [])
+    setPicture(character.picture) 
+
+  
+  }, [character.name, character.gender, character.age,character.bio, character.picture, data])
 
 
   return (
     <div className="modal" id="modal">
       <h2>Edition {character.name} </h2>
 
-      <form className="content" onSubmit={handleUpdate}>
+      <form className="content">
 
 
         <label htmlFor="input1" className="form-check-label"> Prénom de l'animal </label>
@@ -88,9 +100,9 @@ const Modal = props => {
           onChange={e => handleText(e)}
         />
         <br></br>
-        <input type="checkbox" checked={gender == "Mâle" ? true : false} className="form-check-input" id="char1" onChange={() => handleCheck()} />
+        <input type="checkbox" checked={gender === "Mâle" ? true : false} className="form-check-input" id="char1" onChange={() => handleCheck()} />
         <label className="form-check-label"> Mâle </label>
-        <input type="checkbox" checked={gender == "Femelle" ? true : false} className="form-check-input" id="char2" onChange={() => handleCheck2()} />
+        <input type="checkbox" checked={gender === "Femelle" ? true : false} className="form-check-input" id="char2" onChange={() => handleCheck2()} />
         <label className="form-check-label"> Femelle </label>
         <br></br>
         <input type="checkbox" checked={okWithCats} className="form-check-input" id="char4" onChange={() => setokWithCats(!okWithCats)} />
@@ -134,19 +146,13 @@ const Modal = props => {
 
         <textarea value={bio} id="textarea-1" rows="12" cols="60" onChange={e => setBio(e.target.value)}></textarea>
         <br></br>
-       
-     
-    
-      
       <br />
       <div className="actions">
-       
-
-     <button type="submit">ENREGISTRER</button>
-
+     <button onClick={(e)=>handleUpdate(e)}>ENREGISTRER</button>
       </div>
       </form>
-      <UploadFiles idCats={character._id} picture={picture} onHandleCallBackUrl={handleCallBackUrl} />
+    <UploadFiles data={data} idCats={character._id} picture={picture} onHandleCallBackUrl={handleCallBackUrl} /> 
+
       <button className="toggle-button" onClick={(e) => onClose(e)}>
           close
       </button>

@@ -1,65 +1,58 @@
 import React, { Component } from "react";
-import UploadService from "./upload-files.service";
-import axios from "axios";
-const BASE_URL = process.env.REACT_APP_API_URL;
+import UploadService from "../services/file-upload.service";
 
-
-export default class UploadFiles extends Component {
+export default class UploadImages extends Component {
   constructor(props) {
     super(props);
     this.selectFiles = this.selectFiles.bind(this);
     this.upload = this.upload.bind(this);
-    this.uploadFiles = this.uploadFiles.bind(this);
-    this.handleImgUrl = this.handleImgUrl.bind(this);
+    this.uploadImages = this.uploadImages.bind(this);
 
     this.state = {
       selectedFiles: undefined,
+      previewImages: [],
       progressInfos: [],
       message: [],
-      fileInfos: [],
 
+      imageInfos: [],
     };
   }
 
   componentDidMount() {
     UploadService.getFiles().then((response) => {
       this.setState({
-        fileInfos: response.data,
+        imageInfos: response.data,
       });
     });
-
-  }
-
-  handleImgUrl = async (e) => {
-    e.preventDefault()
-    await axios({
-      method: "put",
-      url: `${BASE_URL}api/user/${this.props.character._id}`,
-      data: {}
-    }).then((res) => { console.log('données modifiés') })
-      .catch((err) => console.log(err))
   }
 
   selectFiles(event) {
+    let images = [];
+
+    for (let i = 0; i < event.target.files.length; i++) {
+      images.push(URL.createObjectURL(event.target.files[i]))
+    }
+
     this.setState({
       progressInfos: [],
+      message: [],
       selectedFiles: event.target.files,
+      previewImages: images
     });
   }
 
   upload(idx, file) {
-
     let _progressInfos = [...this.state.progressInfos];
 
     UploadService.upload(file, (event) => {
       _progressInfos[idx].percentage = Math.round((100 * event.loaded) / event.total);
       this.setState({
-        _progressInfos,
+        progressInfos: _progressInfos,
       });
     })
-      .then((response) => {
+      .then(() => {
         this.setState((prev) => {
-          let nextMessage = [...prev.message, "Uploaded the file successfully: " + file.name];
+          let nextMessage = [...prev.message, "Uploaded the image successfully: " + file.name];
           return {
             message: nextMessage
           };
@@ -69,13 +62,13 @@ export default class UploadFiles extends Component {
       })
       .then((files) => {
         this.setState({
-          fileInfos: files.data,
+          imageInfos: files.data,
         });
       })
       .catch(() => {
         _progressInfos[idx].percentage = 0;
         this.setState((prev) => {
-          let nextMessage = [...prev.message, "Could not upload the file: " + file.name];
+          let nextMessage = [...prev.message, "Could not upload the image: " + file.name];
           return {
             progressInfos: _progressInfos,
             message: nextMessage
@@ -84,8 +77,7 @@ export default class UploadFiles extends Component {
       });
   }
 
-  uploadFiles(e) {
-    e.preventDefault();
+  uploadImages() {
     const selectedFiles = this.state.selectedFiles;
 
     let _progressInfos = [];
@@ -101,22 +93,35 @@ export default class UploadFiles extends Component {
       },
       () => {
         for (let i = 0; i < selectedFiles.length; i++) {
-         const myNewFile = new File([selectedFiles[i]], `${this.props.idCats}`, { type: selectedFiles[i].type }); 
-  
-/* 
-         this.props.onHandleCallBackUrl(myNewFile.name) */
-          this.upload(i, myNewFile);
+          this.upload(i, selectedFiles[i]);
         }
       }
     );
   }
 
-
   render() {
-    const { selectedFiles, progressInfos, message, fileInfos } = this.state;
+    const { selectedFiles, previewImages, progressInfos, message, imageInfos } = this.state;
 
     return (
       <div>
+        <div className="row">
+          <div className="col-8">
+            <label className="btn btn-default p-0">
+              <input type="file" multiple accept="image/*" onChange={this.selectFiles} />
+            </label>
+          </div>
+
+          <div className="col-4">
+            <button
+              className="btn btn-success btn-sm"
+              disabled={!selectedFiles}
+              onClick={this.uploadImages}
+            >
+              Upload
+            </button>
+          </div>
+        </div>
+
         {progressInfos &&
           progressInfos.map((progressInfo, index) => (
             <div className="mb-2" key={index}>
@@ -136,47 +141,36 @@ export default class UploadFiles extends Component {
             </div>
           ))}
 
-        <div className="row my-3">
-          <div className="col-8">
-            <label className="btn btn-default p-0">
-              <input type="file" accept=".jpg, .jpeg, .png" multiple onChange={this.selectFiles} />
-            </label>
+        {previewImages && (
+          <div>
+            {previewImages.map((img, i) => {
+              return <img className="preview" src={img} alt={"image-" + i}  key={i}/>;
+            })}
           </div>
+        )}
 
-          <div className="col-4">
-            <button
-              className="btn btn-success btn-sm"
-              disabled={!selectedFiles}
-              onClick={this.uploadFiles}
-            >
-              Upload
-            </button>
-          </div>
-        </div>
-
-{/*       {message.length > 0 && (
-          <div className="alert alert-secondary" role="alert">
+        {message.length > 0 && (
+          <div className="alert alert-secondary mt-2" role="alert">
             <ul>
               {message.map((item, i) => {
                 return <li key={i}>{item}</li>;
               })}
             </ul>
-
           </div>
         )}
 
-           <div className="card">
+        <div className="card mt-3">
           <div className="card-header">List of Files</div>
           <ul className="list-group list-group-flush">
-            {fileInfos &&
-              fileInfos.map((file, index) => (
+            {imageInfos &&
+              imageInfos.map((img, index) => (
                 <li className="list-group-item" key={index}>
-                  <a href={file.url}>{file.name}</a>
+                  <p><a href={img.url}>{img.name}</a></p>
+                  <img src={img.url} alt={img.name} height="80px" />
                 </li>
               ))}
           </ul>
-        </div>   */}
-
+        </div>
       </div>
     );
   }

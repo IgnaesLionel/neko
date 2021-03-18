@@ -14,7 +14,6 @@ import SignIn from './components/Log';
 import { UidContext } from "./components/AppContext";
 
 const API_URL = process.env.REACT_APP_API_URL;
-const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 class App extends Component {
 
