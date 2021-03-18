@@ -1,4 +1,5 @@
 import React from "react";
+import ImageGallery from 'react-image-gallery';
 
 export default class ImageComponent extends React.Component {
   state = { isOpen: false };
@@ -7,34 +8,41 @@ export default class ImageComponent extends React.Component {
     this.setState({ isOpen: !this.state.isOpen });
   };
 
+
   render() {
+
+    const array = []
+
+    this.props.image.length === 1
+      ? array.push({ original: "./uploads/profil/random-user.png", thumbnail: "./uploads/profil/random-user.png" })
+      : this.props.image.map((image) => array.push({ original: image, thumbnail: image })) && array.shift()
+
+
+
+
     return (
+
       <div>
-        
-        <img
+        { console.log(array)}
+        {/*         {this.props.image.length > 1 ?
+          <img
+            className="photo"
+            src={this.props.image[1]}
+            onClick={this.handleShowDialog}
+            alt={this.props.name}
+          />
+          :         <img
           className="photo"
-          src={this.props.image}
+          src={this.props.image[0]}
           onClick={this.handleShowDialog}
           alt={this.props.name}
-        />
-        {this.state.isOpen && (
-          <dialog
-            className="modal"
-            open
-            onClick={this.handleShowDialog}
-          >
-         
-            <img
-            
-              src={this.props.image}
-              onClick={this.handleShowDialog}
-              alt={this.props.name}
-            />
-              <p classname="content">{this.props.content}</p>
-             
-          </dialog>
-        )}
-      </div>
+        />}
+ */}
+
+        <ImageGallery items={array} />
+
+        {/* { this.state.isOpen && (<ImageGallery items={array} />) }  */}
+      </div >
     );
   }
 }
