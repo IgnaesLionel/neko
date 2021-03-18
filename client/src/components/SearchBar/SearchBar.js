@@ -6,7 +6,7 @@ class SearchBar extends Component {
         this.handleFilterTextChange = this.handleFilterTextChange.bind(this);
         this.handleMaleGender = this.handleMaleGender.bind(this);
         this.handleFemaleGender = this.handleFemaleGender.bind(this);
-  
+        this.handleAvailability = this.handleAvailability.bind(this)
     }
 
     handleFilterTextChange(e){
@@ -31,8 +31,12 @@ class SearchBar extends Component {
         this.props.onMaleGenderChange(false)
     }
 
+    handleAvailability(e){
+        this.props.onAvailability(e.target.checked)
+    }
+
     render() {
-        const {filterText, maleGender, femaleGender} = this.props
+        const {filterText, maleGender, femaleGender, availability} = this.props
         return (
             <>
                 <div className="form-group mb-0">
@@ -40,9 +44,12 @@ class SearchBar extends Component {
                     <div className="form-check">
                         <input type="checkbox" checked={maleGender} className="form-check-input" id="char1" onChange={this.handleMaleGender}/>
                         <label htmlFor="char1" className="form-check-label"> Mâle </label>
-
+{console.log(this.props)}
                         <input type="checkbox" checked={femaleGender} className="form-check-input" id="char2" onChange={this.handleFemaleGender}/>
                         <label htmlFor="char2" className="form-check-label"> Femelle </label>
+
+                        <input type="checkbox" checked={availability} className="form-check-input" id="char3" onChange={this.handleAvailability}/>
+                        <label htmlFor="char3" className="form-check-label"> Je recherche une famille </label>
                         
                     </div>
                 </div>

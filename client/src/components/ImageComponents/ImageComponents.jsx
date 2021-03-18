@@ -23,7 +23,7 @@ export default class ImageComponent extends React.Component {
     return (
 
       <div>
-        { console.log(array)}
+   
         {/*         {this.props.image.length > 1 ?
           <img
             className="photo"

@@ -38,6 +38,9 @@ const animalSchema = new mongoose.Schema(
     },
     okwithchild: {
       type: [Boolean]
+    },
+    availability: {
+      type: [Boolean]
     }
   },
   {

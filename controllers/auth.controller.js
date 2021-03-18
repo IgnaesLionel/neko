@@ -7,10 +7,10 @@ const { signUpErrors, signInErrors } = require('../utils/errors.utils');
 
 // post sur /api/user/registeranimal
 module.exports.registeranimal = async (req, res) => {
-  const {name, age, gender,okwithdogs,okwithcats,okwithchild,bio,picture} = req.body
+  const {name, age, gender,okwithdogs,okwithcats,okwithchild,bio,picture, availability} = req.body
 
   try {
-    const animal = await AnimalModel.create({name, age, gender, okwithdogs, okwithcats, okwithchild, bio, picture });
+    const animal = await AnimalModel.create({name, age, gender, okwithdogs, okwithcats, okwithchild, bio, picture, availability });
     res.status(201).json({ animal: animal._id});
   }
   catch(err) {

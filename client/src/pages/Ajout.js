@@ -16,6 +16,7 @@ const Ajout = () => {
   const [checked, setChecked] = useState(true);
   const [checked2, setChecked2] = useState(false);
   const [bio, setbio] = useState('')
+  const [availability, setAvailability] = useState(true)
   const [mypicture, setPicture] = useState("./uploads/profil/random-user.png")
 
   const handleText = (e) => {
@@ -42,7 +43,7 @@ const Ajout = () => {
     await axios({
       method: "post",
       url: `${BASE_URL}api/user/registeranimal`,
-      data: { name, age, gender, okwithcats: okWithCats, okwithdogs: okWithDogs, okwithchild: okWithChild, bio, picture: mypicture }
+      data: { name, age, gender, okwithcats: okWithCats, okwithdogs: okWithDogs, okwithchild: okWithChild, bio, picture: mypicture, availability:availability }
     }).then((res) => { console.log('données envoyés') })
       .catch((err) => console.log(err))
 
@@ -80,8 +81,12 @@ const Ajout = () => {
           <label htmlFor="char5" className="form-check-label"> compatible avec les enfants </label>
           <br />
 
+          <input type="checkbox" checked={availability} className="form-check-input" id="char5" onChange={() => setAvailability(!setAvailability)} />
+          <label htmlFor="char6" className="form-check-label"> Je recherche une famille </label>
+          <br />
+
           <label htmlFor="pet-select">Age de l'animal : </label>
-          <select name="pets" id="pet-select" onChange={e => setAge(e.target.value)}>
+          <select name="pets" id="pet-select" required onChange={e => setAge(e.target.value)}>
             <option value="">Select</option>
             <option value="1 mois">1 mois</option>
             <option value="2 mois">2 mois</option>

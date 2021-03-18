@@ -12,10 +12,12 @@ class Lounge extends Component {
             filterText: '',
             maleGender: false,
             femaleGender: false,
+            availability: true,
         }
         this.handleFilterTextChange = this.handleFilterTextChange.bind(this);
         this.handleMaleGenderFilter = this.handleMaleGenderFilter.bind(this);
         this.handleFemaleGenderFilter = this.handleFemaleGenderFilter.bind(this);
+        this.handleAvailability = this.handleAvailability.bind(this);
      
         
     }
@@ -32,9 +34,9 @@ class Lounge extends Component {
     handleFemaleGenderFilter (femaleGender) {
         this.setState({femaleGender})
     }
-    
-    handleRobotGenderFilter (robotGender) {
-        this.setState({robotGender})
+
+    handleAvailability (availability) {
+        this.setState({availability})
     }
 
     render() {
@@ -46,11 +48,12 @@ class Lounge extends Component {
                 <SearchBar
                 onMaleGenderChange={this.handleMaleGenderFilter} 
                 onFemaleGenderChange={this.handleFemaleGenderFilter}
-               
+                onAvailability={this.handleAvailability}
                 onFilterTextChange={this.handleFilterTextChange} 
                 filterText={this.state.filterText} 
                 maleGender={this.state.maleGender}
                 femaleGender={this.state.femaleGender}
+                availability={this.state.availability}
            
                 />
                 </div>
@@ -61,10 +64,11 @@ class Lounge extends Component {
                    filterText={this.state.filterText} 
                    maleGender={this.state.maleGender} 
                    femaleGender={this.state.femaleGender}
-            
+                   availability={this.state.availability}
+                
                    />
                 </div>
-                
+               
             </div>
         );
     }
