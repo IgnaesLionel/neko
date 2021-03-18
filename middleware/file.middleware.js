@@ -8,7 +8,7 @@ let storage = multer.diskStorage({
     cb(null, __basedir + "/client/public/uploads/");
   },
   filename: function(req, file, callback) {
-    callback(null, file.originalname + '-' + Date.now() + '.jpg')
+    callback(null, file.originalname)
     //callback(null, file.originalname)
 },
 });

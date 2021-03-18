@@ -11,6 +11,8 @@ export default class UploadFiles extends Component {
     this.upload = this.upload.bind(this);
     this.uploadFiles = this.uploadFiles.bind(this);
     this.handleImgUrl = this.handleImgUrl.bind(this);
+    this.sleep = this.sleep.bind(this);
+    
 
     this.state = {
       selectedFiles: undefined,
@@ -30,6 +32,15 @@ export default class UploadFiles extends Component {
 
   }
 
+  sleep = (duration) => { 
+    return new Promise(resolve => {
+      console.log("im here")
+      setTimeout(() => {
+        resolve()
+      }, duration * 1000)
+    })
+  } 
+
   handleImgUrl = async (e) => {
     e.preventDefault()
     await axios({
@@ -40,10 +51,10 @@ export default class UploadFiles extends Component {
       .catch((err) => console.log(err))
   }
 
-  selectFiles(event) {
+  selectFiles(e) {
     this.setState({
       progressInfos: [],
-      selectedFiles: event.target.files,
+      selectedFiles: e.target.files,
     });
   }
 
@@ -101,10 +112,9 @@ export default class UploadFiles extends Component {
       },
       () => {
         for (let i = 0; i < selectedFiles.length; i++) {
-         const myNewFile = new File([selectedFiles[i]], `${this.props.idCats}`, { type: selectedFiles[i].type }); 
-  
-/* 
-         this.props.onHandleCallBackUrl(myNewFile.name) */
+          
+         const myNewFile = new File([selectedFiles[i]], `${this.props.idCats}-${Date.now()}-${i}.jpg`, { type: selectedFiles[i].type });     
+         this.props.onHandleCallBackUrl(myNewFile.name)
           this.upload(i, myNewFile);
         }
       }

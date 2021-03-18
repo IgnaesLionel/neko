@@ -82,7 +82,7 @@ const Modal = props => {
     setPicture(character.picture) 
 
   
-  }, [character.name, character.gender, character.age,character.bio, character.picture, data])
+  }, [])
 
 
   return (
