@@ -39,7 +39,7 @@ export default class ImageComponent extends React.Component {
         />}
  */}
 
-        <ImageGallery items={array} />
+        <ImageGallery items={array} showBullets={false} showThumbnails={false} autoPlay={true}/>
 
         {/* { this.state.isOpen && (<ImageGallery items={array} />) }  */}
       </div >

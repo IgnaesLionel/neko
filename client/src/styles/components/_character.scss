@@ -1,7 +1,6 @@
 .character{
     background: #E070AC;
-    height: 20rem;
-    width: 20rem;
+    width: 40%;
     border-style: solid;
     border-color: $color-1;
     padding : 0.5rem;
@@ -9,35 +8,34 @@
     margin: 1rem;
     flex-wrap: wrap;
     border-radius: 10px;
-    /* align-items: center; /* alignement verticalement*/ 
-   /*  justify-content: space-between; /* centrer horizontalement */ 
-    box-shadow: 5px 9px 9px 2px #12121262;
-    
-    
+    box-shadow: 5px 9px 9px 2px #12121262; 
+    justify-content: space-between;
 }
 
-.character h2 {
+.name{
     color: $color-2;
-    margin: 0px 0px 10px 0px ;
     width: 100%;
     text-shadow: 2px 2px 3px rgb(14, 1, 1);
     text-align: center;
     border-style: solid;
     border-radius: 10px;
+    display:inline;
+    margin : 0px;
+    padding : 0px;  
+    font-size: 20px;
 }
 
-.pix {
-    height: 13rem;
-    width: auto;
+.pix {   
+    width: 100%;
     background: #f0f0f062;
-    border-radius: 10px;
+    border-radius: 20px;
     border-style: solid;
     border-color: $color-1;
     overflow:hidden;
-    display: flexbox;
-
+  //   align-items: center; /* alignement verticalement
+   // justify-content: space-between; /* centrer horizontalement 
 }
-.character span{
+.character .infos span{
     
     color: $color-2;
     font-size: 0.95rem;
@@ -45,11 +43,6 @@
 
 }
 
-.photo {
-    width: 100%;
-	height: auto;
-
-}
 
 .infos {
     display : flex;
@@ -58,12 +51,5 @@
 
 
    
-}
-
-.pen {
-    font-size: 2 rem;
-    position: relative;
-    right: 20px;
-    top: -100px;
 }
 
