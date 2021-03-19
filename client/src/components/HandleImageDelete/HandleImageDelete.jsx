@@ -11,9 +11,8 @@ const HandleImageDelete = (props) => {
     url: `${API_URL}files/${filename}`,
   }).then((res) => {console.log('photo supprimé') })
     .catch((err) => console.log(err)) 
-    console.log("ici")
-    console.log(props.id)
-    console.log(`${API_URL}api/user/removeimage/${props.id}`)
+
+    console.log(`${API_URL}api/user/removeimage/${props.id}/${filename}`)
     await axios({
       method: "put",
       url: `${API_URL}api/user/removeimage/${props.id}/${filename}`,
@@ -32,13 +31,3 @@ const HandleImageDelete = (props) => {
     )
 }
 export default HandleImageDelete
-
-
-
-//découper pour avoir juste le nom de l'image -> /files/nom.jpg
-//envoyer l'ID + nom de l'image
-
-    /* 
-    
-    
-  } */
