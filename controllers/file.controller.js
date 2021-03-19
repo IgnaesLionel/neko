@@ -41,7 +41,7 @@ const getListFiles = (req, res) => {
     }
 
     let fileInfos = [];
-
+    console.log(directoryPath)
 /*     files.forEach((file) => {
       fileInfos.push({
         name: file,
