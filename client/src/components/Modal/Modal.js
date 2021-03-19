@@ -6,8 +6,6 @@ import HandleImageDelete from "../../components/HandleImageDelete/HandleImageDel
 
 const API_URL = process.env.REACT_APP_API_URL;
 
-const BASE_URL = process.env.REACT_BASE_API_URL;
-
 const Modal = props => {
 
   const [name, setName] = useState('');
