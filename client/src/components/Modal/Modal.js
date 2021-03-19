@@ -2,9 +2,11 @@ import React, { useState, useEffect } from "react";
 import "./modal.css";
 import axios from "axios";
 import UploadFiles from "../../components/UploadFiles/upload-files.component";
+import HandleImageDelete from "../../components/HandleImageDelete/HandleImageDelete";
+
 const API_URL = process.env.REACT_APP_API_URL;
 
-const BASE_URL = process.env.REACT_APP_API_URL;
+const BASE_URL = process.env.REACT_BASE_API_URL;
 
 const Modal = props => {
 
@@ -40,15 +42,15 @@ const Modal = props => {
    e.preventDefault()
     await axios({
       method: "put",
-      url: `${BASE_URL}api/user/${props.character._id}`,
+      url: `${API_URL}api/user/${props.character._id}`,
       data: { name, age, gender, okwithcats: okWithCats, okwithdogs: okWithDogs, okwithchild: okWithChild, picture, bio, availability:availaBility  }
-    }).then((res) => { console.log('données modifiés') })
+    }).then((res) => { console.log('données mise à jours') })
       .catch((err) => console.log(err))
 
   }
 
   const handleCallBackUrl = (e) => {
-    setPicture(oldArray => [...oldArray, `resources/uploads/${e}`]);
+    setPicture(oldArray => [...oldArray, `${API_URL}files/${e}`]);
     
 
   }
@@ -56,7 +58,7 @@ const Modal = props => {
   const handleDelete = async (e) => {
     await axios({
       method: "delete",
-      url: `${BASE_URL}api/user/${props.character._id}`,
+      url: `${API_URL}api/user/${props.character._id}`,
     }).then((res) => { console.log('animal supprimé') })
       .catch((err) => console.log(err))
   }
@@ -85,12 +87,10 @@ const Modal = props => {
 
   }, [])
 
- /*  {console.log(character.props.availability)} */
-console.log(availaBility)
   return (
     <div className="modal" id="modal">
       <h2>Edition {character.name} </h2>
-
+    
       <form className="content">
 
 
@@ -162,8 +162,11 @@ console.log(availaBility)
           close
       </button>
       <button className="toggle-button" onClick={(e) => handleDelete(e)}>Supprimer</button>
+  <br/>
+      {picture.map((image, k) => { return (<HandleImageDelete key={k} id={props.character._id} src={image} height="120" width="120" />) })}
+
     </div>
-   
+
   );
 };
 

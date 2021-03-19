@@ -81,7 +81,7 @@ const Ajout = () => {
           <label htmlFor="char5" className="form-check-label"> compatible avec les enfants ? </label>
           <br />
 
-          <input type="checkbox" checked={availability} className="form-check-input" id="char5" onChange={() => setAvailability(!setAvailability)} />
+          <input type="checkbox" checked={availability} className="form-check-input" id="char5" onChange={() => setAvailability(!availability)} />
           <label htmlFor="char6" className="form-check-label"> Disponible à l'adoption? </label>
           <br />
 
