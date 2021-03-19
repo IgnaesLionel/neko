@@ -69,12 +69,12 @@ module.exports.deleteUser = async (req, res) => {
 
 //put pour retirer une image de la db
 module.exports.removeImage = async (req, res) => {
-  console.log(`${serverUrl}files/${req.params.name}`)
+  console.log(`${serverUrl}/files/${req.params.name}`)
   if (!ObjectID.isValid(req.params.id)) { return res.status(400).send("ID unknown : " + req.params.id) };
   res.status(200).json({ message: "Successfully deleted. " });
   console.log("picture :")
-  console.log(`${serverUrl}files/${req.params.name}`)
-  AnimalModel.findOneAndUpdate({ _id: req.params.id }, { $pull: { picture: `${serverUrl}files/${req.params.name}` } },
+  console.log(`${serverUrl}/files/${req.params.name}`)
+  AnimalModel.findOneAndUpdate({ _id: req.params.id }, { $pull: { picture: `${serverUrl}/files/${req.params.name}` } },
     {
       useFindAndModify: false
     }, (err) => {
