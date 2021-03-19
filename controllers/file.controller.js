@@ -42,14 +42,15 @@ const getListFiles = (req, res) => {
 
     let fileInfos = [];
 
-    files.forEach((file) => {
+/*     files.forEach((file) => {
       fileInfos.push({
         name: file,
         url: serverUrl + file,
       });
-    });
+    }
+    ); */
 
-    res.status(200).send(fileInfos);
+    res.status(200).send(/* fileInfos */);
   });
 };
 
