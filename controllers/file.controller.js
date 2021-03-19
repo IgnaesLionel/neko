@@ -33,7 +33,7 @@ const upload = async (req, res) => {
 const getListFiles = (req, res) => {
   const directoryPath = __basedir + "/resources/uploads/";
 
-  fs.readdirSync(directoryPath, function (err, files) {
+  fs.readdir(directoryPath, function (err, files) {
     if (err) {
       res.status(500).send({
         message: "Unable to scan files!",
@@ -43,13 +43,13 @@ const getListFiles = (req, res) => {
     let fileInfos = [];
     console.log(directoryPath)
     console.log(files)
-/*     files.forEach((file) => {
+     files.forEach((file) => {
       fileInfos.push({
         name: file,
         url: serverUrl + file,
       });
     }
-    ); */
+    ); 
 
     res.status(200).send(/* fileInfos */);
   });
