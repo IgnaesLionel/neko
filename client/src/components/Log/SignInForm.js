@@ -37,6 +37,7 @@ const SignInForm = () => {
     <form action="" onSubmit={handleLogin} id="sign-up-form">
       <label htmlFor="email">Email</label>
       <br />
+      {console.log("test")}
       {console.log(`${process.env.REACT_APP_API_URL}api/user/login`)}
       <input
         type="text"
