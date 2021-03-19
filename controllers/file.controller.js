@@ -72,7 +72,7 @@ const deleteFile = (req, res) => {
   const fileName = req.params.id;
   const directoryPath = __basedir + "/resources/uploads/";
   const targetfile = `${directoryPath}${fileName}`
-
+console.log(targetfile)
   fs.unlink(targetfile, (err) => {
     res.send({
       status: "200",
