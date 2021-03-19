@@ -11,7 +11,7 @@ const HandleImageDelete = (props) => {
     url: `${API_URL}files/${filename}`,
   }).then((res) => {console.log('photo supprimé') })
     .catch((err) => console.log(err)) 
-
+    console.log("ici")
     console.log(props.id)
     console.log(`${API_URL}api/user/removeimage/${props.id}`)
     await axios({
