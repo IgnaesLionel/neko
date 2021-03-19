@@ -5,7 +5,7 @@ const AnimalModel = require("../models/animal.model");
 // get sur /api/user 
 module.exports.getAllUsers = async (req, res) => {
   const users = await AnimalModel.find().select("-password"); //resquest to MondoDB
-   //sans le mot de passe
+  //sans le mot de passe
   res.status(200).json(users);
 };
 
@@ -67,44 +67,15 @@ module.exports.deleteUser = async (req, res) => {
 
 
 module.exports.removeImage = async (req, res) => {
-  console.log(ObjectID.isValid(req.params.id))
-  if (!ObjectID.isValid(req.params.id)) {return res.status(400).send("ID unknown : " + req.params.id)};
-  console.log(`http://localhost:5000/files/${req.params.name}`)
+  if (!ObjectID.isValid(req.params.id)) { return res.status(400).send("ID unknown : " + req.params.id) };
   res.status(200).json({ message: "Successfully deleted. " });
-   AnimalModel.findOneAndUpdate({ _id: req.params.id },{ $pull: { picture:`http://localhost:5000/files/${req.params.name}`}},
-  {
-    useFindAndModify:false
-  },(err) => {
-    if(err){console.log(err)
-    }  
-  
-})}
-   
- /*  if (!ObjectID.isValid(req.params.id))
-    return res.status(400).send("ID unknown : " + req.params.id);
-
-  try {
-    await AnimalModel.findOneAndUpdate(
-      { _id: req.params.id },
-      {
-        $set: {
-          name: req.body.name,
-          age: req.body.age,
-          gender: req.body.gender,
-          okwithdogs: req.body.okwithdogs,
-          okwithcats: req.body.okwithcats,
-          okwithchild: req.body.okwithchild,
-          bio: req.body.bio,
-          picture: req.body.picture,
-          availability: req.body.availability
-        },
-      },
-      { new: true, upsert: true, setDefaultsOnInsert: true },
-      (err, docs) => {
-        if (!err) return res.send(docs);
-        if (err) return res.status(500).send({ message: err });
+  AnimalModel.findOneAndUpdate({ _id: req.params.id }, { $pull: { picture: `http://localhost:5000/files/${req.params.name}` } },
+    {
+      useFindAndModify: false
+    }, (err) => {
+      if (err) {
+        console.log(err)
       }
-    );
-  } catch (err) {
-    return res.status(500).json({ message: err });
-  } */
+
+    })
+}

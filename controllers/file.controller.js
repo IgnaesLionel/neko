@@ -1,6 +1,6 @@
 const uploadFile = require("../middleware/file.middleware");
 const fs = require("fs");
-require('dotenv').config({path: './config/.env'});
+require('dotenv').config({ path: './config/.env' });
 const serverUrl = `${process.env.SERVER_URL}/files/`
 
 
@@ -42,13 +42,13 @@ const getListFiles = (req, res) => {
 
     let fileInfos = [];
 
-     files.forEach((file) => {
+    files.forEach((file) => {
       fileInfos.push({
         name: file,
         url: serverUrl + file,
       });
     }
-    ); 
+    );
 
     res.status(200).send(fileInfos);
   });
@@ -58,7 +58,7 @@ const download = (req, res) => {
   const fileName = req.params.name;
   const directoryPath = __basedir + "/resources/uploads/";
 
-  res.sendFile (directoryPath + fileName, fileName, (err) => {
+  res.sendFile(directoryPath + fileName, fileName, (err) => {
     if (err) {
       res.status(500).send({
         message: "Could not download the file. " + err,
@@ -73,13 +73,13 @@ const deleteFile = (req, res) => {
   const directoryPath = __basedir + "/resources/uploads/";
   const targetfile = `${directoryPath}${fileName}`
 
-  fs.unlink(targetfile, (err)=> {
-    res.send ({
+  fs.unlink(targetfile, (err) => {
+    res.send({
       status: "200",
       responseType: "string",
       response: "success"
-    });     
-  }); 
+    });
+  });
 
 
 }

@@ -7,9 +7,9 @@ let storage = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, __basedir + "/resources/uploads/");
   },
-  filename: function(req, file, callback) {
+  filename: function (req, file, callback) {
     callback(null, file.originalname)
-},
+  },
 });
 
 let uploadFile = multer({
