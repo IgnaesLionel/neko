@@ -1,7 +1,7 @@
 const ObjectID = require("mongoose").Types.ObjectId;
 const AnimalModel = require("../models/animal.model");
 require('dotenv').config({ path: './config/.env' });
-const serverUrl = `${process.env.SERVER_URL}/files/`
+const serverUrl = `${process.env.SERVER_URL}`
 
 
 // get sur /api/user 
