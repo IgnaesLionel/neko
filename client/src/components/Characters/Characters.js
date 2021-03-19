@@ -9,7 +9,10 @@ const Characters = (props) => {
     //filtre
     props.data.forEach(character => {
   
-        if (props.availability && character.availability[0]) { return }
+        if (props.availability && !character.availability[0]) { return }
+        
+        if (!props.availability && character.availability[0]) { return }
+
 
         if (props.maleGender && character.gender !== "Mâle") {
             return

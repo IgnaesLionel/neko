@@ -72,17 +72,17 @@ const Ajout = () => {
           <label htmlFor="char2" className="form-check-label"> Femelle </label>
           <br />
           <input type="checkbox" checked={okWithDogs} className="form-check-input" id="char3" onChange={() => setokWithDogs(!okWithDogs)} />
-          <label htmlFor="char3" className="form-check-label"> compatible avec les chiens </label>
+          <label htmlFor="char3" className="form-check-label"> compatible avec les chiens ? </label>
           <br />
           <input type="checkbox" checked={okWithCats} className="form-check-input" id="char4" onChange={() => setokWithCats(!okWithCats)} />
-          <label htmlFor="char4" className="form-check-label"> compatible avec les chats </label>
+          <label htmlFor="char4" className="form-check-label"> compatible avec les chats ? </label>
           <br />
           <input type="checkbox" checked={okWithChild} className="form-check-input" id="char5" onChange={() => setokWithChild(!okWithChild)} />
-          <label htmlFor="char5" className="form-check-label"> compatible avec les enfants </label>
+          <label htmlFor="char5" className="form-check-label"> compatible avec les enfants ? </label>
           <br />
 
           <input type="checkbox" checked={availability} className="form-check-input" id="char5" onChange={() => setAvailability(!setAvailability)} />
-          <label htmlFor="char6" className="form-check-label"> Je recherche une famille </label>
+          <label htmlFor="char6" className="form-check-label"> Disponible à l'adoption? </label>
           <br />
 
           <label htmlFor="pet-select">Age de l'animal : </label>

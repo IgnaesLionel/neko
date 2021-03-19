@@ -15,8 +15,9 @@ const Modal = props => {
   const [okWithChild, setokWithChild] = useState('');
   const [bio, setBio] = useState('')
   const [gender, setGender] = useState('');
-  const [picture, setPicture] = useState([])
-  const [data, setData] = useState(['data'])
+  const [picture, setPicture] = useState([]);
+  const [availaBility, setAvailability] = useState('');
+  const [data, setData] = useState(['data']);
 
   const character = props.character
 
@@ -40,14 +41,14 @@ const Modal = props => {
     await axios({
       method: "put",
       url: `${BASE_URL}api/user/${props.character._id}`,
-      data: { name, age, gender, okwithcats: okWithCats, okwithdogs: okWithDogs, okwithchild: okWithChild, picture, bio }
+      data: { name, age, gender, okwithcats: okWithCats, okwithdogs: okWithDogs, okwithchild: okWithChild, picture, bio, availability:availaBility  }
     }).then((res) => { console.log('données modifiés') })
       .catch((err) => console.log(err))
 
   }
 
   const handleCallBackUrl = (e) => {
-    setPicture(oldArray => [...oldArray, `./uploads/${e}`]);
+    setPicture(oldArray => [...oldArray, `resources/uploads/${e}`]);
     
 
   }
@@ -80,11 +81,12 @@ const Modal = props => {
     setokWithChild(character.okwithchild["0"])
     setBio(character.bio)
     setPicture(character.picture) 
+    setAvailability(character.availability["0"])
 
-  
   }, [])
 
-
+ /*  {console.log(character.props.availability)} */
+console.log(availaBility)
   return (
     <div className="modal" id="modal">
       <h2>Edition {character.name} </h2>
@@ -113,6 +115,9 @@ const Modal = props => {
         <br></br>
         <input type="checkbox" checked={okWithChild} className="form-check-input" id="char5" onChange={() => setokWithChild(!okWithChild)} />
         <label htmlFor="char5" className="form-check-label"> compatible avec les enfants </label>
+        <br></br>
+        <input type="checkbox" checked={availaBility} className="form-check-input" id="char6" onChange={() => setAvailability(!availaBility)} />
+        <label htmlFor="char6" className="form-check-label"> Disponible ?</label>
         <br></br>
         <label htmlFor="pet-select">Age de l'animal</label>
         <select name="pets" id="pet-select" onChange={e => setAge(e.target.value)}>
@@ -158,6 +163,7 @@ const Modal = props => {
       </button>
       <button className="toggle-button" onClick={(e) => handleDelete(e)}>Supprimer</button>
     </div>
+   
   );
 };
 

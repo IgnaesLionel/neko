@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 class SearchBar extends Component {
-    constructor (props){
+    constructor(props) {
         super(props)
         this.handleFilterTextChange = this.handleFilterTextChange.bind(this);
         this.handleMaleGender = this.handleMaleGender.bind(this);
@@ -9,48 +9,47 @@ class SearchBar extends Component {
         this.handleAvailability = this.handleAvailability.bind(this)
     }
 
-    handleFilterTextChange(e){
+    handleFilterTextChange(e) {
         const incoming = e.target.value
 
-        function jsUcfirst(string) 
-        {
-        return string.charAt(0).toUpperCase() + string.slice(1);
+        function jsUcfirst(string) {
+            return string.charAt(0).toUpperCase() + string.slice(1);
         }
-        const maj= jsUcfirst(incoming)
+        const maj = jsUcfirst(incoming)
 
         this.props.onFilterTextChange(maj)
     }
 
-    handleMaleGender(e){
+    handleMaleGender(e) {
         this.props.onMaleGenderChange(e.target.checked)
         this.props.onFemaleGenderChange(false)
     }
 
-    handleFemaleGender(e){
+    handleFemaleGender(e) {
         this.props.onFemaleGenderChange(e.target.checked)
         this.props.onMaleGenderChange(false)
     }
 
-    handleAvailability(e){
+    handleAvailability(e) {
         this.props.onAvailability(e.target.checked)
     }
 
     render() {
-        const {filterText, maleGender, femaleGender, availability} = this.props
+        const { filterText, maleGender, femaleGender, availability } = this.props
         return (
             <>
                 <div className="form-group mb-0">
-                    <input type="text" value={filterText} className="form-control" id="search" name="search" placeholder="Rechercher" onChange={this.handleFilterTextChange}/>
+                    <input type="text" value={filterText} className="form-control" id="search" name="search" placeholder="Rechercher" onChange={this.handleFilterTextChange} />
                     <div className="form-check">
-                        <input type="checkbox" checked={maleGender} className="form-check-input" id="char1" onChange={this.handleMaleGender}/>
+                        <input type="checkbox" checked={maleGender} className="form-check-input" id="char1" onChange={this.handleMaleGender} />
                         <label htmlFor="char1" className="form-check-label"> Mâle </label>
-{console.log(this.props)}
-                        <input type="checkbox" checked={femaleGender} className="form-check-input" id="char2" onChange={this.handleFemaleGender}/>
+
+                        <input type="checkbox" checked={femaleGender} className="form-check-input" id="char2" onChange={this.handleFemaleGender} />
                         <label htmlFor="char2" className="form-check-label"> Femelle </label>
 
-                        <input type="checkbox" checked={availability} className="form-check-input" id="char3" onChange={this.handleAvailability}/>
+                        <input type="checkbox" checked={availability} className="form-check-input" id="char3" onChange={this.handleAvailability} />
                         <label htmlFor="char3" className="form-check-label"> Je recherche une famille </label>
-                        
+
                     </div>
                 </div>
 

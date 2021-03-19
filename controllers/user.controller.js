@@ -37,7 +37,8 @@ module.exports.updateUser = async (req, res) => {
           okwithcats: req.body.okwithcats,
           okwithchild: req.body.okwithchild,
           bio: req.body.bio,
-          picture: req.body.picture
+          picture: req.body.picture,
+          availability: req.body.availability
         },
       },
       { new: true, upsert: true, setDefaultsOnInsert: true },
