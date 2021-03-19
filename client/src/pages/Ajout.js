@@ -54,6 +54,7 @@ const Ajout = () => {
       <div>
         <Navigation />
         <LogOut/>
+        {console.log(`${BASE_URL}api/user/registeranimal`)}
         <h1 className="h1-1"> Backdoor </h1>
         <form onSubmit={handleSubmit}>
 
