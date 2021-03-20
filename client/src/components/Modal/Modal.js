@@ -87,7 +87,7 @@ const Modal = props => {
 
   return (
     <div className="modal" id="modal">
-      <h2>Edition {character.name} </h2>
+      <h2>Edition de {character.name} </h2>
     
       <form className="content">
 

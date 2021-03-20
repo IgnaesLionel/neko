@@ -22,6 +22,7 @@
     "react-redux": "^7.2.2",
     "react-router-dom": "^5.2.0",
     "redux": "^4.0.5",
+    "sharp": "^0.27.2",
     "validator": "^13.5.2"
   },
   "devDependencies": {

@@ -1,6 +1,6 @@
 .character{
     background: #E070AC;
-    width: 40%;
+    width: 25%;
     border-style: solid;
     border-color: $color-1;
     padding : 0.5rem;
@@ -10,19 +10,25 @@
     border-radius: 10px;
     box-shadow: 5px 9px 9px 2px #12121262; 
     justify-content: space-between;
+    max-height: 360px;
+
+   
 }
 
 .name{
     color: $color-2;
     width: 100%;
-    text-shadow: 2px 2px 3px rgb(14, 1, 1);
+    text-shadow: 2px 2px 3px rgb(4, 0.5, 0.5);
     text-align: center;
     border-style: solid;
     border-radius: 10px;
     display:inline;
     margin : 0px;
     padding : 0px;  
-    font-size: 20px;
+    font-size: 1.5em;
+    max-height: 55px;
+    max-width: 100%;
+    margin-bottom: 10px;
 }
 
 .pix {   
@@ -32,24 +38,107 @@
     border-style: solid;
     border-color: $color-1;
     overflow:hidden;
+    max-width: 100%;
+    min-height: 200px;
+    max-height: auto;
+
+   
   //   align-items: center; /* alignement verticalement
    // justify-content: space-between; /* centrer horizontalement 
 }
-.character .infos span{
-    
-    color: $color-2;
-    font-size: 0.95rem;
-    margin :0 19px;
-
-}
-
 
 .infos {
     display : flex;
+    justify-content: space-between;
 
-    justify-content: right;
+    flex-wrap: wrap;
+    width:100%;
+    margin-top: 8px;
+    max-height: 20px;
 
-
-   
 }
 
+.infos > span {
+    font-size: 0.9em;
+}
+/* 
+
+.plusinfo span{
+        position:absolute;  
+        margin-top:23px;
+        margin-left:-35px; 
+        color:#09c;
+        background:rgba(0,0,0,.9);
+        padding:15px;
+        border-radius:3px;
+        box-shadow:0 0 2px rgba(0,0,0,.5);
+        transform:scale(1) rotate(-12deg);
+        transition:all .25s;
+        opacity:0.5;
+
+}
+
+
+.plusinfo:hover .span{
+    
+    transform:scale(1) rotate(0);  
+    opacity:1; 
+}
+
+  opacity: 0;
+  width: 50px;
+  height: 26px;
+  background: #ffffff;
+  color: #868686;
+  position: absolute;
+  transition: 0.2s ease all;
+  border-radius: 5px;
+  text-align:center;
+  top: -5px;
+  left: 24px;
+  box-shadow: 0 0 0 0 rgba(0,0,0,0.0);
+  font-family: Avenir;
+   */
+
+   
+.plusinfo{
+    border: 2px solid rgba(255, 255, 255, 1);
+    border-style: solid;
+    border-radius: 10px;
+    font-size: 0.9em;
+    padding: 0px 10px; 
+    cursor: help;
+    position: relative;
+
+  }
+
+  .plusinfo:hover{
+    background:rgba(0,0,0,.4);
+    box-shadow:0 1px 0 rgba(255,255,255,.4);
+    
+}
+  
+  .infobulle{
+    opacity: 0;
+    width: 50px;
+    height: 26px;
+    background: #ffffff;
+    color: #868686;
+    position: absolute;
+    transition: 0.2s ease all;
+    border-radius: 5px;
+    text-align:center;
+    top: -5px;
+    left: 24px;
+    box-shadow: 0 0 0 0 rgba(0,0,0,0.0);
+    font-family: Avenir;
+    transform:scale(0) rotate(-12deg);
+  }
+  
+  .plusinfo:hover .infobulle{
+    opacity: 1;
+    top: -10px;
+    box-shadow: 0 5px 15px 0 rgba(0,0,0,0.15);
+    transform:scale(1) rotate(0); 
+  }
+  

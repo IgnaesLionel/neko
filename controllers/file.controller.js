@@ -4,8 +4,11 @@ require('dotenv').config({ path: './config/.env' });
 const serverUrl = `${process.env.SERVER_URL}/files/`
 
 
+
 const upload = async (req, res) => {
+
   try {
+
     await uploadFile(req, res);
 
     if (req.file == undefined) {
@@ -23,7 +26,7 @@ const upload = async (req, res) => {
         message: "File size cannot be larger than 2MB!",
       });
     }
-
+  
     res.status(500).send({
       message: `Could not upload the file: ${req.file.originalname}. ${err}`,
     });
