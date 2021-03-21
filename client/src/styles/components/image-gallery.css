@@ -8,13 +8,14 @@
   outline: none;
   position: absolute;
   z-index: 4;
+ 
 
   filter: drop-shadow(0 2px 2px #1a1a1a); }
   @media (min-width: 768px) {
     .image-gallery-icon:hover {
       color: #337ab7; }
       .image-gallery-icon:hover .image-gallery-svg {
-        transform: scale(0.8); } }
+        transform: scale(0.5); } }
   .image-gallery-icon:focus {
     outline: 2px solid #337ab7; }
 
@@ -23,31 +24,18 @@
 
 .image-gallery-fullscreen-button,
 .image-gallery-play-button {
-  height: 1px;
   transform: scale(0.5); 
-  bottom: 0;
+  bottom: +50%;
+  position:absolute;
+  transform: translate(0%, 180%);
+
   
   padding: 20px; }
   .image-gallery-fullscreen-button .image-gallery-svg,
   .image-gallery-play-button .image-gallery-svg {
     height: 36px;
+    transform: scale(0.8); 
     width: 36px; }
-  @media (max-width: 768px) {
-    .image-gallery-fullscreen-button,
-    .image-gallery-play-button {
-      padding: 15px; }
-      .image-gallery-fullscreen-button .image-gallery-svg,
-      .image-gallery-play-button .image-gallery-svg {
-        height: 24px;
-        width: 24px; } }
-  @media (max-width: 480px) {
-    .image-gallery-fullscreen-button,
-    .image-gallery-play-button {
-      padding: 10px; }
-      .image-gallery-fullscreen-button .image-gallery-svg,
-      .image-gallery-play-button .image-gallery-svg {
-        height: 16px;
-        width: 16px; } }
 
 .image-gallery-fullscreen-button {
   right: 0;
@@ -60,20 +48,20 @@
 .image-gallery-right-nav {
   padding: 0px 0px;
   top: 50%;
-  transform: scale(0.5); 
+  transform: scale(0.3); 
   
   transform: translateY(-50%); }
   .image-gallery-left-nav .image-gallery-svg,
   .image-gallery-right-nav .image-gallery-svg {
     height: 120px;
-    transform: scale(0.5);
+    transform: scale(0.3);
     width: 60px; }
     
   @media (max-width: 768px) {
     .image-gallery-left-nav .image-gallery-svg,
     .image-gallery-right-nav .image-gallery-svg {
       height: 72px;
-      transform: scale(0.5);
+      transform: scale(0.3);
       width: 36px; } }
   @media (max-width: 480px) {
     .image-gallery-left-nav .image-gallery-svg,
@@ -219,7 +207,7 @@
         padding: 2.7px; } }
     .image-gallery-bullets .image-gallery-bullet:focus, .image-gallery-bullets .image-gallery-bullet:hover {
       background: #337ab7;
-      transform: scale(1.1); }
+      transform: scale(0.5); }
     .image-gallery-bullets .image-gallery-bullet.active {
       background: #fff; }
 

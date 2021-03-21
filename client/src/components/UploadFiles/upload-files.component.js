@@ -1,7 +1,11 @@
 import React, { Component } from "react";
 import UploadService from "./upload-files.service";
 import axios from "axios";
-const BASE_URL = process.env.REACT_APP_API_URL;
+const API_URL = process.env.REACT_APP_API_URL;
+
+
+
+
 
 
 export default class UploadFiles extends Component {
@@ -10,17 +14,12 @@ export default class UploadFiles extends Component {
     this.selectFiles = this.selectFiles.bind(this);
     this.upload = this.upload.bind(this);
     this.uploadFiles = this.uploadFiles.bind(this);
-    this.handleImgUrl = this.handleImgUrl.bind(this);
     this.sleep = this.sleep.bind(this);
-
-
     this.state = {
       selectedFiles: undefined,
       progressInfos: [],
     };
   }
-
-
 
   sleep = (duration) => {
     return new Promise(resolve => {
@@ -29,16 +28,6 @@ export default class UploadFiles extends Component {
         resolve()
       }, duration * 1000)
     })
-  }
-
-  handleImgUrl = async (e) => {
-    e.preventDefault()
-    await axios({
-      method: "put",
-      url: `${BASE_URL}api/user/${this.props.character._id}`,
-      data: {}
-    }).then((res) => { console.log('données modifiés') })
-      .catch((err) => console.log(err))
   }
 
   selectFiles(e) {
@@ -60,9 +49,7 @@ export default class UploadFiles extends Component {
     })
       .then((response) => {
         this.setState((prev) => {
-      
           return {
-
           };
         });
 
@@ -76,7 +63,7 @@ export default class UploadFiles extends Component {
       .catch(() => {
         _progressInfos[idx].percentage = 0;
         this.setState((prev) => {
-     
+
           return {
             progressInfos: _progressInfos,
 
@@ -98,14 +85,25 @@ export default class UploadFiles extends Component {
     this.setState(
       {
         progressInfos: _progressInfos,
-    
+
       },
       () => {
         for (let i = 0; i < selectedFiles.length; i++) {
 
           const myNewFile = new File([selectedFiles[i]], `${this.props.idCats}-${Date.now()}-${i}.jpg`, { type: selectedFiles[i].type });
-          this.props.onHandleCallBackUrl(myNewFile.name)
+
           this.upload(i, myNewFile);
+
+          const sendInfoToBD = async () => {
+            await axios({
+              method: "put",
+              data: {},
+              url: `${API_URL}api/user/addimage/${this.props.idCats}/${myNewFile.name}`,
+            }).then((res) => { console.log('données mise à jours') })
+              .catch((err) => console.log(err))
+          }
+
+          sendInfoToBD()
         }
       }
     );
@@ -154,7 +152,7 @@ export default class UploadFiles extends Component {
           </div>
         </div>
 
-       
+
       </div>
     );
   }

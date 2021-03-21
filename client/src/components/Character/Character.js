@@ -39,9 +39,9 @@ const Character = (props) => {
 
             <div className="infos">
                 <span>{character.age}</span>
-                {character.okwithcats[0] === true ? <span style={style1}>😺</span> : <span style={style2}>😺</span>}
-                {character.okwithdogs[0] === true ? <span style={style1}>🐶</span> : <span style={style2}>🐶</span>}
-                {character.okwithchild[0] === true ? <span style={style1}>👧</span> : <span style={style2}>👧</span>}
+                {character.okwithcats[0] === true ? <div className="plusinfo"><span style={style1}>😺<div class="infobulle2">Cohabitation facile avec les chats</div></span></div> : <div className="plusinfo"><span style={style2}>😺<div class="infobulle2">Cohabitation déconseillée avec les chats</div></span></div>}
+                {character.okwithdogs[0] === true ?  <div className="plusinfo"><span style={style1}>🐶<div class="infobulle2">Cohabitation facile avec les chiens</div></span></div> : <div className="plusinfo"><span style={style2}>🐶<div class="infobulle2">Cohabitation déconseillée avec les chiens</div></span></div>}
+                {character.okwithchild[0] === true ?  <div className="plusinfo"><span style={style1}>👧<div class="infobulle2">Cohabitation facile avec les enfants</div></span></div> : <div className="plusinfo"><span style={style2}>👧<div class="infobulle2">Cohabitation déconseillée avec les enfants</div></span></div>}
                 <div className="pen" onClick={() => setOpenModelInfo(!openModelInfo)}> <div className="plusinfo">❔<div class="infobulle">Info</div></div> </div>
                 {openModel === true ? <Modal onClose={() => setOpenModel(!openModel)} show={openModel} character={character}></Modal> : null}
 

@@ -6,12 +6,11 @@
     border: 1px solid #ccc;
     transition: 1.1s ease-out;
     filter: blur(0);
-    
     opacity: 1;
     visibility: visible;
     z-index:6;
     border-radius: 20px;
-    width: 200px;
+    width: 300px;
 
     
   }
@@ -24,7 +23,7 @@
   
   .modal h2 {
     border-bottom: 1px solid #ccc;
-    padding: 1rem;
+    padding: 1rem, 2rem;
     margin: 0;
   }
   .modal .content {
@@ -56,7 +55,7 @@
   .toggle-button-sup{
     background: red;
     color: rgb(0, 0, 0);
-    padding:10px 22px;
+    padding:2px 5px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -64,7 +63,7 @@
     border: 3px;
     border-style: solid;
     border-radius: 10px;
-  
+  margin-left: 50px;
   }
   
   .toggle-button-sup:hover{
@@ -74,7 +73,7 @@
   .toggle-button-update{
     background-color: #4CAF50; /* Green */
     color: rgb(0, 0, 0);
-    padding:10px 22px;
+    padding:5px 22px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -92,7 +91,7 @@
   
     background: rgb(112, 112, 112);
     color: rgb(0, 0, 0);
-    padding:10px 22px;
+    padding:2px 2px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -100,7 +99,7 @@
     border: 3px;
     border-style: solid;
     border-radius: 10px;
-    margin-left: 150px;
+    margin-left: 230px;
   
   }
   

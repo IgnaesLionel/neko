@@ -40,19 +40,16 @@ const Modal = props => {
     await axios({
       method: "put",
       url: `${API_URL}api/user/${props.character._id}`,
-      data: { name, age, gender, okwithcats: okWithCats, okwithdogs: okWithDogs, okwithchild: okWithChild, picture, bio, availability:availaBility  }
+      data: { name, age, gender, okwithcats: okWithCats, okwithdogs: okWithDogs, okwithchild: okWithChild, bio, availability:availaBility  }
     }).then((res) => { console.log('données mise à jours') })
       .catch((err) => console.log(err))
 
   }
 
-  const handleCallBackUrl = (e) => {
-    setPicture(oldArray => [...oldArray, `${API_URL}files/${e}`]);
+  const handleDelete = async (e) => {
     
 
-  }
 
-  const handleDelete = async (e) => {
     await axios({
       method: "delete",
       url: `${API_URL}api/user/${props.character._id}`,
@@ -86,10 +83,11 @@ const Modal = props => {
 
   return (
     <div className="modal" id="modal">
-      <h2>Edition de {character.name} 
+      <h3>{character.name} 
+      <button className="toggle-button-sup" onClick={(e) => {if(window.confirm('Etes-vous sure de vouloir effacer le chat ?')){handleDelete(e)};}} >Effacer le chat</button>
 <button className="toggle-button-close" onClick={(e) => onClose(e)}>
-    close
-</button> </h2>
+    fermer
+</button> </h3>
     
       <form className="content">
 
@@ -150,26 +148,25 @@ const Modal = props => {
         <span>Informations sur l'animal</span>
         <br/>
 
-        <textarea value={bio} id="textarea-1" rows="10" cols="40" onChange={e => setBio(e.target.value)}></textarea>
+        <textarea value={bio} id="textarea-1" rows="10" cols="20" onChange={e => setBio(e.target.value)}></textarea>
         <br></br>
       <br />
 
+      <button className="toggle-button-update" onClick={(e)=>handleUpdate(e)}>Enregistrer infos</button>
 
-      <UploadFiles data={data} idCats={character._id} picture={picture} onHandleCallBackUrl={handleCallBackUrl} /> 
+      <UploadFiles data={data} idCats={character._id} picture={picture}/> 
 
 
-<br/>
 
-     <button className="toggle-button-update" onClick={(e)=>handleUpdate(e)}>ENREGISTRER</button>
 
 
 {picture.map((image, k) => { return (<HandleImageDelete key={k} id={props.character._id} src={image} height="120" width="120" />) })}
-<button className="toggle-button-sup" onClick={(e) => handleDelete(e)}>Effacer le chat</button>
+
 
 
       </form>
- 
 
+      <button className="toggle-button-close" onClick={(e) => onClose(e)}> fermer </button>
     </div>
 
   );

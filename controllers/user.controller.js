@@ -39,7 +39,6 @@ module.exports.updateUser = async (req, res) => {
           okwithcats: req.body.okwithcats,
           okwithchild: req.body.okwithchild,
           bio: req.body.bio,
-          picture: req.body.picture,
           availability: req.body.availability
         },
       },
@@ -82,4 +81,23 @@ module.exports.removeImage = async (req, res) => {
       }
 
     })
+}
+
+
+module.exports.addImage = async (req, res) => {
+console.log(req.params.id)
+console.log(req.params.name)
+  if (!ObjectID.isValid(req.params.id)) { return res.status(400).send("ID unknown : " + req.params.id) };
+
+   AnimalModel.updateOne({ _id: req.params.id }, { $push: { picture: `${serverUrl}/files/${req.params.name}` } },
+    {
+      useFindAndModify: false
+    }, (err) => {
+      if (err) {
+        console.log(err)
+      }
+
+    }) 
+
+    res.status(200).json({ message: "Successfully deleted. " });
 }
