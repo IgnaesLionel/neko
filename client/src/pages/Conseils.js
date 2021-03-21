@@ -5,7 +5,7 @@ const Conseils = () => {
     return (
         <div>
             <Navigation/>
-            <h1 className="h1-1">Nos Conseils</h1>
+            <h1 className="h1-1">Nos conseils</h1>
 
             <h2 className="h2-1">Conseils avant adoption</h2><br />
             <h2 className="h2-1">Ce que dit la loi</h2><br />
