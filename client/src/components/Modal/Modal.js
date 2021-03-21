@@ -48,8 +48,7 @@ const Modal = props => {
 
   const handleDelete = async (e) => {
     
-
-
+    props.onClose && props.onClose(e);
     await axios({
       method: "delete",
       url: `${API_URL}api/user/${props.character._id}`,
@@ -83,6 +82,7 @@ const Modal = props => {
 
   return (
     <div className="modal" id="modal">
+  
       <h3>{character.name} 
       <button className="toggle-button-sup" onClick={(e) => {if(window.confirm('Etes-vous sure de vouloir effacer le chat ?')){handleDelete(e)};}} >Effacer le chat</button>
 <button className="toggle-button-close" onClick={(e) => onClose(e)}>
@@ -105,15 +105,31 @@ const Modal = props => {
         <input type="checkbox" checked={gender === "Femelle" ? true : false} className="form-check-input" id="char2" onChange={() => handleCheck2()} />
         <label className="form-check-label"> Femelle </label>
         <br></br>
-        <input type="checkbox" checked={okWithCats} className="form-check-input" id="char4" onChange={() => setokWithCats(!okWithCats)} />
-        <label htmlFor="char4" className="form-check-label"> compatible avec les chats </label>
-        <br></br>
-        <input type="checkbox" checked={okWithDogs} className="form-check-input" id="char3" onChange={() => setokWithDogs(!okWithDogs)} />
-        <label htmlFor="char3" className="form-check-label"> compatible avec les chiens </label>
-        <br></br>
-        <input type="checkbox" checked={okWithChild} className="form-check-input" id="char5" onChange={() => setokWithChild(!okWithChild)} />
-        <label htmlFor="char5" className="form-check-label"> compatible avec les enfants </label>
-        <br></br>
+        
+        
+        <label htmlFor="Cats">ok avec chats?</label>
+        <select value={okWithCats} name="Cats" id="Cats-select" onChange={e => setokWithCats(e.target.value)}>
+          <option value="idk"> Je ne sais pas</option>
+          <option value="yes">oui</option>
+          <option value="no">non</option>
+        </select>
+        <br/>
+
+        <label htmlFor="Dogs">ok avec chiens?</label>
+        <select value={okWithDogs} name="Dogs" id="Dogs-select" onChange={e => setokWithDogs(e.target.value)}> 
+          <option value="idk"> Je ne sais pas</option>
+          <option value="yes">oui</option>
+          <option value="no">non</option>
+        </select>
+        <br/>
+        <label htmlFor="Child">ok avec enfants?</label>
+        <select value={okWithChild} name="Child" id="Child-select" onChange={e => setokWithChild(e.target.value)}>
+          <option value="idk"> Je ne sais pas</option>
+          <option value="yes">oui</option>
+          <option value="no">non</option>
+        </select>
+        <br/>
+
         <input type="checkbox" checked={availaBility} className="form-check-input" id="char6" onChange={() => setAvailability(!availaBility)} />
         <label htmlFor="char6" className="form-check-label"> Disponible ?</label>
         <br></br>

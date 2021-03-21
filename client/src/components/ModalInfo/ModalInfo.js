@@ -12,14 +12,16 @@ const character = props.character
 const {gender, name, availability, bio, age} = character
   return (
     <div className="modal" id="modal">
-      {console.log(availability)}
+{console.log(availability[0])}
+{console.log(props)}
       <p> Bonjour à tous ! je m'appelle {name}, je suis {gender==="Mâle" ? "un mâle" : "une femelle"} de {age}.</p>
       <p> {availability[0]===true ? "Je recherche actuellement une famille pour m'adopter" : null}</p>
-      <p> {availability[0]===false & gender==="Mâle" ? "J'ai déja trouvé ma famille grâce à l'association Neko !" : null}</p>
-      <p> {availability[0]===false & gender==="Femelle" ? "J'ai déja trouvée ma famille grâce à l'association Neko !" : null}</p>
+      <p> {availability[0]===false && gender==="Mâle" ? "J'ai déja trouvé ma famille grâce à l'association Neko !" : null}</p>
+      <p> {availability[0]===false && gender==="Femelle" ? "J'ai déja trouvée ma famille grâce à l'association Neko !" : null}</p>
       <br/>
       <p>{bio}</p>
-
+      <br/>
+      <p> {availability[0]===true ? "Contactez l'association au 06.82.45.15.83 pour avoir plus d'information! A bientôt !" : null}</p>
       <button className="toggle-button" onClick={(e) => onClose(e)}>
           fermer
       </button>

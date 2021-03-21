@@ -8,12 +8,12 @@ const Characters = (props) => {
 
     //filtre
     props.data.forEach(character => {
-  
+  {console.log(character)}
         if (props.availability && !character.availability[0]) { return }
-        
+
         if (!props.availability && character.availability[0]) { return }
 
-
+  
         if (props.maleGender && character.gender !== "Mâle") {
             return
         }  // si la selection male est true mais que le character n'est pas un male, ne laisse pas passer

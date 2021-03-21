@@ -20,7 +20,7 @@ const Navigation = () => {
                 Nos évènements
             </NavLink>
             <NavLink exact to="/Adoptions" activeClassName="nav-active">      
-            Nos adoptions❤️ 
+            ❤️Nos adoptions❤️ 
             </NavLink>
     
             <NavLink exact to="/Conseils" activeClassName="nav-active">      
@@ -33,7 +33,7 @@ const Navigation = () => {
                 Contact
             </NavLink>
     
-            {uid ?<NavLink exact to="/Ajout" activeClassName="nav-active">Ajouter</NavLink>:<NavLink exact to="/Signin" activeClassName="nav-active">se connecter</NavLink>} 
+            {uid ?<NavLink exact to="/Ajout" activeClassName="nav-active">Ajouter</NavLink>:<NavLink exact to="/Signin" activeClassName="nav-active">🔒</NavLink>} 
             
             
             <img className="bandeau" src="images/nav_haut.png" alt="bandeau"/>

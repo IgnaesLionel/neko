@@ -27,6 +27,13 @@ const Character = (props) => {
         margin: "0  5px"
     };
 
+    const style3 = {
+        border: '2px solid rgba(0, 0, 0, 0.05)',
+        borderColor: "grey",
+        background: "white",
+        borderRadius: "40px",
+        margin: "0  5px"
+    };
 
     return (
         <div className="character" style={character.gender === "Mâle" ? { background: '#a0c4ff', borderColor: '#0096c7' } : { background: "#E070AC" }}  >
@@ -39,9 +46,19 @@ const Character = (props) => {
 
             <div className="infos">
                 <span>{character.age}</span>
-                {character.okwithcats[0] === true ? <div className="plusinfo"><span style={style1}>😺<div class="infobulle2">Cohabitation facile avec les chats</div></span></div> : <div className="plusinfo"><span style={style2}>😺<div class="infobulle2">Cohabitation déconseillée avec les chats</div></span></div>}
-                {character.okwithdogs[0] === true ?  <div className="plusinfo"><span style={style1}>🐶<div class="infobulle2">Cohabitation facile avec les chiens</div></span></div> : <div className="plusinfo"><span style={style2}>🐶<div class="infobulle2">Cohabitation déconseillée avec les chiens</div></span></div>}
-                {character.okwithchild[0] === true ?  <div className="plusinfo"><span style={style1}>👧<div class="infobulle2">Cohabitation facile avec les enfants</div></span></div> : <div className="plusinfo"><span style={style2}>👧<div class="infobulle2">Cohabitation déconseillée avec les enfants</div></span></div>}
+                {character.okwithcats[0] === "idk" ? <div className="plusinfo"><span style={style3}>😺<div class="infobulle2">Cohabitation Inconnue pour le moment</div></span></div> : null}
+                {character.okwithcats[0] === "yes" ? <div className="plusinfo"><span style={style1}>😺<div class="infobulle2">Cohabitation facile avec les chats</div></span></div>: null}
+                {character.okwithcats[0] === "no" ? <div className="plusinfo"><span style={style2}>😺<div class="infobulle2">Cohabitation déconseillée avec les chats</div></span></div> : null}
+                
+                {character.okwithdogs[0] === "idk" ? <div className="plusinfo"><span style={style3}>🐶<div class="infobulle2">Cohabitation Inconnue pour le moment</div></span></div> : null}
+                {character.okwithdogs[0] === "yes" ? <div className="plusinfo"><span style={style1}>🐶<div class="infobulle2">Cohabitation facile avec les chiens</div></span></div> : null}
+                {character.okwithdogs[0] === "no" ? <div className="plusinfo"><span style={style2}>🐶<div class="infobulle2">Cohabitation déconseillée avec les chiens</div></span></div> : null}
+                
+                {character.okwithchild[0] === "idk" ? <div className="plusinfo"><span style={style3}>👧<div class="infobulle2">Cohabitation Inconnue avec les enfants</div></span></div> : null}
+                {character.okwithchild[0] === "yes" ? <div className="plusinfo"><span style={style1}>👧<div class="infobulle2">Cohabitation facile avec les enfants</div></span></div> : null}
+                {character.okwithchild[0] === "no" ?  <div className="plusinfo"><span style={style2}>👧<div class="infobulle2">Cohabitation déconseillée avec les enfants</div></span></div> : null}  
+             
+             
                 <div className="pen" onClick={() => setOpenModelInfo(!openModelInfo)}> <div className="plusinfo">❔<div class="infobulle">cliquez pour plus d'info !</div></div> </div>
                 {openModel === true ? <Modal onClose={() => setOpenModel(!openModel)} show={openModel} character={character}></Modal> : null}
 

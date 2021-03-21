@@ -31,13 +31,13 @@ const animalSchema = new mongoose.Schema(
       max: 1024,
     },
     okwithdogs: {
-      type: [Boolean]
+      type: [String]
     },
     okwithcats: {
-      type: [Boolean]
+      type: [String]
     },
     okwithchild: {
-      type: [Boolean]
+      type: [String]
     },
     availability: {
       type: [Boolean]

@@ -10,13 +10,14 @@ const Ajout = () => {
   const [name, setName] = useState('');
   const [gender, setGender] = useState('Mâle');
   const [age, setAge] = useState('');
-  const [okWithDogs, setokWithDogs] = useState(true);
-  const [okWithCats, setokWithCats] = useState(true);
-  const [okWithChild, setokWithChild] = useState(true);
+  const [okWithDogs, setokWithDogs] = useState("idk");
+  const [okWithCats, setokWithCats] = useState("idk");
+  const [okWithChild, setokWithChild] = useState("idk");
   const [checked, setChecked] = useState(true);
   const [checked2, setChecked2] = useState(false);
   const [bio, setbio] = useState('')
   const [availability, setAvailability] = useState(true)
+  const [picture, setPicture] = useState("./uploads/profil/random-user.png")
 
   const handleText = (e) => {
     const text = e.target.value
@@ -42,7 +43,7 @@ const Ajout = () => {
     await axios({
       method: "post",
       url: `${BASE_URL}api/user/registeranimal`,
-      data: { name, age, gender, okwithcats: okWithCats, okwithdogs: okWithDogs, okwithchild: okWithChild, bio, availability:availability }
+      data: { name, age, gender, okwithcats: okWithCats, okwithdogs: okWithDogs, okwithchild: okWithChild, bio, availability:availability, picture:picture }
     }).then((res) => { console.log('données envoyés') })
       .catch((err) => console.log(err))
 
@@ -71,16 +72,28 @@ const Ajout = () => {
           <input type="checkbox" checked={checked2} className="form-check-input" id="char2" onChange={() => handleCheck2()} />
           <label htmlFor="char2" className="form-check-label"> Femelle </label>
           <br />
-          <input type="checkbox" checked={okWithDogs} className="form-check-input" id="char3" onChange={() => setokWithDogs(!okWithDogs)} />
-          <label htmlFor="char3" className="form-check-label"> compatible avec les chiens ? </label>
-          <br />
-          <input type="checkbox" checked={okWithCats} className="form-check-input" id="char4" onChange={() => setokWithCats(!okWithCats)} />
-          <label htmlFor="char4" className="form-check-label"> compatible avec les chats ? </label>
-          <br />
-          <input type="checkbox" checked={okWithChild} className="form-check-input" id="char5" onChange={() => setokWithChild(!okWithChild)} />
-          <label htmlFor="char5" className="form-check-label"> compatible avec les enfants ? </label>
-          <br />
+        <label htmlFor="Cats">ok avec chats?</label>
+        <select name="Cats" id="Cats-select" onChange={e => setokWithCats(e.target.value)}>
+          <option value="idk"> Je ne sais pas</option>
+          <option value="yes">oui</option>
+          <option value="non">no</option>
+        </select>
+        <br />
+        <label htmlFor="Dogs">ok avec chiens?</label>
+        <select name="Dogs" id="Dogs-select" onChange={e => setokWithDogs(e.target.value)}> 
+          <option value="idk"> Je ne sais pas</option>
+          <option value="yes">oui</option>
+          <option value="non">no</option>
+        </select>
+        <br />
+        <label htmlFor="Child">ok avec enfants?</label>
+        <select name="Child" id="Child-select" onChange={e => setokWithChild(e.target.value)}>
+          <option value="idk"> Je ne sais pas</option>
+          <option value="yes">oui</option>
+          <option value="non">no</option>
+        </select>
 
+        <br />
           <input type="checkbox" checked={availability} className="form-check-input" id="char5" onChange={() => setAvailability(!availability)} />
           <label htmlFor="char6" className="form-check-label"> Disponible à l'adoption? </label>
           <br />
