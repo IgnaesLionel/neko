@@ -11,7 +11,7 @@ const ModalInfo = (props) => {
 
   return (
     <div className="modal" id="modal">
-      <h2>{props.character.name} </h2>
+      <p> Bonjour à tous ! je m'appelle {props.character.name}, je suis {props.character.gender==="Mâle" ? "un mâle" : "une femelle"} de {props.character.age}</p>
       <br/>
       <p>{props.character.bio}</p>
 

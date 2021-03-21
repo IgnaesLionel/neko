@@ -12,9 +12,7 @@
     justify-content: space-between;
     max-height: 460px;
     min-width: 300px;
-    
 
-   
 }
 
 .name{
@@ -63,50 +61,9 @@
 .infos > span {
     font-size: 0.9em;
 }
-/* 
-
-.plusinfo span{
-        position:absolute;  
-        margin-top:23px;
-        margin-left:-35px; 
-        color:#09c;
-        background:rgba(0,0,0,.9);
-        padding:15px;
-        border-radius:3px;
-        box-shadow:0 0 2px rgba(0,0,0,.5);
-        transform:scale(1) rotate(-12deg);
-        transition:all .25s;
-        opacity:0.5;
-
-}
-
-
-.plusinfo:hover .span{
-    
-    transform:scale(1) rotate(0);  
-    opacity:1; 
-}
-
-  opacity: 0;
-  width: 50px;
-  height: 26px;
-  background: #ffffff;
-  color: #868686;
-  position: absolute;
-  transition: 0.2s ease all;
-  border-radius: 5px;
-  text-align:center;
-  top: -5px;
-  left: 24px;
-  box-shadow: 0 0 0 0 rgba(0,0,0,0.0);
-  font-family: Avenir;
-   */
-
    
 .plusinfo{
-    border: 2px solid rgba(255, 255, 255, 1);
-    border-style: solid;
-    border-radius: 10px;
+
     font-size: 0.9em;
     padding: 0px 10px; 
     cursor: help;
@@ -122,8 +79,8 @@
   
   .infobulle{
     opacity: 0;
-    width: 50px;
-    height: 26px;
+    width: 80px;
+    height: 35px;
     background: #ffffff;
     color: #868686;
     position: absolute;
@@ -131,7 +88,7 @@
     border-radius: 5px;
     text-align:center;
     top: -5px;
-    left: 24px;
+    left: -34px;
     box-shadow: 0 0 0 0 rgba(0,0,0,0.0);
     font-family: Avenir;
     transform:scale(0) rotate(-12deg);
@@ -139,17 +96,16 @@
   
   .plusinfo:hover .infobulle{
     opacity: 1;
-    top: -10px;
+    top: -40px;
     box-shadow: 0 5px 15px 0 rgba(0,0,0,0.15);
     transform:scale(1) rotate(0); 
   }
   
-
-    
+   
   .infobulle2{
     opacity: 0;
-    width: 50px;
-    height: 26px;
+    width: 100px;
+    height: 50px;
     background: #ffffff;
     color: #868686;
     position: absolute;
@@ -157,8 +113,16 @@
     border-radius: 5px;
     text-align:center;
     top: -5px;
-    left: 24px;
+    left: 4px;
     box-shadow: 0 0 0 0 rgba(0,0,0,0.0);
     font-family: Avenir;
     transform:scale(0) rotate(-12deg);
   }
+
+  .plusinfo:hover .infobulle2{
+    opacity: 1;
+    top: -55px;
+    box-shadow: 0 5px 15px 0 rgba(0,0,0,0.15);
+    transform:scale(1) rotate(0); 
+  }
+  
