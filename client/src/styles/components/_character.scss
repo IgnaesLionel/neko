@@ -10,7 +10,9 @@
     border-radius: 10px;
     box-shadow: 5px 9px 9px 2px #12121262; 
     justify-content: space-between;
-    max-height: 360px;
+    max-height: 460px;
+    min-width: 300px;
+    
 
    
 }
@@ -33,14 +35,14 @@
 
 .pix {   
     width: 100%;
-    background: #f0f0f062;
-    border-radius: 20px;
-    border-style: solid;
-    border-color: $color-1;
+
     overflow:hidden;
     max-width: 100%;
-    min-height: 200px;
-    max-height: auto;
+    min-height: 250px;
+    max-height: 200px;
+    min-width: 290;
+    
+    
 
    
   //   align-items: center; /* alignement verticalement

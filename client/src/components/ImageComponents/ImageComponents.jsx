@@ -23,27 +23,8 @@ export default class ImageComponent extends React.Component {
 
 
     return (
-
-      <div>
-   
-        {/*         {this.props.image.length > 1 ?
-          <img
-            className="photo"
-            src={this.props.image[1]}
-            onClick={this.handleShowDialog}
-            alt={this.props.name}
-          />
-          :         <img
-          className="photo"
-          src={this.props.image[0]}
-          onClick={this.handleShowDialog}
-          alt={this.props.name}
-        />}
- */}
-
+      <div className="imageGallery">
         <ImageGallery items={array} showBullets={false} showThumbnails={false} autoPlay={true} slideDuration={1000} slideInterval={randomNumber(4000,7000)} />
-
-        {/* { this.state.isOpen && (<ImageGallery items={array} />) }  */}
       </div >
     );
   }

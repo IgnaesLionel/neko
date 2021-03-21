@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import "./modal.css";
 import axios from "axios";
 import UploadFiles from "../../components/UploadFiles/upload-files.component";
 import HandleImageDelete from "../../components/HandleImageDelete/HandleImageDelete";
@@ -87,7 +86,10 @@ const Modal = props => {
 
   return (
     <div className="modal" id="modal">
-      <h2>Edition de {character.name} </h2>
+      <h2>Edition de {character.name} 
+<button className="toggle-button-close" onClick={(e) => onClose(e)}>
+    close
+</button> </h2>
     
       <form className="content">
 
@@ -145,23 +147,28 @@ const Modal = props => {
           <option value="12 ans">12 ans</option>
         </select>
         <br></br>
-        <label htmlFor="textarea-1">Informations</label>
+        <span>Informations sur l'animal</span>
+        <br/>
 
-        <textarea value={bio} id="textarea-1" rows="12" cols="60" onChange={e => setBio(e.target.value)}></textarea>
+        <textarea value={bio} id="textarea-1" rows="10" cols="40" onChange={e => setBio(e.target.value)}></textarea>
         <br></br>
       <br />
-      <div className="actions">
-     <button onClick={(e)=>handleUpdate(e)}>ENREGISTRER</button>
-      </div>
-      </form>
-    <UploadFiles data={data} idCats={character._id} picture={picture} onHandleCallBackUrl={handleCallBackUrl} /> 
 
-      <button className="toggle-button" onClick={(e) => onClose(e)}>
-          close
-      </button>
-      <button className="toggle-button" onClick={(e) => handleDelete(e)}>Supprimer</button>
-  <br/>
-      {picture.map((image, k) => { return (<HandleImageDelete key={k} id={props.character._id} src={image} height="120" width="120" />) })}
+
+      <UploadFiles data={data} idCats={character._id} picture={picture} onHandleCallBackUrl={handleCallBackUrl} /> 
+
+
+<br/>
+
+     <button className="toggle-button-update" onClick={(e)=>handleUpdate(e)}>ENREGISTRER</button>
+
+
+{picture.map((image, k) => { return (<HandleImageDelete key={k} id={props.character._id} src={image} height="120" width="120" />) })}
+<button className="toggle-button-sup" onClick={(e) => handleDelete(e)}>Effacer le chat</button>
+
+
+      </form>
+ 
 
     </div>
 

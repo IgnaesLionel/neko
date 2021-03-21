@@ -11,13 +11,6 @@
   z-index:6;
   border-radius: 20px;
 }
-.modal.off {
-  opacity: 0;
-  visibility: hidden;
-  filter: blur(8px);
-  transform: scale(0.33);
-  box-shadow: 1rem 0 0 rgba(0, 0, 0, 0.2);
-}
 
 .modal h2 {
   border-bottom: 1px solid #ccc;

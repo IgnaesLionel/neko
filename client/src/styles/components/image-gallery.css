@@ -8,6 +8,7 @@
   outline: none;
   position: absolute;
   z-index: 4;
+
   filter: drop-shadow(0 2px 2px #1a1a1a); }
   @media (min-width: 768px) {
     .image-gallery-icon:hover {
@@ -25,6 +26,7 @@
   height: 1px;
   transform: scale(0.5); 
   bottom: 0;
+  
   padding: 20px; }
   .image-gallery-fullscreen-button .image-gallery-svg,
   .image-gallery-play-button .image-gallery-svg {
@@ -48,7 +50,8 @@
         width: 16px; } }
 
 .image-gallery-fullscreen-button {
-  right: 0; }
+  right: 0;
+ }
 
 .image-gallery-play-button {
   left: 0; }
@@ -87,16 +90,25 @@
   left: 0; }
 
 .image-gallery-right-nav {
-  right: 0; }
+  right: 0;
+ }
 
 .image-gallery {
+  
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   -o-user-select: none;
   user-select: none;
   -webkit-tap-highlight-color: transparent;
-  position: relative; }
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+ 
+  }
+  
   .image-gallery.fullscreen-modal {
     background: #000;
     bottom: 0;
@@ -106,7 +118,9 @@
     right: 0;
     top: 0;
     width: 100%;
-    z-index: 5; }
+    z-index: 5;
+   }
+    
     .image-gallery.fullscreen-modal .image-gallery-content {
       top: 50%;
       transform: translateY(-50%); }
@@ -114,16 +128,22 @@
 .image-gallery-content {
   position: relative;
   line-height: 0;
-  top: 0; }
+  top: 0; 
+}
   .image-gallery-content.fullscreen {
     background: #000; }
   .image-gallery-content .image-gallery-slide .image-gallery-image {
-    max-height: calc(100vh - 80px); }
+    max-height: calc(100vh - 80px);
+   
+   
+    }
+  
   .image-gallery-content.left .image-gallery-slide .image-gallery-image, .image-gallery-content.right .image-gallery-slide .image-gallery-image {
     max-height: 100vh; }
 
 .image-gallery-slide-wrapper {
-  position: relative; }
+  position: relative; 
+}
   .image-gallery-slide-wrapper.left, .image-gallery-slide-wrapper.right {
     display: inline-block;
     width: calc(100% - 110px); }
@@ -138,7 +158,8 @@
   overflow: hidden;
   position: relative;
   white-space: nowrap;
-  text-align: center; }
+  text-align: center;
+ }
 
 .image-gallery-slide {
   left: 0;
@@ -235,7 +256,9 @@
 
 .image-gallery-thumbnails {
   overflow: hidden;
-  padding: 5px 0; }
+  padding: 5px 0;
+  object-fit: cover; }
+  
   @media (max-width: 768px) {
     .image-gallery-thumbnails {
       padding: 3px 0; } }
@@ -297,6 +320,7 @@
   position: absolute;
   right: 0;
   top: 0;
+
   z-index: 4; }
   @media (max-width: 768px) {
     .image-gallery-index {
