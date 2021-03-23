@@ -40,9 +40,6 @@
     max-height: 200px;
     min-width: 290;
     
-    
-
-   
   //   align-items: center; /* alignement verticalement
    // justify-content: space-between; /* centrer horizontalement 
 }
@@ -126,3 +123,10 @@
     transform:scale(1) rotate(0); 
   }
   
+  .pen {
+    background: rgb(112, 206, 89);
+    z-index: 7;
+  
+
+
+  }

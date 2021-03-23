@@ -3,7 +3,6 @@ import axios from 'axios'
 import {BrowserRouter, Switch, Route} from "react-router-dom"
 import Home from "./pages/Home";
 import NotFound from './pages/NotFound';
-import About from './pages/About';
 import Contact from "./pages/Contact";
 import Noussoutenir from './pages/Nous-soutenir';
 import Conseils from './pages/Conseils';
@@ -56,13 +55,11 @@ render() {
            <div className="App">
           <BrowserRouter>
             <Switch>
-              <Route path ="/" exact component={Home}/>
-              <Route path ="/a-propos" exact component={About}/>
+              <Route path ="/" exact render={(props) =><Home {...props} data={this.state.data} />} />
               <Route path ="/evenements" exact component={Evenements}/>
               <Route path ="/Contact" exact component={Contact}/>
               <Route path ="/Nous-soutenir" exact component={Noussoutenir}/>
               <Route path ="/Conseils" exact component={Conseils}/>
-              <Route path ="/Adoptions" exact render={(props) => <Adoptions {...props} data={this.state.data} />} />
               <Route path ="/Ajout" exact component={Ajout}/>
               <Route path ="/Signin" exact component={SignIn} />
               <Route component={NotFound}/>

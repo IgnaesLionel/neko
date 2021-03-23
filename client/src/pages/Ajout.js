@@ -17,7 +17,7 @@ const Ajout = () => {
   const [checked2, setChecked2] = useState(false);
   const [bio, setbio] = useState('')
   const [availability, setAvailability] = useState(true)
-  const [picture, setPicture] = useState("./uploads/profil/random-user.png")
+  const [picture] = useState("./uploads/profil/random-user.png")
 
   const handleText = (e) => {
     const text = e.target.value
