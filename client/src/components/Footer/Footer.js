@@ -13,6 +13,8 @@ const Footer = () => {
             <a  href="http://twitter.fr"> <i className="fa fa-twitter"/> </a>
             <a  href="http://facebook.fr"> <i className="fa fa-facebook"/> </a>
             <a  href="http://instagram.com"> <i className="fa fa-instagram"/> </a>
+            
+            
             </div>
         </footer>
     );
