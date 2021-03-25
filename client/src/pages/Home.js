@@ -9,12 +9,12 @@ const Home = (props) => {
               <Navigation />
               <img id="logo" src={Logo} alt="logo" />
              <header>  
-                 <h1>Adopter ces animaux ! ces chats recherchent un foyer pour une adoption ! </h1>
+                 <h1>Adoption d'animaux ! ces chats ou chiens recherchent une famille, un foyer a aimer ! </h1>
     
              <Adoptions data={props.data}/>
 
-           <h2 className="h1-1">Association Neko</h2>
-           <h2 className="h2-1">Qui sommes-nous ?</h2>
+           <h2 className="h1-1">Comment les aider ? un don ou un toit chaleureux en tant que famille d'accueil </h2>
+           <h2 className="h2-1">Neko Association, qui sommes-nous ?</h2>
            <br />
        </header>
     

@@ -6,7 +6,7 @@ import Lounge from '../components/Lounge/Lounge';
 const Adoptions = (props) => {
     return (
         <div>
-            <h1 className="h1-1"> Nos adoptions </h1>
+            <h2 className="h2-adoption"> Chats érrants ou maltraités, ces animaux ont besoin de vous pour une adoption! </h2>
             <Lounge data={props.data}/>
         </div>
     );
