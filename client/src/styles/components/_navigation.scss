@@ -58,6 +58,8 @@ a{margin : 10px;
       width: 85%;
     top:-3px;
       pointer-events: none;   
+      -webkit-filter: drop-shadow(5px 5px 5px #222);
+      filter: drop-shadow(5px 5px 5px #222);
 }
 
 
