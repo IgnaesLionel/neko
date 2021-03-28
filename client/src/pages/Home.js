@@ -78,11 +78,11 @@ const Home = (props) => {
                 </div>
             </section>
 
-            <section className="wrapper-div">
-                <h4 className="h3-1">Remerciments</h4><br />
+    
+            <h4 className="h3-1">Remerciments</h4>
 
-                <h4 className="h3-1">Nos partenaires</h4><br />
-            </section>
+            <h4 className="h3-1">Nos partenaires</h4>
+       
 
             <h4 className="h3-1">Nos statuts</h4><br />
 
