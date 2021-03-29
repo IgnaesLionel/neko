@@ -1,58 +1,72 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Navigation from '../components/Navigation/Navigation';
 import Footer from '../components/Footer/Footer';
 import Logo from '../assets/neko.svg'
-import Adoptions from '../pages/Adoptions';
+import Aos from 'aos';
+import {NavLink} from 'react-router-dom'
+import "aos/dist/aos.css";
+
 const Home = (props) => {
+    useEffect(() => {
+        Aos.init({ duration: 2000 });
+    }, [])
+
     return (
         <div>
             <Navigation />
 
             <header>
-                <div className="wrapper-logo">
-              
-                    <img id="logo" src={Logo} alt="logo" />
 
-                    <h1 id="homefont"><strong>Adoption</strong> d'animaux ! ces <strong>chats</strong> ou <strong>chiens</strong> recherchent <br /> une famille, un foyer a aimer ! </h1>
-                  
+                <div  className="wrapper-logo">
+
+                    <img data-aos="fade-right" id="logo" src={Logo} alt="logo" />
+
+                    <h1 data-aos="fade-left" id="homefont"><strong>Adoption</strong> d'animaux ! ces <strong>chats</strong> ou <strong>chiens</strong> recherchent <br /> une famille, un foyer a aimer ! </h1>
+
                 </div>
-                </header>
-                <Adoptions data={props.data} />
-              
-                <h2 id="homefont" className="wrapper-logo"> Chats érrants ou maltraités, <br /> ces animaux ont besoin de vous pour une adoption! </h2>
-           <section>
-                <h2 className="h2-1">Neko Association, qui sommes-nous ?</h2>
-              
-                <div className="wrapper-text">
-               
-                    <p className="p2-1">Neko est une association qui vient en aide aux animaux en détresse ! On s'occupe des chiens, des chats, et des oiseaux. Nous les nourrissons et leur apportons tous les soins nécessaires pour ensuite leur trouver un foyer.</p>
+            </header>
+
+    
+            <h2 data-aos="fade-left" id="homefont" className="wrapper-logo"> Chats érrants ou maltraités, <br /> ces animaux ont besoin de vous pour une adoption! </h2>
+            <section>
+                <h2  data-aos="fade-up-right" className="h2-1">Neko Association, qui sommes-nous ?</h2>
+
+                <div data-aos="flip-left" className="wrapper-text">
+
+                    <p className="p2-1">Neko est une association qui vient en aide aux animaux en détresse ! On s'occupe des chiens, des chats, et des oiseaux. Nous les nourrissons et leur apportons tous les soins nécessaires pour ensuite leur trouver un foyer.         <NavLink exact to="/Adoptions" activeClassName="nav-active">      
+                Nos adoptions
+            </NavLink></p>
                     <img id="catsbandage" src="./images/cats4.png" alt="chat avec un bandage" />
                 </div>
-                </section>
-               
-                  
+            </section>
+
+
             <section >
-            <h2 className="h2-1">Que faisons-nous ? Nos actions !</h2>  
-                <div className="wrapper-text">
-                 
-                 
+                <h2  data-aos="fade-up-right" className="h2-1">Que faisons-nous ? Nos actions !</h2>
+                <div data-aos="flip-up" className="wrapper-text">
+
+
                     <p className="p2-1"> Nous allons directement sur le terrain pour apporter notre aide. Il suffit de nous appeler ou de nous signaler les animaux dans le besoin.</p>
                     <img id="catseat" src="./images/cats.png" alt="chats qui mangent" />
                 </div>
-                <h2 className="h2-1">Comment les aider ?  </h2>
-                <div className="wrapper-text">
-                  
+                <h2  data-aos="fade-up-right" className="h2-1">Comment les aider ?  </h2>
+                <div data-aos="flip-right"className="wrapper-text">
 
-                    <p className="p2-1"> un don ou un toit chaleureux en tant que famille d'accueil</p>.
+
+                    <p className="p2-1"> un don paypal ou bien leurs offir un toit chaleureux en tant que famille d'accueil             <NavLink exact to="/Nous-soutenir" activeClassName="nav-active">      
+                Nous soutenir
+            </NavLink></p>.
                 <img id="catseat" src="./images/cats2.png" alt="chat qui se repose" />
                 </div>
             </section>
 
             <section >
 
-                <h2 className="h2-1">La naissance de notre association</h2>
-                <p className="history">
+                <h2  data-aos="fade-up-right" className="h2-1">La naissance de notre association</h2>
+                <p data-aos="fade-up" className="history">
                     <div id="neko"> <img id="neko-pik" src="./images/neko.png" alt="chat neko" /> </div>
+
+                   <p className="history-bio">
                     Moi, c'est <strong>Neko</strong> ! Cette association a vu le jour grâce à moi et mon histoire !<br />
                     <br />
                     Je suis né début mars, avec ma maîtresse ce fut le coup de foutre!    <br />
@@ -72,17 +86,18 @@ const Home = (props) => {
                     <br />
                     Alors pourquoi ne pas venir nous aider vous aussi ?
                     </p>
+                    </p>
 
                 <div className="right">
 
                 </div>
             </section>
 
-    
+
             <h4 className="h3-1">Remerciments</h4>
 
             <h4 className="h3-1">Nos partenaires</h4>
-       
+
 
             <h4 className="h3-1">Nos statuts</h4><br />
 

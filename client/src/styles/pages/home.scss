@@ -67,16 +67,25 @@
   padding-top: 20px;
   text-align:justify;
     font-size: 1.6em;
+    border-style: solid;
+background-color: rgba(173, 102, 175, 0.2);
+border-radius: 20px;
+box-shadow: 3px 5px 5px rgba(150, 150, 150, 0.8);
+margin: 0 120px 0 120px;
+
+}
+
+.history-bio{
+  padding: 0 40px 0 40px;
+
 }
 
 #neko {
-
 float : left;
-padding: 0 30px 0 0px;
-
 }
 
 #neko-pik {
+  margin: 0 0 0 40px;
  border-bottom: 5px solid;
  border-color: $color-1;
  width:33%;
@@ -104,6 +113,7 @@ width:33%;
 }
 
 .wrapper-text{
+  margin: 0 120px 0 120px;
   padding-top: 20px;
   display: flex;
   justify-content: space-between;
@@ -169,4 +179,14 @@ box-shadow: 3px 5px 5px rgba(150, 150, 150, 0.8);
   .history {
     font-size: 1em;
 }
+}
+
+.boxes{
+
+
+  background-color: rgb(198,177,198);
+  overflow: hidden;
+
+
+
 }

@@ -62,6 +62,7 @@ render() {
               <Route path ="/Conseils" exact component={Conseils}/>
               <Route path ="/Ajout" exact component={Ajout}/>
               <Route path ="/Signin" exact component={SignIn} />
+              <Route path ="/Adoptions" exact render={(props) =><Adoptions {...props} data={this.state.data} />} />
               <Route component={NotFound}/>
            </Switch>
         </BrowserRouter>
