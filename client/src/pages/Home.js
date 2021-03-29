@@ -63,10 +63,11 @@ const Home = (props) => {
             <section >
 
                 <h2  data-aos="fade-up-right" className="h2-1">La naissance de notre association</h2>
-                <p data-aos="fade-up" className="history">
-                    <div id="neko"> <img id="neko-pik" src="./images/neko.png" alt="chat neko" /> </div>
-
-                   <p className="history-bio">
+                <div className="history">
+                <img id="neko" src="./images/neko.png" alt="neko" />
+                <p data-aos="fade-up" >
+                    
+            
                     Moi, c'est <strong>Neko</strong> ! Cette association a vu le jour grâce à moi et mon histoire !<br />
                     <br />
                     Je suis né début mars, avec ma maîtresse ce fut le coup de foutre!    <br />
@@ -85,12 +86,9 @@ const Home = (props) => {
                     Je suis aider par les membres de Neko associations pour continuer à accomplir mon rôle de papa et de maman !
                     <br />
                     Alors pourquoi ne pas venir nous aider vous aussi ?
+               
                     </p>
-                    </p>
-
-                <div className="right">
-
-                </div>
+                    </div>
             </section>
 
 
