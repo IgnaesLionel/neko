@@ -70,7 +70,7 @@ const Home = (props) => {
             
                     Moi, c'est <strong>Neko</strong> ! Cette association a vu le jour grâce à moi et mon histoire !<br />
                     <br />
-                    Je suis né début mars, avec ma maîtresse ce fut le coup de foutre!    <br />
+                    Je suis né début mars, avec ma maîtresse ce fut le coup de foudre!    <br />
 
                     <br />
                     J'étais un chat plutôt calme mais aussi très joueur et taquin, je savais comment faire pour obtenir ce que je voulais ! J'en faisais voir des vertes et des pas mur à ma maîtresse.
