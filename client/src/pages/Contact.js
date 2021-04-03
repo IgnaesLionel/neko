@@ -6,6 +6,7 @@ const Contact = () => {
         <div>
             <Navigation/>
             <h1 className="h1-1"> Nous contacter </h1>
+     
             Neko Association
             Siège social : 31 BD DES POETES HAMEAU DE PETIT-FORT-PHILIPPE 59820 GRAVELINES
             Tèl : 06 82 45 15 83
