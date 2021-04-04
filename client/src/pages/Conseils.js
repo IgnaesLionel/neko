@@ -1,7 +1,13 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import Navigation from '../components/Navigation/Navigation';
+import Footer from '../components/Footer/Footer';
 
 const Conseils = () => {
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+      }, [])
+
     return (
         <div>
             <Navigation/>
@@ -44,6 +50,7 @@ const Conseils = () => {
                 </p>
             </div>
             <h2 className="h2-1">Trucs et astuces</h2><br />
+            <Footer />
         </div>
     );
 };

@@ -11,9 +11,19 @@
     z-index:6;
     border-radius: 20px;
     width: 300px;
-
+    padding:15px;
+    border-radius: 10px;
+    border-width: 0.1em;
+    border-color: $color-1;
     
   }
+
+  .modal p {
+    font-family: $font-2;
+    font-size: 1.3em;
+    font-weight:bold;
+  }
+  
   .modal.off {
     opacity: 0;
     visibility: hidden;
@@ -105,4 +115,20 @@
   
   .toggle-button-close:hover{
     background-color: #aaaaaa;
+  }
+
+  .toggle-button-bio-close {
+    margin: 10px 0 0 170px;
+    padding: 0 10px 0 10px;
+    background: $color-4;
+    border-style: solid;
+    border-radius: 10px;
+    border-width: 0.1em;
+    border-color: $color-1;
+
+    }
+
+    
+  .toggle-button-bio-close:hover{
+    background: $color-1;
   }

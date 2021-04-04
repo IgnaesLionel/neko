@@ -128,6 +128,7 @@ const Ajout = () => {
         
           <br />
           <textarea id="textarea-1" rows="12" cols="60" onChange={e => setbio(e.target.value)}></textarea>
+         <br/>
           <button type="submit">Envoyer</button>
         </form>
         <br />

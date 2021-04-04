@@ -39,7 +39,7 @@ class SearchBar extends Component {
         return (
             <>
                 <div className="form-group mb-0">
-                    <input type="text" value={filterText} className="form-control" id="search" name="search" placeholder="Rechercher" onChange={this.handleFilterTextChange} />
+                   
                     <div className="form-check">
                         <input type="checkbox" checked={maleGender} className="form-check-input" id="char1" onChange={this.handleMaleGender} />
                         <label htmlFor="char1" className="form-check-label"> Mâle </label>
@@ -51,6 +51,7 @@ class SearchBar extends Component {
                         <label htmlFor="char3" className="form-check-label"> Je recherche une famille </label>
 
                     </div>
+                    <input type="text" value={filterText} className="form-control" id="search" name="search" placeholder="par prénom" onChange={this.handleFilterTextChange} />
                 </div>
 
             </>

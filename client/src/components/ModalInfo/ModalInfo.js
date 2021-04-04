@@ -22,7 +22,7 @@ const {gender, name, availability, bio, age} = character
       <p>{bio}</p>
       <br/>
       <p> {availability[0]===true ? "Contactez l'association au 06.82.45.15.83 pour avoir plus d'information! A bientôt !" : null}</p>
-      <button className="toggle-button" onClick={(e) => onClose(e)}>
+      <button className="toggle-button-bio-close" onClick={(e) => onClose(e)}>
           fermer
       </button>
     </div>

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Navigation from '../components/Navigation/Navigation';
+import Footer from '../components/Footer/Footer';
 
 const Contact = () => {
     const [name, setName] = useState("");
@@ -147,7 +148,7 @@ const Contact = () => {
             <p>Envoyez-nous un e-mail à <a href="mailto:gueroute@gmail.com">gueroute@gmail.com</a></p>
                 </p>
             </div>
-
+            <Footer />
         </div>
     );
 };
