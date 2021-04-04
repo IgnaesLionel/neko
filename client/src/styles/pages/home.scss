@@ -10,13 +10,12 @@
 
   #logo{
 
-  /*   margin:auto; */
+
     width: 35%;
     -webkit-filter: drop-shadow(5px 5px 5px #222);
     filter: drop-shadow(5px 5px 5px #222);
     pointer-events: none;
-/*     padding-top: 50px;
-    padding-right:80px; */
+
 
 }
 
@@ -31,7 +30,7 @@
 }
 
 .wrapper-logo{
-  padding-top: 50px;
+  padding-top: 20px;
   display: flex;
   justify-content:center; 
   flex-wrap: nowrap; 
@@ -56,9 +55,9 @@
 }
 
 .p2-1{
-  font-size: 1.6em;
+  font-size: 1.2em;
   text-align: center;
-  margin: 20px 20px 25px 30px;
+  margin: 10px 10px 15px 20px;
 
   
 }
@@ -111,7 +110,7 @@ width:33%;
 
 .wrapper-text{
   margin: 0 10% 0 10%;
-  padding-top: 20px;
+  padding: 10px;
   display: flex;
   justify-content: space-between;
   flex-wrap: nowrap; 
@@ -130,7 +129,7 @@ box-shadow: 3px 5px 5px rgba(150, 150, 150, 0.8);
 @media screen and (max-width: 1100px){
 
   .p2-1{
-    font-size: 1.6em;
+    font-size: 1.2em;
     text-align: center;
   
     
@@ -149,7 +148,7 @@ box-shadow: 3px 5px 5px rgba(150, 150, 150, 0.8);
 @media screen and (max-width: 800px){
 
   .p2-1{
-    font-size: 1.4em;
+    font-size: 1em;
     text-align: center;
   }
 
@@ -165,7 +164,7 @@ box-shadow: 3px 5px 5px rgba(150, 150, 150, 0.8);
 
 @media screen and (max-width: 650px){
   .p2-1{
-    font-size: 0.9em;
+    font-size: 0.8em;
     text-align: center;
     
   }

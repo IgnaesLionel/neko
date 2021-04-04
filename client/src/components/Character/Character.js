@@ -36,7 +36,7 @@ const Character = (props) => {
     };
 
     return (
-        <div className="character" style={character.gender === "Mâle" ? { background: '#a0c4ff', borderColor: '#0096c7' } : { background: "#E070AC" }}  >
+        <div className="character" style={character.gender === "Mâle" ? { background: 'rgba(160, 196, 255,0.5)', borderColor: '#0096c7' } : { background: "rgba(224, 112, 172,0.5)" }}  >
             <span className="name"> {character.name}  {uid ? <button className="pen" onClick={() => setOpenModel(!openModel)}>🖊️</button> : null} </span>
             <div className="pix" style={character.gender === "Mâle" ? { borderColor: '#0096c7' } : { borderColor: '#e3007a' }}  >
 

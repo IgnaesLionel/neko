@@ -19,6 +19,9 @@ const Noussoutenir = () => {
             <a  href="https://www.paypal.com/donate/?cmd=_donations&business=gueroute@gmail.com&item_name=Neko%20Association&currency_code=EUR&Z3JncnB0="  rel="noreferrer" target="_blank">FAIRE UN DON PAYPAL</a> <br/>
             </button>
             <br/>
+
+            <a  href="https://www.teaming.net/nekoassociation?lang=fr_FR"  rel="noreferrer" target="_blank">Nous soutenir sur Teaming</a> <br/>
+
             IMPORTANT !
 
             Votre confirmation de paiement par Paypal vous servira de justificatif auprès des impôts. Conservez le !
