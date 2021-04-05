@@ -1,6 +1,9 @@
 import React, {useEffect} from 'react';
 import Navigation from '../components/Navigation/Navigation';
+import ButtonArrow from '../components/ButtonArrow/ButtonArrow';
 import Footer from '../components/Footer/Footer';
+import LogoPayPal from '../assets/PayPal.svg'
+import LogoTeaming from '../assets/teaming.png'
 
 const Noussoutenir = () => {
 
@@ -16,21 +19,19 @@ const Noussoutenir = () => {
             
             <br/>
             <section>
-            <button>
-            <a  href="https://www.paypal.com/donate/?cmd=_donations&business=gueroute@gmail.com&item_name=Neko%20Association&currency_code=EUR&Z3JncnB0="  rel="noreferrer" target="_blank">FAIRE UN DON PAYPAL</a> <br/>
-            </button>
-            <br/>
-
-            <a  href="https://www.teaming.net/nekoassociation?lang=fr_FR"  rel="noreferrer" target="_blank">Nous soutenir sur Teaming</a> <br/>
-
+    
             <div className="wrapper-text">
                 <p className="p2-1">
-            IMPORTANT !
-
             Votre confirmation de paiement par Paypal vous servira de justificatif auprès des impôts. Conservez le !
 
             Si vous souhaitez recevoir un justificatif supplémentaire de l’association, merci de nous le préciser lors de la transaction (champ prévu à cet effet).
             Aucun justificatif ne sera envoyé pour un don de moins de 20 euros.
+            
+            <div className="center">
+            <a href="https://www.paypal.com/donate/?cmd=_donations&business=gueroute@gmail.com&item_name=Neko%20Association&currency_code=EUR&Z3JncnB0="  rel="noreferrer" target="_blank"> <ButtonArrow buttonName="" img={LogoPayPal}/></a> <br/>
+ 
+            <a  href="https://www.teaming.net/nekoassociation?lang=fr_FR"  rel="noreferrer" target="_blank"> <ButtonArrow buttonName="" img={LogoTeaming}/> </a> <br/>
+            </div>
             </p>
             </div>
             </section>

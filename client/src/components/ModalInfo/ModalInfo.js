@@ -11,9 +11,7 @@ const ModalInfo = (props) => {
 const character = props.character
 const {gender, name, availability, bio, age} = character
   return (
-    <div className="modal" id="modal">
-{console.log(availability[0])}
-{console.log(props)}
+    <div className="modal" id="modal" style={character.gender === "Mâle" ? { background: 'rgb(160, 196, 255)', borderColor: '#0096c7' } : { background: "rgb(204, 112, 172)" }}>
       <p> Bonjour à tous ! je m'appelle {name}, je suis {gender==="Mâle" ? "un mâle" : "une femelle"} de {age}.</p>
       <p> {availability[0]===true ? "Je recherche actuellement une famille pour m'adopter" : null}</p>
       <p> {availability[0]===false && gender==="Mâle" ? "J'ai déja trouvé ma famille grâce à l'association Neko !" : null}</p>
