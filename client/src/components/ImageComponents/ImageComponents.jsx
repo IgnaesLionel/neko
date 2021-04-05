@@ -18,13 +18,13 @@ export default class ImageComponent extends React.Component {
       : this.props.image.map((image) => array.push({ original: image, thumbnail: image })) && array.shift()
 
     const randomNumber = (min, max) => {
-        return Math.random() * (max - min) + min;
-      }
+      return Math.random() * (max - min) + min;
+    }
 
 
     return (
       <div className="imageGallery">
-        <ImageGallery items={array} showBullets={false} showThumbnails={false} autoPlay={true} slideDuration={1000} slideInterval={randomNumber(4000,7000)} />
+        <ImageGallery items={array} showBullets={false} showThumbnails={false} autoPlay={true} slideDuration={1000} slideInterval={randomNumber(4000, 7000)} />
       </div >
     );
   }

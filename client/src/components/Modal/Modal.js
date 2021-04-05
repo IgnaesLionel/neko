@@ -36,18 +36,18 @@ const Modal = props => {
   }
 
   const handleUpdate = async (e) => {
-   e.preventDefault()
+    e.preventDefault()
     await axios({
       method: "put",
       url: `${API_URL}api/user/${props.character._id}`,
-      data: { name, age, gender, okwithcats: okWithCats, okwithdogs: okWithDogs, okwithchild: okWithChild, bio, availability:availaBility  }
+      data: { name, age, gender, okwithcats: okWithCats, okwithdogs: okWithDogs, okwithchild: okWithChild, bio, availability: availaBility }
     }).then((res) => { console.log('données mise à jours') })
       .catch((err) => console.log(err))
 
   }
 
   const handleDelete = async (e) => {
-    
+
     props.onClose && props.onClose(e);
     await axios({
       method: "delete",
@@ -60,14 +60,14 @@ const Modal = props => {
     props.onClose && props.onClose(e);
   };
 
-  useEffect(() => {  
-     
+  useEffect(() => {
+
     axios({
       method: "get",
       url: `${API_URL}files`,
-    }).then((res)=>{setData(res.data)})
-    .catch((err)=>console.log(err))
-  
+    }).then((res) => { setData(res.data) })
+      .catch((err) => console.log(err))
+
     setName(character.name)
     setGender(character.gender)
     setAge(character.age)
@@ -75,20 +75,20 @@ const Modal = props => {
     setokWithCats(character.okwithcats["0"])
     setokWithChild(character.okwithchild["0"])
     setBio(character.bio)
-    setPicture(character.picture) 
+    setPicture(character.picture)
     setAvailability(character.availability["0"])
 
   }, [])
 
   return (
     <div className="modal" id="modal">
-  
-      <h3>{character.name} 
-      <button className="toggle-button-sup" onClick={(e) => {if(window.confirm('Etes-vous sure de vouloir effacer le chat ?')){handleDelete(e)};}} >Effacer le chat</button>
-<button className="toggle-button-close" onClick={(e) => onClose(e)}>
-    fermer
+
+      <h3>{character.name}
+        <button className="toggle-button-sup" onClick={(e) => { if (window.confirm('Etes-vous sure de vouloir effacer le chat ?')) { handleDelete(e) }; }} >Effacer le chat</button>
+        <button className="toggle-button-close" onClick={(e) => onClose(e)}>
+          fermer
 </button> </h3>
-    
+
       <form className="content">
 
 
@@ -105,30 +105,30 @@ const Modal = props => {
         <input type="checkbox" checked={gender === "Femelle" ? true : false} className="form-check-input" id="char2" onChange={() => handleCheck2()} />
         <label className="form-check-label"> Femelle </label>
         <br></br>
-        
-        
+
+
         <label htmlFor="Cats">ok avec chats?</label>
         <select value={okWithCats} name="Cats" id="Cats-select" onChange={e => setokWithCats(e.target.value)}>
           <option value="idk"> Je ne sais pas</option>
           <option value="yes">oui</option>
           <option value="no">non</option>
         </select>
-        <br/>
+        <br />
 
         <label htmlFor="Dogs">ok avec chiens?</label>
-        <select value={okWithDogs} name="Dogs" id="Dogs-select" onChange={e => setokWithDogs(e.target.value)}> 
+        <select value={okWithDogs} name="Dogs" id="Dogs-select" onChange={e => setokWithDogs(e.target.value)}>
           <option value="idk"> Je ne sais pas</option>
           <option value="yes">oui</option>
           <option value="no">non</option>
         </select>
-        <br/>
+        <br />
         <label htmlFor="Child">ok avec enfants?</label>
         <select value={okWithChild} name="Child" id="Child-select" onChange={e => setokWithChild(e.target.value)}>
           <option value="idk"> Je ne sais pas</option>
           <option value="yes">oui</option>
           <option value="no">non</option>
         </select>
-        <br/>
+        <br />
 
         <input type="checkbox" checked={availaBility} className="form-check-input" id="char6" onChange={() => setAvailability(!availaBility)} />
         <label htmlFor="char6" className="form-check-label"> Disponible ?</label>
@@ -162,21 +162,21 @@ const Modal = props => {
         </select>
         <br></br>
         <span>Informations sur l'animal</span>
-        <br/>
+        <br />
 
         <textarea value={bio} id="textarea-1" rows="10" cols="20" onChange={e => setBio(e.target.value)}></textarea>
         <br></br>
-      <br />
+        <br />
 
-      <button className="toggle-button-update" onClick={(e)=>handleUpdate(e)}>Enregistrer infos</button>
+        <button className="toggle-button-update" onClick={(e) => handleUpdate(e)}>Enregistrer infos</button>
 
-      <UploadFiles data={data} idCats={character._id} picture={picture}/> 
-
-
+        <UploadFiles data={data} idCats={character._id} picture={picture} />
 
 
 
-{picture.map((image, k) => { return (<HandleImageDelete key={k} id={props.character._id} src={image} height="120" width="120" />) })}
+
+
+        {picture.map((image, k) => { return (<HandleImageDelete key={k} id={props.character._id} src={image} height="120" width="120" />) })}
 
 
 

@@ -170,5 +170,16 @@ border-width: 0.2em;
 }
 }
 
-
-
+#logofb{
+  font-size:2em;
+  position: absolute;
+  top:7%;
+  right:4%;
+  z-index: 90;
+  height: 50px;
+  width: 50px;
+  background-color: #3b5998;
+  border-radius: 50%;
+  display: inline-block;
+  border-style: solid;
+}

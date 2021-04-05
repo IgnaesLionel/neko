@@ -5,14 +5,14 @@ const API_URL = process.env.REACT_APP_API_URL;
 const HandleImageDelete = (props) => {
 
   const handleDelete = async (e) => {
-    let filename = props.src.replace(/^.*[\\\/]/, '') 
-      await axios({
+    let filename = props.src.replace(/^.*[\\\/]/, '')
+    await axios({
       method: "delete",
       url: `${API_URL}files/${filename}`,
     }).then((res) => { console.log('photo supprimé') })
       .catch((err) => console.log(err))
 
-    
+
     await axios({
       method: "put",
       data: {},
@@ -25,7 +25,7 @@ const HandleImageDelete = (props) => {
 
   return (
     <div>
-      <img src={props.src} height={props.height} width={props.width} alt={"cat"}/>
+      <img src={props.src} height={props.height} width={props.width} alt={"cat"} />
       <button onClick={() => handleDelete()}>supprimer</button>
     </div>
   )

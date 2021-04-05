@@ -19,7 +19,7 @@ const Home = (props) => {
             <header>
 
                 <div className="wrapper-logo">
-
+                <a id="logofb" href="https://www.facebook.com/Neko-Association-2051864865124447"> <i className="fa fa-facebook"/> </a>
                     <img data-aos="fade-right" id="logo" src={Logo} alt="logo" />
 
                     <h1 data-aos="fade-left" id="homefont"><strong>Adoption</strong> d'animaux ! ces <strong>chats</strong> ou <strong>chiens</strong> recherchent <br /> une famille, un foyer a aimer ! </h1>

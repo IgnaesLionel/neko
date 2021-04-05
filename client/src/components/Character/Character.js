@@ -47,23 +47,23 @@ const Character = (props) => {
             <div className="infos">
                 <span>{character.age}</span>
                 {character.okwithcats[0] === "idk" ? <div className="plusinfo"><span style={style3}>😺<div class="infobulle2">Cohabitation inconnue avec les chats</div></span></div> : null}
-                {character.okwithcats[0] === "yes" ? <div className="plusinfo"><span style={style1}>😺<div class="infobulle2">Cohabitation facile avec les chats</div></span></div>: null}
+                {character.okwithcats[0] === "yes" ? <div className="plusinfo"><span style={style1}>😺<div class="infobulle2">Cohabitation facile avec les chats</div></span></div> : null}
                 {character.okwithcats[0] === "no" ? <div className="plusinfo"><span style={style2}>😺<div class="infobulle2">Cohabitation déconseillée avec les chats</div></span></div> : null}
-                
+
                 {character.okwithdogs[0] === "idk" ? <div className="plusinfo"><span style={style3}>🐶<div class="infobulle2">Cohabitation inconnue avec les chiens</div></span></div> : null}
                 {character.okwithdogs[0] === "yes" ? <div className="plusinfo"><span style={style1}>🐶<div class="infobulle2">Cohabitation facile avec les chiens</div></span></div> : null}
                 {character.okwithdogs[0] === "no" ? <div className="plusinfo"><span style={style2}>🐶<div class="infobulle2">Cohabitation déconseillée avec les chiens</div></span></div> : null}
-                
+
                 {character.okwithchild[0] === "idk" ? <div className="plusinfo"><span style={style3}>👧<div class="infobulle2">Cohabitation inconnue avec les enfants</div></span></div> : null}
                 {character.okwithchild[0] === "yes" ? <div className="plusinfo"><span style={style1}>👧<div class="infobulle2">Cohabitation facile avec les enfants</div></span></div> : null}
-                {character.okwithchild[0] === "no" ?  <div className="plusinfo"><span style={style2}>👧<div class="infobulle2">Cohabitation déconseillée avec les enfants</div></span></div> : null}  
-             
-             
+                {character.okwithchild[0] === "no" ? <div className="plusinfo"><span style={style2}>👧<div class="infobulle2">Cohabitation déconseillée avec les enfants</div></span></div> : null}
+
+
                 <div onClick={() => setOpenModelInfo(!openModelInfo)}> <div className="plusinfo">❔<div class="infobulle">cliquez pour plus d'info !</div></div> </div>
                 {openModel === true ? <Modal onClose={() => setOpenModel(!openModel)} show={openModel} character={character}></Modal> : null}
 
                 {openModelInfo === true ? <ModalInfo onClose={() => setOpenModelInfo(!openModelInfo)} show={openModelInfo} character={character}></ModalInfo> : null}
-               
+
             </div>
 
         </div>

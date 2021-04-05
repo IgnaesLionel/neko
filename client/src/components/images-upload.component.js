@@ -144,7 +144,7 @@ export default class UploadImages extends Component {
         {previewImages && (
           <div>
             {previewImages.map((img, i) => {
-              return <img className="preview" src={img} alt={"image-" + i}  key={i}/>;
+              return <img className="preview" src={img} alt={"image-" + i} key={i} />;
             })}
           </div>
         )}

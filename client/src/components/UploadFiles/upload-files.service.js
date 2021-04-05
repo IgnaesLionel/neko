@@ -3,12 +3,12 @@ import http from "./http-common";
 class UploadFilesService {
   upload(file, onUploadProgress) {
     let formData = new FormData();
- 
-/*     const myNewFile = new File([selectedFiles[i]], `${this.props.idCats}${i}.jpg`, { type: selectedFiles[i].type });  */
+
+    /*     const myNewFile = new File([selectedFiles[i]], `${this.props.idCats}${i}.jpg`, { type: selectedFiles[i].type });  */
 
     formData.append("file", file);
 
-   
+
     return http.post("/upload", formData, {
       headers: {
         "Content-Type": "multipart/form-data",
@@ -17,9 +17,9 @@ class UploadFilesService {
     });
   }
 
-   getFiles() {
+  getFiles() {
     return http.get("/files");
-  } 
+  }
 }
 
 export default new UploadFilesService();

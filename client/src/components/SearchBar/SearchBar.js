@@ -39,7 +39,7 @@ class SearchBar extends Component {
         return (
             <>
                 <div className="form-group mb-0">
-                   
+
                     <div className="form-check">
                         <input type="checkbox" checked={maleGender} className="form-check-input" id="char1" onChange={this.handleMaleGender} />
                         <label htmlFor="char1" className="form-check-label"> Mâle </label>

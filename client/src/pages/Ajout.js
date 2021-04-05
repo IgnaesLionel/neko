@@ -43,7 +43,7 @@ const Ajout = () => {
     await axios({
       method: "post",
       url: `${BASE_URL}api/user/registeranimal`,
-      data: { name, age, gender, okwithcats: okWithCats, okwithdogs: okWithDogs, okwithchild: okWithChild, bio, availability:availability, picture:picture }
+      data: { name, age, gender, okwithcats: okWithCats, okwithdogs: okWithDogs, okwithchild: okWithChild, bio, availability: availability, picture: picture }
     }).then((res) => { console.log('données envoyés') })
       .catch((err) => console.log(err))
 
@@ -53,7 +53,7 @@ const Ajout = () => {
     <div>
       <div>
         <Navigation />
-        <LogOut/>
+        <LogOut />
         <h1 className="h1-1"> Ajout </h1>
         <form className="ajout" onSubmit={handleSubmit}>
           <label htmlFor="input1" className="form-check-label"> Nom de l'animal : </label>
@@ -70,28 +70,28 @@ const Ajout = () => {
           <input type="checkbox" checked={checked2} className="form-check-input" id="char2" onChange={() => handleCheck2()} />
           <label htmlFor="char2" className="form-check-label"> Femelle </label>
           <br />
-        <label htmlFor="Cats">ok avec chats?</label>
-        <select name="Cats" id="Cats-select" onChange={e => setokWithCats(e.target.value)}>
-          <option value="idk"> Je ne sais pas</option>
-          <option value="yes">oui</option>
-          <option value="non">no</option>
-        </select>
-        <br />
-        <label htmlFor="Dogs">ok avec chiens?</label>
-        <select name="Dogs" id="Dogs-select" onChange={e => setokWithDogs(e.target.value)}> 
-          <option value="idk"> Je ne sais pas</option>
-          <option value="yes">oui</option>
-          <option value="non">no</option>
-        </select>
-        <br />
-        <label htmlFor="Child">ok avec enfants?</label>
-        <select name="Child" id="Child-select" onChange={e => setokWithChild(e.target.value)}>
-          <option value="idk"> Je ne sais pas</option>
-          <option value="yes">oui</option>
-          <option value="non">no</option>
-        </select>
+          <label htmlFor="Cats">ok avec chats?</label>
+          <select name="Cats" id="Cats-select" onChange={e => setokWithCats(e.target.value)}>
+            <option value="idk"> Je ne sais pas</option>
+            <option value="yes">oui</option>
+            <option value="non">no</option>
+          </select>
+          <br />
+          <label htmlFor="Dogs">ok avec chiens?</label>
+          <select name="Dogs" id="Dogs-select" onChange={e => setokWithDogs(e.target.value)}>
+            <option value="idk"> Je ne sais pas</option>
+            <option value="yes">oui</option>
+            <option value="non">no</option>
+          </select>
+          <br />
+          <label htmlFor="Child">ok avec enfants?</label>
+          <select name="Child" id="Child-select" onChange={e => setokWithChild(e.target.value)}>
+            <option value="idk"> Je ne sais pas</option>
+            <option value="yes">oui</option>
+            <option value="non">no</option>
+          </select>
 
-        <br />
+          <br />
           <input type="checkbox" checked={availability} className="form-check-input" id="char5" onChange={() => setAvailability(!availability)} />
           <label htmlFor="char6" className="form-check-label"> Disponible à l'adoption? </label>
           <br />
@@ -125,14 +125,14 @@ const Ajout = () => {
           </select>
           <br />
           <label htmlFor="textarea-1">Histoire de l'animal : </label>
-        
+
           <br />
           <textarea id="textarea-1" rows="12" cols="60" onChange={e => setbio(e.target.value)}></textarea>
-         <br/>
+          <br />
           <button type="submit">Sauvegarder</button>
         </form>
         <br />
-     
+
       </div>
     </div>
   );
