@@ -2,19 +2,19 @@ import React from 'react';
 import axios from "axios";
 const API_URL = process.env.REACT_APP_API_URL;
 
-const HandleImageDelete = (props) => {
 
+const HandleImageDelete = (props) => {
+ 
   const handleDelete = async (e) => {
-  
     let filename = props.src.replace(/^.*[\\\/]/, '')
-  
+   
     await axios({
       method: "delete",
       url: `${API_URL}files/${filename}`,
     }).then((res) => { console.log('photo supprimé') })
       .catch((err) => console.log(err))
 
-
+      console.log(` ---->envoie sur ${API_URL}api/user/removeimage/${props.id}/${filename}`)
     await axios({
       method: "put",
       data: {},
