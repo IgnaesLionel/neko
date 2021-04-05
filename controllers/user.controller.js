@@ -3,7 +3,6 @@ const AnimalModel = require("../models/animal.model");
 require('dotenv').config({ path: './config/.env' });
 const serverUrl = `${process.env.SERVER_URL}`
 
-
 // get sur /api/user 
 module.exports.getAllUsers = async (req, res) => {
   const users = await AnimalModel.find().select("-password"); //resquest to MondoDB
@@ -69,6 +68,8 @@ module.exports.deleteUser = async (req, res) => {
 //put pour retirer une image de la db
 module.exports.removeImage = async (req, res) => {
 
+  console.log("roger")
+
   if (!ObjectID.isValid(req.params.id)) { return res.status(400).send("ID unknown : " + req.params.id) };
   res.status(200).json({ message: "Successfully deleted. " });
 
@@ -98,5 +99,5 @@ module.exports.addImage = async (req, res) => {
 
     }) 
 
-    res.status(200).json({ message: "Successfully deleted. " });
+    res.status(200).json({ message: "Successfully added. " });
 }
