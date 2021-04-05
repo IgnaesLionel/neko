@@ -27,7 +27,7 @@ const Noussoutenir = () => {
             Si vous souhaitez recevoir un justificatif supplémentaire de l’association, merci de nous le préciser lors de la transaction (champ prévu à cet effet).
             Aucun justificatif ne sera envoyé pour un don de moins de 20 euros.
             
-            <div className="center">
+            <div className="btncenter">
             <a href="https://www.paypal.com/donate/?cmd=_donations&business=gueroute@gmail.com&item_name=Neko%20Association&currency_code=EUR&Z3JncnB0="  rel="noreferrer" target="_blank"> <ButtonArrow buttonName="" img={LogoPayPal}/></a> <br/>
  
             <a  href="https://www.teaming.net/nekoassociation?lang=fr_FR"  rel="noreferrer" target="_blank"> <ButtonArrow buttonName="" img={LogoTeaming}/> </a> <br/>
