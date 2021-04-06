@@ -5,7 +5,7 @@ module.exports = {
     name: 'server-neko',
     watch: 'true'
     },
-    {script: 'client/src/index.js',
+    {script: 'client/build/index.html',
     name:'client-neko',
     watch: 'true'
     } ],
