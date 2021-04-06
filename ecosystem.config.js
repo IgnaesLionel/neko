@@ -5,10 +5,7 @@ module.exports = {
     name: 'server-neko',
     watch: 'true'
     },
-    {script: 'client/build/index.html',
-    name:'client-neko',
-    watch: 'true'
-    } ],
+ ],
 
   deploy : {
     production : {
