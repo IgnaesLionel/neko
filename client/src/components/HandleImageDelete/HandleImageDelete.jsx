@@ -4,10 +4,10 @@ const API_URL = process.env.REACT_APP_API_URL;
 
 
 const HandleImageDelete = (props) => {
- 
+
   const handleDelete = async (e) => {
     let filename = props.src.replace(/^.*[\\\/]/, '')
-   
+
     await axios({
       method: "delete",
       url: `${API_URL}files/${filename}`,
