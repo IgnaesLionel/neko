@@ -1,9 +1,9 @@
 const ObjectID = require("mongoose").Types.ObjectId;
 const AnimalModel = require("../models/animal.model");
-require('dotenv').config({ path: './config/.env' });
-const serverUrl = "http://15.236.97.173:5000"
+require("dotenv").config({ path: "./config/.env" });
+const serverUrl = "http://15.236.97.173:5000";
 
-// get sur /api/user 
+// get sur /api/user
 module.exports.getAllUsers = async (req, res) => {
   const users = await AnimalModel.find().select("-password"); //resquest to MondoDB
   //sans le mot de passe
@@ -15,7 +15,8 @@ module.exports.userInfo = (req, res) => {
   if (!ObjectID.isValid(req.params.id))
     return res.status(400).send("ID unknown : " + req.params.id);
 
-  AnimalModel.findById(req.params.id, (err, docs) => { // resquest to MondoDB
+  AnimalModel.findById(req.params.id, (err, docs) => {
+    // resquest to MondoDB
     if (!err) res.send(docs);
     else console.log("ID unknown : " + err);
   }).select("-password"); //sans le mot de passe
@@ -38,7 +39,7 @@ module.exports.updateUser = async (req, res) => {
           okwithcats: req.body.okwithcats,
           okwithchild: req.body.okwithchild,
           bio: req.body.bio,
-          availability: req.body.availability
+          availability: req.body.availability,
         },
       },
       { new: true, upsert: true, setDefaultsOnInsert: true },
@@ -67,37 +68,42 @@ module.exports.deleteUser = async (req, res) => {
 
 //put pour retirer une image de la db
 module.exports.removeImage = async (req, res) => {
-
-  console.log("roger")
-
-  if (!ObjectID.isValid(req.params.id)) { return res.status(400).send("ID unknown : " + req.params.id) };
+  if (!ObjectID.isValid(req.params.id)) {
+    return res.status(400).send("ID unknown : " + req.params.id);
+  }
   res.status(200).json({ message: "Successfully deleted. " });
 
-  AnimalModel.findOneAndUpdate({ _id: req.params.id }, { $pull: { picture: `${serverUrl}/files/${req.params.name}` } },
+  AnimalModel.findOneAndUpdate(
+    { _id: req.params.id },
+    { $pull: { picture: `${serverUrl}/files/${req.params.name}` } },
     {
-      useFindAndModify: false
-    }, (err) => {
+      useFindAndModify: false,
+    },
+    (err) => {
       if (err) {
-        console.log(err)
+        console.log(err);
       }
-
-    })
-}
-
+    }
+  );
+};
 
 module.exports.addImage = async (req, res) => {
+  if (!ObjectID.isValid(req.params.id)) {
+    return res.status(400).send("ID unknown : " + req.params.id);
+  }
 
-  if (!ObjectID.isValid(req.params.id)) { return res.status(400).send("ID unknown : " + req.params.id) };
-
-   AnimalModel.updateOne({ _id: req.params.id }, { $push: { picture: `${serverUrl}/files/${req.params.name}` } },
+  AnimalModel.updateOne(
+    { _id: req.params.id },
+    { $push: { picture: `${serverUrl}/files/${req.params.name}` } },
     {
-      useFindAndModify: false
-    }, (err) => {
+      useFindAndModify: false,
+    },
+    (err) => {
       if (err) {
-        console.log(err)
+        console.log(err);
       }
+    }
+  );
 
-    }) 
-
-    res.status(200).json({ message: "Successfully added. " });
-}
+  res.status(200).json({ message: "Successfully added. " });
+};
