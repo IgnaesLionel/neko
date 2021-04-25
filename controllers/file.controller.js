@@ -1,14 +1,10 @@
 const uploadFile = require("../middleware/file.middleware");
 const fs = require("fs");
-require('dotenv').config({ path: './config/.env' });
-const serverUrl = `${process.env.SERVER_URL}/files/`
-
-
+require("dotenv").config({ path: "./config/.env" });
+const serverUrl = `${process.env.SERVER_URL}/files/`;
 
 const upload = async (req, res) => {
-
   try {
-
     await uploadFile(req, res);
 
     if (req.file == undefined) {
@@ -26,7 +22,7 @@ const upload = async (req, res) => {
         message: "File size cannot be larger than 2MB!",
       });
     }
-  
+
     res.status(500).send({
       message: `Could not upload the file: ${req.file.originalname}. ${err}`,
     });
@@ -50,8 +46,7 @@ const getListFiles = (req, res) => {
         name: file,
         url: serverUrl + file,
       });
-    }
-    );
+    });
 
     res.status(200).send(fileInfos);
   });
@@ -74,21 +69,19 @@ const download = (req, res) => {
 const deleteFile = (req, res) => {
   const fileName = req.params.id;
   const directoryPath = __basedir + "/resources/uploads/";
-  const targetfile = `${directoryPath}${fileName}`
+  const targetfile = `${directoryPath}${fileName}`;
   fs.unlink(targetfile, (err) => {
     res.send({
       status: "200",
       responseType: "string",
-      response: "success"
+      response: "success",
     });
   });
-
-
-}
+};
 
 module.exports = {
   upload,
   getListFiles,
   download,
-  deleteFile
+  deleteFile,
 };
