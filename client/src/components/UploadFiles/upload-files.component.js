@@ -3,11 +3,6 @@ import UploadService from "./upload-files.service";
 import axios from "axios";
 const API_URL = process.env.REACT_APP_API_URL;
 
-
-
-
-
-
 export default class UploadFiles extends Component {
   constructor(props) {
     super(props);
