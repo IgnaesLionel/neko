@@ -90,7 +90,7 @@ const Contact = () => {
             <h1 className="h1-1"> Nous contacter </h1>
             <form className="contact-form" autoComplete="off">
 
-                <div className="form-content">
+                <div className="phoneCat">
                     <input
                         type="text"
                         id="name"
