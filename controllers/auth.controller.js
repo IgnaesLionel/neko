@@ -61,7 +61,6 @@ const createToken = (id) => {
 };
 
 module.exports.signIn = async (req, res) => {
-  console.log("signIn");
   const { email, password } = req.body;
   try {
     const user = await UserModel.login(email, password);
