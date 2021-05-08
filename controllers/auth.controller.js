@@ -3,8 +3,6 @@ const AnimalModel = require("../models/animal.model");
 const jwt = require("jsonwebtoken");
 const { signUpErrors, signInErrors } = require("../utils/errors.utils");
 
-// const { signUpErrors, signInErrors } = require('../utils/errors.utils');
-
 // post sur /api/user/registeranimal
 module.exports.registeranimal = async (req, res) => {
   const {
