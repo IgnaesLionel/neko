@@ -16,7 +16,7 @@ global.__basedir = __dirname;
 console.log(`ip du client ${process.env.CLIENT_URL}`)
 console.log(`ip du serveur ${process.env.SERVER_URL}`)
 
-var allowedDomains = ['https://neko-association.fr', 'http://neko-association.fr','http://15.236.97.173:3000', 'http://localhost:3000', 'http://15.236.97.173'];
+var allowedDomains = ['https://neko-association.fr', 'http://neko-association.fr','http://35.169.149.148:3000', 'http://localhost:3000', 'http:/35.169.149.148'];
 
 app.use(cors({
   origin: function (origin, callback) {
