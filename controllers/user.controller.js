@@ -1,7 +1,7 @@
 const ObjectID = require("mongoose").Types.ObjectId;
 const AnimalModel = require("../models/animal.model");
 require("dotenv").config({ path: "./config/.env" });
-const serverUrl = "http://35.169.149.148/:5000";
+const serverUrl = "http://35.169.149.148:5000";
 
 // get sur /api/user
 module.exports.getAllUsers = async (req, res) => {
