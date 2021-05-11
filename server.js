@@ -61,5 +61,4 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 
-console.log(__dirname)
 app.listen(port, () => console.log(`Listening on port ${port}`));
