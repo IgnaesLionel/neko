@@ -17,8 +17,7 @@ const upload = multer(storage);
 router.post("/uploadOne", upload.single("file"), async (req, res) => {
   /* console.log(req.file); */
   const formatedName = req.file.originalname.split(" ").join("-");
-  console.log(formatedName);
-  console.log(__basedir + "/resources/uploads/" + `${formatedName}`);
+ 
   try {
     await sharp(req.file.buffer)
       .resize({ width: 800 })
