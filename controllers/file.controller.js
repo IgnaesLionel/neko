@@ -68,9 +68,10 @@ const download = (req, res) => {
 // delete image avec le nom
 const deleteFile = (req, res) => {
   const fileName = req.params.id;
-  console.log(`--> delete message received ${fileName}`)
+
   const directoryPath = __basedir + "/resources/uploads/";
   const targetfile = `${directoryPath}${fileName}`;
+
   fs.unlink(targetfile, (err) => {
     res.send({
       status: "200",
